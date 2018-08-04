@@ -1,0 +1,49 @@
+span {
+    font-size: 3vw;
+    font-weight: 700;
+    color: #fff;
+    display: inline-flex;
+    letter-spacing: .1rem;
+}
+
+.leftRs {
+    display: none!important;
+}
+
+.rightRs {
+    display: none!important;
+}
+
+:host /deep/ .mat-icon {
+    margin-top: -1em;
+    margin-left: -5px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #fff;
+}
+
+:host /deep/ .alert:hover {
+    .mat-icon {
+        color: #0074E1;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    span {
+        font-size: 3.5vw;
+        font-weight: 500;
+    }
+    #h2 {
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+    button {
+        margin-bottom: 10%;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1500px) {
+    span {
+        font-size: 4vw;
+    }
+}

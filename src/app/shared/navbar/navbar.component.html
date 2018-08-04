@@ -1,0 +1,55 @@
+<div fxLayout="row" fxLayoutWrap="wrap" class="app-body">
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div fxFlex="100" fxFlex.gt-xs="10"></div>
+        <div fxFlex="100" fxFlex.gt-xs="15">
+            <div class="thread">
+                <div class="pendulum">
+                    <a class="navbar-brand" [routerLink]="['/home']">
+                        <!-- <img id="logo" src="assets/images/cs-large.png" width="60px" height="52px" alt="home tuition bangalore, home tutor">
+                        <img id="logo-head" src="assets/images/head.png" alt="CsquareEducation- A Step towards Learning"> -->
+                        <img src="assets/images/logo2.jpg" width="180" alt="CsquareEducation- A Step towards Learning">
+                    </a>
+                </div>
+            </div>
+            <!-- <div class="navbar-translate" id="logo-head">
+               
+                <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
+              <span class="navbar-toggler-bar"></span>
+              <span class="navbar-toggler-bar"></span>
+              <span class="navbar-toggler-bar"></span>
+              </button>
+            </div> -->
+        </div>
+        <div fxFlex="100" fxFlex.gt-xs="25">
+            <a role="button" class="alert p-0 mobile" (click)="buttonClick('/studentForm')">&nbsp;Need Tutor?&nbsp;</a>
+            <!-- <a role="button" class="alert" (click)="buttonClick('/tutorForm')">&nbsp;&nbsp;Be A Tutor!&nbsp;&nbsp;</a> -->
+        </div>
+        <div fxFlex="100" fxFlex.gt-xs="5"></div>
+        <div fxFlex="100" fxFlex.gt-xs="45">
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <div [routerLink]="['/home']" class="nav-link" (click)="menuToggle($event)">Home &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                    </li>
+                    <li class="nav-item">
+                        <div [routerLink]="['/about']" class="nav-link" (click)="menuToggle($event)">About Us &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                    </li>
+                    <li class="nav-item">
+                        <a target="_blank" href="https://csquareeducation.co.in/blog/" target="_blank" class="nav-link">Blog &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    </li>
+                    <li class="nav-item">
+                        <div [routerLink]="['/question']" class="nav-link" (click)="menuToggle($event)">Question Paper &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.payumoney.com/paybypayumoney/#/293697" class="nav-link" target="_blank">
+                      Payment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </a>
+                    </li>
+                    <li class="nav-item">
+                        <div [routerLink]="['/contact']" class="nav-link" (click)="menuToggle($event)">Contact Us &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
