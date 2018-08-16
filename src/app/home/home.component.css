@@ -99,3 +99,23 @@
 li {
     padding-top: 1em;
 }
+
+.leftRs {
+    display: none!important;
+}
+
+.rightRs {
+    display: none!important;
+}
+
+.media {
+    width: 285px;
+    height: 105px;
+}
+
+@media screen and (max-width: 600px) {
+    .media {
+        width: 100px;
+        height: 80px;
+    }
+}

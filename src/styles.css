@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 .loader {
     text-align: center;
     margin-top: 40vh;
@@ -9,6 +10,8 @@
 
 #loading {
     -webkit-animation: rotation 2s infinite linear;
+    width: 140px;
+    height: 140px;
 }
 
 @-webkit-keyframes rotation {

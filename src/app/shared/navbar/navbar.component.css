@@ -1,0 +1,28 @@
+.logo {
+    width: 180px;
+}
+
+.active {
+    border-bottom: 4px solid #E9B000;
+}
+
+.active:hover {
+    border-bottom: none!important;
+}
+
+@media(max-width: 600px) {
+    .logo {
+        width: 120px;
+        margin-right: 6em!important;
+    }
+    .pendulum {
+        margin-top: 7em;
+    }
+    .navbar-brand {
+        margin-left: -2em;
+    }
+    .thread {
+        height: 120px;
+        margin-left: 2em;
+    }
+}

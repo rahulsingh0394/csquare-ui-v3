@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { NguCarousel, NguCarouselStore, NguCarouselService } from '@ngu/carousel';
 
 @Component({
   selector: 'app-home',
@@ -21,42 +22,85 @@ export class HomeComponent implements OnInit {
   name: any;
   type: any;
   testBrowser: any;
+  public carouselOne: NguCarousel;
+  slideShow: boolean = true;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: string) {
+  private carouselToken: string;
+
+  public carouselTileItems: Array<any>;
+  public carouselTile: NguCarousel;
+  panelOpenState = false;
+
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: string,
+    private carousel: NguCarouselService
+  ) {
     this.testBrowser = isPlatformBrowser(platformId);
   }
 
   ngOnInit() {
-    this.imgSrc = this.userList[0].imgSrc;
-    this.description = this.userList[0].description;
-    this.name = this.userList[0].name;
-    this.type = this.userList[0].type;
-    this.changeImage();
+    this.carouselOne = {
+      grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
+      slide: 1,
+      speed: 400,
+      interval: 3000,
+      animation: 'lazy',
+      point: {
+        visible: true
+      },
+      load: 2,
+      touch: true,
+      loop: true,
+      easing: 'ease',
+      custom: 'banner'
+    }
+    this.carouselTileItems = ['assets/images/glassdoor-logo.jpg', 'assets/images/datafox-logo.jpg','assets/images/connect2india-logo.jpg',
+    'assets/images/dragdeal-logo.png', 'assets/images/e27-logo.png', 'assets/images/edugorilla-logo.png','assets/images/youngbuzz-logo.png',
+    'assets/images/edial.png', 'assets/images/indiaMart.png', 'assets/images/jora.PNG', 'assets/images/urbanpro.png'];
+
+    this.carouselTile = {
+      grid: {xs: 2, sm: 2, md: 3, lg: 4, all: 0},
+      slide: 2,
+      speed: 400,
+      interval: 3000,
+      animation: 'lazy',
+      point: {
+        visible: true
+      },
+      load: 2,
+      touch: true,
+      easing: 'ease',
+      loop: true
+    }
   }
 
-  changeImage() {
-   if(this.testBrowser == true) {
-    let time = 3000*60;
-    for (let i = 0; i <= this.userList.length; i++) {
-      setTimeout(() => {
-        this.imgSrc = this.userList[i].imgSrc;
-        this.description = this.userList[i].description;
-        this.name = this.userList[i].name;
-        this.type = this.userList[i].type;
-      }, time);
-      time = time + 5000;
-    }
-   }
-   
+  initDataFn(key: NguCarouselStore) {
+    this.carouselToken = key.token;
   }
+
+
+  public myfunc(event: Event) {
+    if(this.testBrowser == true) {
+      for (let i = 2; i <= this.userList.length; i++) {
+          this.imgSrc = this.userList[i].imgSrc;
+          this.description = this.userList[i].description;
+          this.name = this.userList[i].name;
+          this.type = this.userList[i].type;
+      }
+    }
+ }
 
   imageclick(event: any) {
+    this.slideShow = false;
     let index = parseInt(event);
     index--;
     this.imgSrc = this.userList[index].imgSrc;
     this.description = this.userList[index].description;
     this.name = this.userList[index].name;
     this.type = this.userList[index].type;
+    setTimeout(() => {
+      this.slideShow = true;
+    }, 5000);
   }
 
   changeButton1() {

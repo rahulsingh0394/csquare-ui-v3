@@ -73,10 +73,16 @@ export class NavbarComponent implements OnInit {
   }
 
   menuToggle(event: any) {
+    debugger;
     // console.log(event.target);
     // this.remove();
-    this.remove();
-    this.renderer.addClass(event.target, "active");
+    if(event.currentTarget.className == 'navbar-brand'){
+      this.remove();
+      this.renderer.addClass(document.getElementById("home"), "active");
+    } else {
+      this.remove();
+      this.renderer.addClass(event.target, "active");
+    }
   }
 
   remove() {

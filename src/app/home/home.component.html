@@ -53,10 +53,10 @@
     <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
 </div>
 <div fxLayout="row" fxLayoutWrap="wrap">
-    <div fxFlex="100">
+    <div fxFlex="100" class="mobile-view">
         <h1 class="title">CsquareEducation India's Leading Home Tuition Provider</h1>
         <div fxLayout="wrap" fxLayoutWrap="wrap">
-            <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
+            <div fxFlex="100" fxFlex.gt-xs="10"></div>
             <div fxFlex="100" fxFlex.gt-xs="30">
                 <div class="description" style="margin-top:20%; text-align: justify;">
                     Your choice makes a huge difference both on your expenditure and your child's future. If you make a right choice now it will have great impact on both your saving's as well as development of you child. Choose wisely from options available. As it's your
@@ -69,17 +69,17 @@
                     </ul>
                 </div>
             </div>
-            <div fxFlex="100" fxFlex.gt-xs="3" class="mobile-view"></div>
-            <div fxFlex="100" fxFlex.gt-xs="47" class="mobile-view">
+            <div fxFlex="100" fxFlex.gt-xs="3"></div>
+            <div fxFlex="100" fxFlex.gt-xs="47">
                 <h5 class="text-center">
                     Average tuition cost since 1980 in $ (Source: National Center Of Education Statistics)
                 </h5>
                 <canvas *ngIf="testBrowser == true" class="chart" baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"></canvas>
             </div>
-            <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
+            <div fxFlex="100" fxFlex.gt-xs="10"></div>
         </div>
         <div fxLayout="row" fxLayoutWrap="wrap">
-            <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
+            <div fxFlex="100" fxFlex.gt-xs="10"></div>
             <div fxFlex="100" fxFlex.gt-xs="27" class="text-center mt-1 pt-1 pb-1">
                 <h5>Total requirement's till date</h5>
                 <div class="patch">
@@ -98,7 +98,7 @@
                     <h6 class="punch text-center">5,000 +</h6>
                 </div>
             </div>
-            <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
+            <div fxFlex="100" fxFlex.gt-xs="10"></div>
         </div>
     </div>
 </div>
@@ -111,7 +111,7 @@
                 <div fxLayout="row" fxLayoutwrap="wrap">
                     <div fxFlex="100" fxFlex.gt-xs="50" class="pr-1 mobile-service">
                         <div class="pb-1">
-                            <mat-card>
+                            <mat-card class="mat-card-left">
                                 <mat-card-content class="p-0">
                                     <img src="assets/images/home_tuition.jpg" class="card-img">
                                 </mat-card-content>
@@ -128,12 +128,13 @@
                                     offering both part time as well as full time tutor jobs. We consider our tutors as our own members and are asset for Csquareeducation.
                                 </p>
                             </div>
-                            <p style="text-align:center!important;">
-                                <button mat-raised-button class="read-more" (click)="changeButton2()">{{readMore2}}</button>
+                            <p style="text-align:center!important;color: #000;" class="para" (click)="changeButton2()">
+                                {{readMore2}}
+                                <i class="fa fa-question-circle-o fa-2x" aria-hidden="true"></i>
                             </p>
                         </div>
                         <div class="pb-1 service-divider">
-                            <mat-card>
+                            <mat-card class="mat-card-left">
                                 <mat-card-content class="p-0">
                                     <img src="assets/images/online_edu.jpg" class="card-img">
                                 </mat-card-content>
@@ -154,13 +155,14 @@
                                     have registered with us, we will provide all kinds of possible help for his/her academic growth as well as social growth.
                                 </p>
                             </div>
-                            <p style="text-align:center!important;">
-                                <button mat-raised-button class="read-more" (click)="changeButton1()">{{readMore1}}</button>
+                            <p style="text-align:center!important;color: #000;" class="para" (click)="changeButton1()">
+                                {{readMore1}}
+                                <i class="fa fa-question-circle-o fa-2x" aria-hidden="true"></i>
                             </p>
                         </div>
                         <div class="pb-1 service-divider">
-                            <mat-card>
-                                <mat-card-content class="p-0">
+                            <mat-card class="mat-card-right">
+                                <mat-card-content>
                                     <img src="assets/images/home_tutor.jpg" class="card-img">
                                 </mat-card-content>
                             </mat-card>
@@ -176,8 +178,9 @@
                                     enough time or separate time to attend regular classes or spending extra time to go for a coaching center. For those student’s online tuition or online classes were one of the perfect solution.
                                 </p>
                             </div>
-                            <p style="text-align:center!important;">
-                                <button mat-raised-button class="read-more" (click)="changeButton3()">{{readMore3}}</button>
+                            <p style="text-align:center!important;color: #000;" class="para" (click)="changeButton3()">
+                                {{readMore3}}
+                                <i class="fa fa-question-circle-o fa-2x" aria-hidden="true"></i>
                             </p>
                         </div>
                     </div>
@@ -185,28 +188,6 @@
             </div>
             <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
         </div>
-        <!-- <div id="background-wrap">
-            <div class="bubble x1"></div>
-            <div class="bubble x2"></div>
-            <div class="bubble x3"></div>
-            <div class="bubble x4"></div>
-            <div class="bubble x5"></div>
-            <div class="bubble x6"></div>
-            <div class="bubble x7"></div>
-            <div class="bubble x8"></div>
-            <div class="bubble x9"></div>
-            <div class="bubble x10"></div>
-            <div class="bubble x1"></div>
-            <div class="bubble x2"></div>
-            <div class="bubble x3"></div>
-            <div class="bubble x4"></div>
-            <div class="bubble x5"></div>
-            <div class="bubble x6"></div>
-            <div class="bubble x7"></div>
-            <div class="bubble x8"></div>
-            <div class="bubble x9"></div>
-            <div class="bubble x10"></div>
-        </div> -->
     </div>
 </div>
 <div id="picDis" fxLayout="row" fxLayoutWrap="wrap" class="tesimonials">
@@ -242,37 +223,67 @@
             </div>
 
             <div fxFlex="100" fxFlex.gt-xs="50">
-                <div class="mt-1 pb-1 text-center">
-                    <img class="review main-img" src="{{imgSrc}}">
-                </div>
-                <div class="mt-1 text-center">
-                    <div class="description">
-                        {{description}}
+                <ngu-carousel [inputs]="carouselOne" *ngIf="slideShow == true">
+                    <ngu-item NguCarouselItem *ngFor="let item of userList">
+                        <div class="mt-1 pb-1 text-center">
+                            <img class="review main-img" src="{{item.imgSrc}}">
+                        </div>
+                        <div class="mt-1 text-center">
+                            <div class="description">
+                                {{item.description}}
+                            </div>
+                        </div>
+                        <div class="pb-1 text-center">
+                            <h5 class="p-0">
+                                {{item.name}}
+                            </h5>
+                            <p class="sub-title">
+                                {{item.type}}
+                            </p>
+                        </div>
+                        <div class="pb-1 text-center">
+                            <div class="star">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                            </div>
+                        </div>
+                    </ngu-item>
+                    <button NguCarouselPrev class='leftRs'>Previous</button>
+                    <button NguCarouselNext class='rightRs'>Next</button>
+                </ngu-carousel>
+                <div *ngIf="slideShow == false">
+                    <div class="mt-1 pb-1 text-center">
+                        <img class="review main-img" src="{{imgSrc}}">
                     </div>
-                </div>
-                <div class="pb-1 text-center">
-                    <h5 class="p-0">
-                        {{name}}
-                    </h5>
-                    <p class="sub-title">
-                        {{type}}
-                    </p>
-                </div>
-                <div class="pb-1 text-center">
-                    <div class="star">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
+                    <div class="mt-1 text-center">
+                        <div class="description">
+                            {{description}}
+                        </div>
                     </div>
-                </div>
-                <div class="text-center">
-                    <img src="assets/images/dots-big-img.png" width="100%">
+                    <div class="pb-1 text-center">
+                        <h5 class="p-0">
+                            {{name}}
+                        </h5>
+                        <p class="sub-title">
+                            {{type}}
+                        </p>
+                    </div>
+                    <div class="pb-1 text-center">
+                        <div class="star">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div fxFlex="100" fxFlex.gt-xs="25" class="mobile-view" style="text-align: right">
+            <div fxFlex="100" fxFlex.gt-xs="25" style="text-align: right" class="mobile-view">
                 <div class="pb-1">
                     <img (click)="imageclick('12')" class="review img-12" src="assets/tutor-parents/pradeep.jpg">
                 </div>
@@ -299,6 +310,63 @@
 
             </div>
         </div>
+    </div>
+    <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
+</div>
+<div fxLayout="row" fxLayoutWrap="wrap">
+    <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
+    <div fxFlex="100" fxFlex.gt-xs="80">
+        <h1 class="title text-center">FAQ</h1>
+        <div fxLayout="row" fxLayoutWrap="wrap">
+            <div fxFlex="100" fxFlex.gt-xs="30" class="mobile-view"></div>
+            <div fxFlex="100" fxFlex.gt-xs="40">
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Please Enter Your Question!">
+                </mat-form-field>
+            </div>
+            <div fxFlex="100" fxFlex.gt-xs="30" class="mobile-view"></div>
+        </div>
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Personal data
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <mat-form-field>
+                    <input matInput placeholder="First name">
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput placeholder="Age">
+                </mat-form-field>
+            </mat-expansion-panel>
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Self aware panel
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <p>I'm visible because I am open</p>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
+</div>
+<div fxLayout="row" fxLayoutWrap="wrap">
+    <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
+    <div fxFlex="100" fxFlex.gt-xs="80">
+        <h1 class="title text-center">CsquareEducation In Media</h1>
+        <ngu-carousel [inputs]="carouselTile" (initData)="initDataFn($event)">
+
+            <ngu-tile NguCarouselItem *ngFor="let item of carouselTileItems" style="padding: 5px;">
+                <img src="{{item}}" class="media">
+            </ngu-tile>
+
+            <button NguCarouselPrev class='leftRs'>&lt;</button>
+            <button NguCarouselNext class='rightRs'>&gt;</button>
+        </ngu-carousel>
     </div>
     <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
 </div>

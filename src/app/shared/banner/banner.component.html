@@ -1,7 +1,7 @@
 <div class="page-header">
     <img src="assets/images/banner.jpg" class="banner-img">
     <div class="overlay">
-        <div fxLayout="column" fxLayoutAlign="space-around center">
+        <div fxLayout="column" fxLayoutAlign="space-around center" class="pb-1">
             <div fxFlex="100">
                 <span id="1">H</span>
                 <span id="2">O</span>
@@ -34,17 +34,17 @@
                 <span id="29">P</span>
             </div>
         </div>
-        <div fxLayout="column" fxLayoutAlign="space-around center">
+        <div fxLayout="column" fxLayoutAlign="space-around center" class="pb-1">
             <div fxFlex="100">
                 <h2 id="h2">Get Best Home Tuition/ Home Tutor at door step without any trouble.</h2>
             </div>
         </div>
-        <div fxLayout="column" fxLayoutAlign="space-around center">
+        <div fxLayout="column" fxLayoutAlign="space-around center" class="pb-1">
             <div fxFlex="100">
-                <button mat-raised-button class="banner-demo" class="alert" (click)="lead()">Click here to get a free demo class <small>(Only For Student's/Parent's)</small></button>
+                <a role="button" class="alert" (click)="lead()"><small>{{mainButton}}</small></a>
             </div>
         </div>
-        <div fxLayout="column" fxLayoutAlign="space-around center">
+        <div fxLayout="column" fxLayoutAlign="space-around center" class="pb-1">
             <div fxFlex="100" class="mobile-view">
                 <ngu-carousel [inputs]="carouselOne">
                     <ngu-item NguCarouselItem>
@@ -64,9 +64,9 @@
                 </ngu-carousel>
             </div>
         </div>
-        <div fxLayout="column" fxLayoutAlign="space-around center">
+        <div fxLayout="column" fxLayoutAlign="space-around center" class="pb-1">
             <div fxFlex="100">
-                <button mat-fab class="alert" id="icon" (click)="scrollElement(container1,500)">
+                <button class="alert" id="icon" (click)="scrollElement(container1,500)">
                 <mat-icon>expand_more</mat-icon>
               </button>
             </div>

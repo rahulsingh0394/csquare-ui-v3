@@ -5,19 +5,30 @@ import { PLATFORM_ID, APP_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ScrollToModule } from 'ng2-scroll-to-el';
 import { ChartsModule } from 'ng2-charts';
+import { HttpModule } from '@angular/http';
+import { NguCarouselModule } from '@ngu/carousel';
+
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+
+import { reducer } from './state/app.state';
+import { AppEffects } from './state/app.effects';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';
 import { SharedModule } from './shared/shared.module';
+import { AppService } from './app.service';
 
 // Material Modules 
-import { MatCardModule,MatIconModule, MatButtonModule } from '@angular/material';
+import { MatCardModule,MatIconModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatExpansionModule } from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { HomeTuitionBangaloreComponent } from './home-tuition-bangalore/home-tuition-bangalore.component';
 
 
 @NgModule({
@@ -25,23 +36,38 @@ import { AboutComponent } from './about/about.component';
     AppComponent,
     HomeComponent,
     AboutComponent,
+    HomeTuitionBangaloreComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'csquare' }),
     BrowserAnimationsModule,
     HttpClientModule,
+    HttpModule,
     FlexLayoutModule,
     MatCardModule,
     MatIconModule,
     MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatExpansionModule,
     ReactiveFormsModule,
     FormsModule,
     SharedModule,
     ChartsModule,
     ScrollToModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    NguCarouselModule,
+    StoreModule.forRoot({reducer}),
+    EffectsModule.forRoot([AppEffects]),
+    StoreDevtoolsModule.instrument({
+      name: 'Example_store',
+      maxAge: 25,
+      logOnly: environment.production
+    }),
   ],
-  providers: [],
+  providers: [ 
+    AppService
+   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

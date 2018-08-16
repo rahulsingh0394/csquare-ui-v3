@@ -1,4 +1,18 @@
+.contact {
+    padding-top: 10px;
+    padding-left: 10px;
+    height: 40px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1vw;
+    position: fixed;
+    z-index: 3;
+    background-color: #fff;
+    width: 100%;
+    line-height: 1.5;
+}
+
 .navbar {
+    margin-top: 2.7em;
     border: 0;
     background: linear-gradient(90deg, #6CDAEE, #10E7DC, #1B9CE5, #0074E1);
     font-size: 14px;
@@ -33,11 +47,14 @@
 
 .nav-link {
     text-decoration: none!important;
+    text-align: center;
     color: #fff;
     cursor: pointer;
     padding-right: 12px;
     font-size: 1vw;
     font-weight: 500;
+    height: 41px;
+    padding-top: 15px;
 }
 
 #logo {
@@ -54,12 +71,13 @@
     display: inline-block;
     width: 2px;
     height: 180px;
-    background: #F79E02;
+    background: #E9B000;
     border-radius: 5px;
     position: relative;
     left: 20;
     transform-origin: 50% 0;
     animation: moveIt 2.5s ease-in-out infinite;
+    z-index: -1;
 }
 
 .pendulum {
@@ -81,11 +99,7 @@
 }
 
 .nav-item:hover {
-    border-bottom: 4px solid #F79E02;
-}
-
-.active {
-    border-bottom: 4px solid #F79E02;
+    border-bottom: 4px solid #E9B000;
 }
 
 // Footer
@@ -163,5 +177,13 @@
     }
     .copyright {
         font-size: 1.5vw;
+    }
+    .contact {
+        font-size: 2vw;
+        display: flex;
+    }
+    .thread {
+        height: 350px;
+        margin-top: -3em;
     }
 }

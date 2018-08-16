@@ -14,6 +14,7 @@ export class BannerComponent implements OnInit {
 
   public carouselOne: NguCarousel;
   testBrowser: boolean;
+  mainButton: any = 'Click here to get a free demo class (Only For Student/Parent)';
 
   constructor(
     private scrollService: ScrollToService,
@@ -24,6 +25,11 @@ export class BannerComponent implements OnInit {
 
   ngOnInit() {
     if (this.testBrowser == true) {
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+      if(width <= 600 ) {
+        this.mainButton = 'Get A Free Demo Class (For Student/Parent)'
+      }
      // TweenMax.from(document.getElementById("main"), 2, { opacity: 0 });
       TweenMax.from(document.getElementById("1"), 2, { y: -1200, rotation: 90, ease: Power2.easeOut });
       TweenMax.from(document.getElementById("2"), 2, { y: -1200, rotation: 180, ease: Power2.easeOut, delay: .1 });
