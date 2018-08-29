@@ -9,6 +9,7 @@ import { SortPipe } from './filter.pipe'
 @NgModule({
     imports: [CommonModule, RouterModule],
     declarations: [FilterPipe, SortPipe,FireFilterPipe],
-    exports: [FilterPipe, SortPipe,FireFilterPipe]
+    exports: [FilterPipe, SortPipe,FireFilterPipe],
+    providers: [FireFilterPipe]
 })
 export class FilterPipeModule {}

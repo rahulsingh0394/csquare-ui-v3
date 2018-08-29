@@ -8,9 +8,24 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FilterPipeModule } from './pipes/filters/fliter.module';
 import { BannerComponent } from './banner/banner.component';
 
-import { MatButtonModule, MatIconModule } from '@angular/material';
+import {
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatExpansionModule,
+    MatDialogModule,
+    MatStepperModule,
+    MatAutocompleteModule
+} from '@angular/material';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { FaqComponent } from './faq/faq.component';
+import { BannerTopComponent } from './banner-top/banner-top.component';
+import { BannerFormComponent } from './banner-form/banner-form.component';
+import { BannerFormService } from './banner-form/banner-form.service';
+import { ApiService } from './banner-form/api-service.service';
 
 @NgModule({
     imports: [
@@ -22,27 +37,47 @@ import { FooterComponent } from './footer/footer.component';
         NguCarouselModule,
         FlexLayoutModule,
         MatButtonModule,
-        MatIconModule
+        MatIconModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatExpansionModule,
+        MatDialogModule,
+        MatStepperModule,
+        MatSelectModule,
+        MatAutocompleteModule
     ],
     entryComponents: [
         BannerComponent,
         NavbarComponent,
-        FooterComponent
+        FooterComponent,
+        FaqComponent,
+        BannerTopComponent,
+        BannerFormComponent
     ],
     declarations: [
         BannerComponent,
         NavbarComponent,
-        FooterComponent
+        FooterComponent,
+        FaqComponent,
+        BannerTopComponent,
+        BannerFormComponent
     ],
     exports: [
         BannerComponent,
         NavbarComponent,
-        FooterComponent
+        FooterComponent,
+        FaqComponent,
+        BannerTopComponent,
+        BannerFormComponent
     ],
     providers: [
         BannerComponent,
         NavbarComponent,
-        FooterComponent
+        FooterComponent,
+        FaqComponent,
+        BannerTopComponent,
+        BannerFormService,
+        ApiService
     ]
 })
 export class SharedModule { }

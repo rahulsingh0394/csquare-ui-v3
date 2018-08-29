@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "scripts": {
         "ng": "ng",
-        "start": "ng serve -o",
+        "start": "ng serve -o --port 4201",
         "build": "ng build",
         "test": "ng test",
         "lint": "ng lint",
@@ -15,6 +15,7 @@
     },
     "private": true,
     "dependencies": {
+        "@agm/core": "^1.0.0-beta.3",
         "@angular/animations": "^6.0.3",
         "@angular/cdk": "^6.4.1",
         "@angular/common": "^6.0.3",
@@ -41,6 +42,7 @@
         "install": "^0.12.1",
         "ng2-charts": "^1.6.0",
         "ng2-scroll-to-el": "^1.2.1",
+        "ngx-toastr": "^9.0.2",
         "rxjs": "^6.0.0",
         "rxjs-compat": "^6.2.1",
         "ts-loader": "^4.4.2",

@@ -1,0 +1,65 @@
+<app-banner-top [imgUrl]="imgUrl" [textTitle]="textTitle"></app-banner-top>
+<div fxLayout="{{imgWidth}}" fxLayoutAlign="space-evenly center" class="mb-1">
+    <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
+    <div fxFlex="100" fxFlex.gt-xs="80">
+        <mat-card class="grey">
+            <mat-card-content>
+                <div fxLayout="{{imgWidth}}" fxLayoutAlign="space-evenly center" class="mb-1">
+                    <div fxFlex="100" fxFlex.gt-xs="40" class="white p-1">
+                        <h5 class="ml-1 head">
+                            Addresss:
+                        </h5>
+                        <ul class="sub-title text-left">
+                            <li>Csquare, Ground floor </li>
+                            <li>Novel Business Center - BTM Layout Stage I </li>
+                            <li>Outer Ring Rd, Bangalore - 560068</li>
+                        </ul>
+                        <h5 class="ml-1 head">
+                            Contact Number:
+                        </h5>
+                        <ul class="sub-title text-left">
+                            <li>Telephone: 080-41627767 </li>
+                            <li>Mobile: 7899342386 9036198865 </li>
+                            <li>Alternate: 9886265509 </li>
+                        </ul>
+                        <h5 class="ml-1 head">
+                            Email Us:
+                        </h5>
+                        <ul class="sub-title text-left">
+                            <li>csquarebangalore@gmail.com </li>
+                            <li>info@csquareeducation.com </li>
+                            <li>hr@csquareeducation.com </li>
+                        </ul>
+                        <h5 class="ml-1 head">
+                            Connect:
+                        </h5>
+                        <ul class="sub-title text-left">
+                            <li><a href="https://www.facebook.com/csquareeducation/"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a> &nbsp;&nbsp;
+                                <a href="https://www.linkedin.com/company/csquareedu/"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i> </a>&nbsp;&nbsp;
+                                <a href="https://plus.google.com/u/0/"><i class="fa fa-google-plus-square fa-2x" aria-hidden="true"></i> </a>&nbsp;&nbsp;
+                                <a href="https://twitter.com/CsquareEduc"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i> </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-xs="60">
+                        <img src="assets/images/contact-us.png" class="image_contact">
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
+</div>
+<div fxLayout="{{imgWidth}}" fxLayoutAlign="space-evenly center" class="mb-1">
+    <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
+    <div fxFlex="100" fxFlex.gt-xs="80">
+        <mat-card class="grey">
+            <mat-card-content>
+                <agm-map [latitude]="lat" [longitude]="lng" [zoom]="16">
+                    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                </agm-map>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
+</div>

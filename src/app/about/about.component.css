@@ -1,0 +1,47 @@
+.img1 {
+    background-image: url("/assets/tutor-parents/lovely.jpg");
+    margin-left: 15%;
+}
+
+.img2 {
+    background-image: url("/assets/tutor-parents/Rahul.jpg");
+    margin-left: 15%;
+}
+
+.img3 {
+    background-image: url("/assets/tutor-parents/Prasu.jpg");
+    margin-left: 15%;
+}
+
+.tag {
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.mat-divider {
+    color: rgb(221, 220, 220)!important;
+    border-top-color: rgb(221, 220, 220)!important;
+}
+
+ul {
+    list-style: square;
+}
+
+@media (max-width: 600px) {
+    .img1 {
+        margin-left: 32%;
+    }
+    .img2 {
+        margin-left: 32%;
+    }
+    .img3 {
+        margin-left: 32%;
+    }
+    .pb-1 .icon-holder {
+        margin-left: 25%;
+    }
+    .icon-holder {
+        margin-left: -2%!important;
+    }
+}

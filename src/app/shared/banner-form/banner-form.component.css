@@ -1,0 +1,29 @@
+.first-img {
+    margin-top: -20%;
+}
+
+.title {
+    font-size: 100%;
+}
+
+@media screen and (max-width: 400px) {
+    .first-img {
+        margin-top: -40%;
+    }
+    .vertical-stepper {
+        margin-left: -15%;
+        max-width: 130%!important;
+    }
+}
+
+@media screen and (min-width: 401px) and (max-width: 800px) {
+    .first-img {
+        margin-top: -20%;
+    }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1600px) {
+    .first-img {
+        margin-top: -10%;
+    }
+}

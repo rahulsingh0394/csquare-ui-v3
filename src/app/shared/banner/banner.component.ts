@@ -4,6 +4,8 @@ import { isPlatformBrowser } from '@angular/common';
 import { NguCarousel } from '@ngu/carousel';
 import { TweenMax, Bounce, Elastic, Power2 } from "gsap";
 import { ScrollToService } from 'ng2-scroll-to-el';
+import { BannerFormService } from '../banner-form/banner-form.service';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-banner',
@@ -18,6 +20,7 @@ export class BannerComponent implements OnInit {
 
   constructor(
     private scrollService: ScrollToService,
+    private dialog: BannerFormService,
     @Inject(PLATFORM_ID) private platformId: string
   ) {
     this.testBrowser = isPlatformBrowser(platformId);
@@ -60,7 +63,7 @@ export class BannerComponent implements OnInit {
       TweenMax.from(document.getElementById("27"), 2, { y: -1200, rotation: 180, ease: Power2.easeOut, delay: 2.6 });
       TweenMax.from(document.getElementById("28"), 2, { y: -1200, rotation: 180, ease: Power2.easeOut, delay: 2.7 });
       TweenMax.from(document.getElementById("29"), 2, { y: -1200, rotation: 180, ease: Power2.easeOut, delay: 2.8 });
-      TweenMax.from(document.getElementById("h2"), 4, { x: -1200, ease: Elastic.easeOut, delay: 4 });
+      TweenMax.from(document.getElementById("h2"), 4, { x: -1600, ease: Elastic.easeOut, delay: 4 });
       TweenMax.from(document.getElementById("icon"), 4, { x: -1200, ease: Bounce.easeOut, delay: 4.2 });
     }
     this.carouselOne = {
@@ -84,7 +87,9 @@ export class BannerComponent implements OnInit {
   }
 
   lead(){
-    
+    this.dialog.confirm('', '', '', '').subscribe(res =>{
+      
+    })
   }
 
 }

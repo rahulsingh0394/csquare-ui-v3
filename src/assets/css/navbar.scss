@@ -1,9 +1,9 @@
 .contact {
     padding-top: 10px;
     padding-left: 10px;
-    height: 40px;
+    height: 50px;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 1vw;
+    font-size: 1.1vw;
     position: fixed;
     z-index: 3;
     background-color: #fff;
@@ -14,7 +14,6 @@
 .navbar {
     margin-top: 2.7em;
     border: 0;
-    background: linear-gradient(90deg, #6CDAEE, #10E7DC, #1B9CE5, #0074E1);
     font-size: 14px;
     transition: all .4s;
     -webkit-transition: all .4s;
@@ -104,7 +103,6 @@
 
 // Footer
 .footer {
-    background: linear-gradient(90deg, #1de6de, #6ad9ed 35%, #30ade7 65%, #0176e0 100%);
     color: #fff;
     line-height: 1.5;
     margin-top: 2em;
@@ -179,8 +177,9 @@
         font-size: 1.5vw;
     }
     .contact {
-        font-size: 2vw;
+        font-size: 3vw;
         display: flex;
+        height: 60px;
     }
     .thread {
         height: 350px;

@@ -21,7 +21,6 @@ export class HomeTuitionBangaloreComponent implements OnInit {
     private location: Location
   ) {
     this.json$ = this.store.pipe(select(fromState.getJson)) as Observable<any>;
-    console.log(location.path);
     this.store.dispatch(new stateActions.Load(location.path()));
   }
 

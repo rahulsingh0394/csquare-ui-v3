@@ -1,0 +1,208 @@
+<div *ngIf="start == false">
+    <h4 class="title text-center">Need home tutor or home tuition? We are here to help.</h4>
+    <div fxLayout="column" fxLayoutAlign="space-evenly center" class="text-center">
+        <div fxFlex="100" fxFlex.gt-xs="50">
+            <img class="first-img" src="assets/images/tutor.png" height="{{data.isMobile == true? data.height - 200 : data.height - 200}}" width="{{data.width < '600'?data.width - 80: 400}}">
+        </div>
+        <div fxFlex="100" fxFlex.gt-xs="50">
+            <p class="sub-title">Just click proceed button and answer few questions and we will do the rest for you.</p>
+            <button mat-raised-button color="primary" (click)="proceed()">Proceed</button>
+        </div>
+    </div>
+</div>
+<div *ngIf="start == true">
+    <h4 style="margin-left: 8%;" class="title text-center">Please answer these few question's and we will find best home tutor for you.</h4>
+    <div fxLayout="row" fxLayoutWrap="wrap">
+        <div fxFlex="100" fxFlex.gt-xs="5" class="mobile-view"></div>
+        <div fxFlex="100" fxFlex.gt-xs="90" class="vertical-stepper">
+            <mat-vertical-stepper *ngIf="data.isMobile == true" linear #stepper>
+                <mat-step [stepControl]="locationData">
+                    <ng-template matStepperIcon="edit">
+                        <mat-icon>check</mat-icon>
+                    </ng-template>
+                    <ng-template matStepLabel>Location Detail's</ng-template>
+                    <form [formGroup]="locationData">
+                        <mat-form-field class="full-width">
+                            <mat-select placeholder="Select Your City" formControlName="city">
+                                <mat-option *ngFor="let item of cityList" [value]="item.pK">
+                                    {{item.city_name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <input type="text" placeholder="Type and select Location" aria-label="Number" matInput formControlName="location" [matAutocomplete]="auto" [readonly]="!city.value">
+                            <mat-autocomplete #auto="matAutocomplete">
+                                <mat-option *ngFor="let option of filteredOptions" [value]="option.location_name+' - '+option.pincode">
+                                    {{option.location_name}}&nbsp; - &nbsp;{{option.pincode}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                        <small>You Can Skip this field if your location is not listed.</small>
+                    </form>
+                    <div class="p-1">
+                        <button mat-raised-button color="primary" matStepperNext>Next</button>
+                    </div>
+                </mat-step>
+                <mat-step [stepControl]="personalData">
+                    <ng-template matStepperIcon="edit">
+                        <mat-icon>check</mat-icon>
+                    </ng-template>
+                    <form [formGroup]="personalData">
+                        <ng-template matStepLabel>Personal Detail's</ng-template>
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Full name" formControlName="firstName">
+                        </mat-form-field>
+                        <div fxLayout="column" fxLayoutWrap="wrap">
+                            <div fxFLex="100" fxFlex.gt-xs="50">
+                                <mat-form-field class="full-width">
+                                    <input matInput placeholder="Contact number" formControlName="phone">
+                                </mat-form-field>
+                                <div class="text-danger" *ngIf="!phone.valid && phone.touched">
+                                    <small *ngIf="phone.errors.minlength || phone.errors.maxlength">
+                                        Contact number can only be of 10 digits.
+                                    </small>
+                                </div>
+                            </div>
+                            <div fxFLex="100" fxFlex.gt-xs="50">
+                                <mat-form-field class="full-width">
+                                    <input matInput placeholder="Email" formControlName="email">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="p-1">
+                        <button mat-raised-button class="yellow" matStepperPrevious>Back</button>&nbsp;&nbsp;
+                    </div>
+                    <div class="p-1">
+                        <button mat-raised-button color="primary" matStepperNext>Next</button>
+                    </div>
+                </mat-step>
+                <mat-step [stepControl]="basicDetail">
+                    <ng-template matStepperIcon="edit">
+                        <mat-icon>check</mat-icon>
+                    </ng-template>
+                    <ng-template matStepLabel>Academic Detail's</ng-template>
+                    <form [formGroup]="basicDetail">
+                        <mat-form-field class="full-width">
+                            <mat-select placeholder="Select Grade" formControlName="grade">
+                                <mat-option *ngFor="let item of gradeList | sortBy: 'sortorder'" [value]="item.pk">
+                                    {{item.grade}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Ask Question?" formControlName="comment">
+                        </mat-form-field>
+                        <small>You Can Skip this field if you don't have any question.</small>
+                    </form>
+                    <div class="p-1">
+                        <button mat-raised-button class="yellow" matStepperPrevious>Back</button>&nbsp;&nbsp;
+                    </div>
+                    <div class="p-1">
+                        <button mat-raised-button color="primary" matStepperNext>Next</button>
+                    </div>
+                    <div class="p-1">
+                        <button mat-raised-button color="primary" (click)="dialogRef.close(false)" style="background-color: red; color: white;">Cancel</button>
+                    </div>
+                </mat-step>
+            </mat-vertical-stepper>
+        </div>
+        <div fxFlex="100" fxFlex.gt-xs="5" class="mobile-view"></div>
+    </div>
+    <mat-horizontal-stepper *ngIf="data.isMobile  == false" linear #stepper>
+        <mat-step [stepControl]="locationData">
+            <ng-template matStepperIcon="edit">
+                <mat-icon>check</mat-icon>
+            </ng-template>
+            <div class="text-center">
+                <img src="assets/images/location.jpg" height="{{data.isMobile == true? data.height - 200 : data.height - 470}}" width="{{data.width < '600'?data.width - 80: 400}}">
+            </div>
+            <ng-template matStepLabel>Location Detail's</ng-template>
+            <form [formGroup]="locationData">
+                <mat-form-field class="full-width">
+                    <mat-select placeholder="Select Your City" formControlName="city">
+                        <mat-option *ngFor="let item of cityList" [value]="item.pK">
+                            {{item.city_name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input type="text" placeholder="Type and select your location by name or pincode" aria-label="Number" matInput formControlName="location" [matAutocomplete]="auto" [readonly]="!city.value">
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of filteredOptions" [value]="option.location_name+' - '+option.pincode">
+                            {{option.location_name}}&nbsp; - &nbsp;{{option.pincode}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+                <small>You Can Skip this field if your location is not listed.</small>
+            </form>
+            <div class="p-1">
+                <button mat-raised-button color="primary" matStepperNext>Next</button>
+            </div>
+        </mat-step>
+        <mat-step [stepControl]="personalData">
+            <ng-template matStepperIcon="edit">
+                <mat-icon>check</mat-icon>
+            </ng-template>
+            <div class="text-center">
+                <img src="assets/images/personal.jpg" height="{{data.isMobile == true? data.height - 200 : data.height - 450}}" width="{{data.width < '600'?data.width - 80: 400}}">
+            </div>
+            <form [formGroup]="personalData">
+                <ng-template matStepLabel>Personal Detail's</ng-template>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Enter your full name" formControlName="firstName">
+                </mat-form-field>
+                <div fxLayout="row" fxLayoutWrap="wrap">
+                    <div fxFLex="100" fxFlex.gt-xs="50" class="pr-1">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Enter your contact number" formControlName="phone">
+                        </mat-form-field>
+                        <div class="text-danger" *ngIf="!phone.valid && phone.touched">
+                            <small *ngIf="phone.errors.minlength || phone.errors.maxlength">
+                                Contact number can only be of 10 digits.
+                            </small>
+                        </div>
+                    </div>
+                    <div fxFLex="100" fxFlex.gt-xs="50">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Enter your email" formControlName="email">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </form>
+            <div class="p-1">
+                <button mat-raised-button class="yellow" matStepperPrevious>Back</button>&nbsp;&nbsp;
+                <button mat-raised-button color="primary" matStepperNext>Next</button>
+            </div>
+        </mat-step>
+        <mat-step [stepControl]="basicDetail">
+            <ng-template matStepperIcon="edit">
+                <mat-icon>check</mat-icon>
+            </ng-template>
+            <div class="text-center">
+                <img src="assets/images/academic.jpg" height="{{data.isMobile == true? data.height - 200 : data.height - 470}}" width="{{data.width < '600'?data.width - 80: 400}}">
+            </div>
+            <ng-template matStepLabel>Academic Detail's</ng-template>
+            <form [formGroup]="basicDetail">
+                <mat-form-field class="full-width">
+                    <mat-select placeholder="Select Class for which you need tuition" formControlName="grade">
+                        <mat-option *ngFor="let item of gradeList | sortBy: 'sortorder'" [value]="item.pk">
+                            {{item.grade}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Ask anything you want. We are here to help." formControlName="comment">
+                </mat-form-field>
+                <small>You Can Skip this field if you don't have any question.</small>
+            </form>
+            <div class="p-1">
+                <button mat-raised-button class="yellow" matStepperPrevious>Back</button>&nbsp;&nbsp;
+                <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+            </div>
+            <div class="pb-1" style="margin-top: -5%;">
+                <button mat-raised-button (click)="dialogRef.close(false)" style="float: right; background-color: red; color: white;">Cancel</button>
+            </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+</div>

@@ -3,19 +3,20 @@ import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css']
+  selector: 'app-contact',
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.css']
 })
-export class AboutComponent implements OnInit {
+export class ContactComponent implements OnInit {
 
-  imgWidth: any = 'row';
+  imgUrl: any = 'assets/images/contact.jpg';
   testBrowser: any;
-  gap: any;
-  padding: any;
-  box: any;
-  imgUrl: any = 'assets/images/about-us-banner.png';
-  textTitle: any = 'About Us';
+  textTitle: any = 'Contact Us';
+  imgWidth: any = 'row';
+
+  lat: number = 12.9164;
+  lng: number = 77.6190;
+  zoom: number = 8;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: string,
@@ -29,9 +30,6 @@ export class AboutComponent implements OnInit {
 
       if(width <= 600){
         this.imgWidth = 'column';
-        this.gap = 'mt-1';
-        this.padding = 'p-1';
-        this.box = 'pr-1';
       }
     }
   }

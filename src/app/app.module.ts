@@ -10,6 +10,7 @@ import { ScrollToModule } from 'ng2-scroll-to-el';
 import { ChartsModule } from 'ng2-charts';
 import { HttpModule } from '@angular/http';
 import { NguCarouselModule } from '@ngu/carousel';
+import { ToastrModule } from 'ngx-toastr';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -25,9 +26,16 @@ import { SharedModule } from './shared/shared.module';
 import { AppService } from './app.service';
 
 // Material Modules 
-import { MatCardModule,MatIconModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatExpansionModule } from '@angular/material';
+import {
+  MatCardModule,
+  MatIconModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatExpansionModule,
+  MatDividerModule
+} from '@angular/material';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
 import { HomeTuitionBangaloreComponent } from './home-tuition-bangalore/home-tuition-bangalore.component';
 
 
@@ -35,8 +43,7 @@ import { HomeTuitionBangaloreComponent } from './home-tuition-bangalore/home-tui
   declarations: [
     AppComponent,
     HomeComponent,
-    AboutComponent,
-    HomeTuitionBangaloreComponent,
+    HomeTuitionBangaloreComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'csquare' }),
@@ -44,12 +51,22 @@ import { HomeTuitionBangaloreComponent } from './home-tuition-bangalore/home-tui
     HttpClientModule,
     HttpModule,
     FlexLayoutModule,
+    ToastrModule.forRoot({
+      maxOpened: 5,
+      autoDismiss: false,
+      newestOnTop: true,
+      preventDuplicates: false,
+      timeOut: 20000,
+      positionClass: 'toast-top-right',
+      tapToDismiss: true
+    }),
     MatCardModule,
     MatIconModule,
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
     MatExpansionModule,
+    MatDividerModule,
     ReactiveFormsModule,
     FormsModule,
     SharedModule,
@@ -57,7 +74,7 @@ import { HomeTuitionBangaloreComponent } from './home-tuition-bangalore/home-tui
     ScrollToModule.forRoot(),
     AppRoutingModule,
     NguCarouselModule,
-    StoreModule.forRoot({reducer}),
+    StoreModule.forRoot({ reducer }),
     EffectsModule.forRoot([AppEffects]),
     StoreDevtoolsModule.instrument({
       name: 'Example_store',
@@ -65,9 +82,9 @@ import { HomeTuitionBangaloreComponent } from './home-tuition-bangalore/home-tui
       logOnly: environment.production
     }),
   ],
-  providers: [ 
+  providers: [
     AppService
-   ],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

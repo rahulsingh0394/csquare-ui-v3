@@ -31,6 +31,8 @@ export class HomeComponent implements OnInit {
   public carouselTile: NguCarousel;
   panelOpenState = false;
 
+  padding: any;
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: string,
     private carousel: NguCarouselService
@@ -72,6 +74,12 @@ export class HomeComponent implements OnInit {
       easing: 'ease',
       loop: true
     }
+    if(this.testBrowser == true){
+     let width = window.innerWidth;
+     if(width > 600 && width < 1000){
+       this.padding = 'pr-1';
+     }
+     }
   }
 
   initDataFn(key: NguCarouselStore) {
