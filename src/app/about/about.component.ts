@@ -17,6 +17,7 @@ export class AboutComponent implements OnInit {
   imgUrl: any = 'assets/images/about-us-banner.png';
   textTitle: any = 'About Us';
   isMobile: any = false;
+  isBrowser: any = false;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: string,
@@ -26,6 +27,7 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
     if(this.testBrowser == true){
+      this.isBrowser = true;
       let  width = window.innerWidth;
 
       if(width <= 600){

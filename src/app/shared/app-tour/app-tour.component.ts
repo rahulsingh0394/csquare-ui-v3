@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
-import * as hopscotch from 'hopscotch';
+// import * as hopscotch from 'hopscotch';
 import { BannerFormService } from '../banner-form/banner-form.service';
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
@@ -11,7 +11,7 @@ import { isPlatformBrowser } from '@angular/common';
   styleUrls: ['./app-tour.component.css']
 })
 export class AppTourComponent implements OnInit, OnDestroy {
-  
+
   testBrowser: any;
   imgWidth: any = 'row';
 
@@ -21,18 +21,22 @@ export class AppTourComponent implements OnInit, OnDestroy {
     @Inject(PLATFORM_ID) private platformId: string,
   ) {
     this.testBrowser = isPlatformBrowser(platformId);
-  } 
+  }
 
   ngOnInit() {
-    if(this.testBrowser == true){
+    if (this.testBrowser == true) {
       let width = window.innerWidth;
-      if(width < 800){
+      if (width < 800) {
         this.imgWidth = 'column';
       }
-      }
+    }
   }
   ngOnDestroy() {
-    hopscotch.endTour(true);
+    let hopscotch;
+    import('hopscotch').then(data => hopscotch = data);
+    setTimeout(() => {
+      hopscotch.endTour(true);
+    }, 200);
   }
   /*
   ***** Tour Steps ****
@@ -45,10 +49,10 @@ export class AppTourComponent implements OnInit, OnDestroy {
     return {
       id: 'demo-tour',
       showPrevButton: true,
-      onEnd: function() {
+      onEnd: function () {
         self.snackBar.open('User tour ended!', 'close', { duration: 3000 });
       },
-      onClose: function() {
+      onClose: function () {
         self.snackBar.open('You just closed User Tour!', 'close', { duration: 3000 });
       },
       steps: [
@@ -87,21 +91,24 @@ export class AppTourComponent implements OnInit, OnDestroy {
     }
   }
   startTour() {
-    debugger
-    // Destroy running tour
-    hopscotch.endTour(true);
-    // Initialize new tour 
-    hopscotch.startTour(this.tourSteps());
+    let hopscotch;
+    import('hopscotch').then(data => hopscotch = data);
+    setTimeout(() => {
+      // Destroy running tour
+      hopscotch.endTour(true);
+      // Initialize new tour 
+      hopscotch.startTour(this.tourSteps());
+    }, 200);
   }
 
   buttonClick(id: any) {
-    if(id == '1'){
+    if (id == '1') {
       this.dialog.confirm('', '', '', '', '').subscribe(res => {
-  
+
       })
     } else {
       this.dialog.confirm('', '', '', '', '').subscribe(res => {
-  
+
       })
     }
   }

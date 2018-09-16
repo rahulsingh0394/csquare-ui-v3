@@ -35,6 +35,7 @@
         "@ngu/carousel": "^1.4.8",
         "@nguniversal/express-engine": "^6.0.0",
         "@nguniversal/module-map-ngfactory-loader": "^6.0.0",
+        "@types/hopscotch": "^0.2.30",
         "chart.js": "^2.7.2",
         "core-js": "^2.5.4",
         "gsap": "^2.0.1",

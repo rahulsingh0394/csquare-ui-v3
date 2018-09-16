@@ -47,6 +47,7 @@ import 'core-js/es7/reflect';
 
 import 'hopscotch';
 import 'web-animations-js';
+(window as any).global = window;
 /**
  * Web Animations `@angular/platform-browser/animations`
  * Only required if AnimationBuilder is used within the application and using IE/Edge or Safari.

@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
   isMobile: any = false;
   imgWidth: any = 'row';
   padding: any;
+  isBrowser: any = false;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: string,
@@ -76,6 +77,7 @@ export class HomeComponent implements OnInit {
       loop: true
     }
     if(this.testBrowser == true){
+      this.isBrowser = true;
      let width = window.innerWidth;
      if(width > 600 && width < 1000){
        this.padding = 'pr-1';

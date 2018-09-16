@@ -61,8 +61,8 @@
 </div>
 
 <div>
-    <h1 class="title test-center" *ngIf="isMobile == false">Take a tour of how it works?</h1>
-    <div fxLayout="row" fxLayoutWrap="wrap" *ngIf="isMobile == false">
+    <h1 class="title test-center" *ngIf="isMobile == false && isBrowser == true">Take a tour of how it works?</h1>
+    <div fxLayout="row" fxLayoutWrap="wrap" *ngIf="isMobile == false && isBrowser == true">
         <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
         <div fxFlex="100" fxFlex.gt-xs="80">
             <app-tour></app-tour>
