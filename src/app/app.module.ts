@@ -36,13 +36,11 @@ import {
   MatDividerModule
 } from '@angular/material';
 import { HomeComponent } from './home/home.component';
-import { HomeTuitionBangaloreComponent } from './home-tuition-bangalore/home-tuition-bangalore.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    HomeTuitionBangaloreComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'csquare' }),

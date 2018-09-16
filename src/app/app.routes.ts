@@ -1,7 +1,6 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { HomeTuitionBangaloreComponent } from './home-tuition-bangalore/home-tuition-bangalore.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -11,7 +10,8 @@ const routes: Routes = [
   { path: 'terms', loadChildren: './terms/terms.module#TermsModule' },
   { path: 'privacy', loadChildren: './privacy/privacy.module#PrivacyModule' },
   { path: 'careers', loadChildren: './careers/careers.module#CarrersModule'},
-  { path: 'bangalore', loadChildren: './seo-pages/seo-pages.module#SeoPagesModule'}  
+  { path: 'bangalore', loadChildren: './seo-pages/seo-pages.module#SeoPagesModule'},
+  { path: 'bangalore/home-tutors-private-tutors', loadChildren:'./inside-seo-page/inside-seo-page.module#InsideSeoPageModule'}  
 ];
 
 @NgModule({

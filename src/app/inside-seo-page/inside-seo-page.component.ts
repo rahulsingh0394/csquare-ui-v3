@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -9,13 +9,11 @@ import { isPlatformBrowser } from '@angular/common';
 import { FireFilterPipe } from '../shared/pipes/filters/filter.pipe';
 
 @Component({
-  selector: 'app-seo-pages',
-  templateUrl: './seo-pages.component.html',
-  styleUrls: ['./seo-pages.component.css'],
-  providers: [Location, { provide: LocationStrategy, useClass: PathLocationStrategy }],
+  selector: 'app-inside-seo-page',
+  templateUrl: './inside-seo-page.component.html',
+  styleUrls: ['./inside-seo-page.component.css']
 })
-export class SeoPagesComponent implements OnInit {
-
+export class InsideSeoPageComponent implements OnInit {
   json$: Observable<any>;
   data: any;
   faqList: any [] = [];

@@ -28,7 +28,7 @@ export class FaqComponent implements OnInit {
   ngOnInit() {
       this.faq$.subscribe(resp =>{
         if(resp != undefined){
-          if(resp.faq){
+          if(resp.faq.length){
             resp.faq.forEach(element => {
               this.data.push(element);
               this.allData.push(element);
