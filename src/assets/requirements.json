@@ -1,0 +1,818 @@
+[{
+        "id": 1,
+        "name": "Kindergarten"
+    },
+    {
+        "id": 2,
+        "name": "1st Grade"
+    },
+    {
+        "id": 3,
+        "name": "2nd Grade"
+    },
+    {
+        "id": 4,
+        "name": "3rd Grade"
+    },
+    {
+        "id": 5,
+        "name": "4th Grade"
+    },
+    {
+        "id": 6,
+        "name": "5th Grade"
+    },
+    {
+        "id": 7,
+        "name": "6th Grade"
+    },
+    {
+        "id": 8,
+        "name": "7th Grade"
+    },
+    {
+        "id": 9,
+        "name": "8th Grade"
+    },
+    {
+        "id": 10,
+        "name": "9th Grade"
+    },
+    {
+        "id": 11,
+        "name": "10th Grade"
+    },
+    {
+        "id": 12,
+        "name": "11th Grade"
+    },
+    {
+        "id": 13,
+        "name": "12th Grade"
+    },
+    {
+        "id": 14,
+        "name": "1st Grade All Subject"
+    },
+    {
+        "id": 15,
+        "name": "1st Grade Selected Subject"
+    },
+    {
+        "id": 16,
+        "name": "1st Grade Maths"
+    },
+    {
+        "id": 17,
+        "name": "1st Grade English"
+    },
+    {
+        "id": 18,
+        "name": "1st Grade Hindi"
+    },
+    {
+        "id": 19,
+        "name": "1st Grade Drawing"
+    },
+    {
+        "id": 20,
+        "name": "1st Grade Music"
+    },
+    {
+        "id": 21,
+        "name": "2nd Grade All Subject"
+    },
+    {
+        "id": 22,
+        "name": "2nd Grade Selected Subject"
+    },
+    {
+        "id": 23,
+        "name": "2nd Grade Maths"
+    },
+    {
+        "id": 24,
+        "name": "2nd Grade English"
+    },
+    {
+        "id": 25,
+        "name": "2nd Grade Hindi"
+    },
+    {
+        "id": 26,
+        "name": "2nd Grade Drawing"
+    },
+    {
+        "id": 27,
+        "name": "2nd Grade Music"
+    },
+    {
+        "id": 28,
+        "name": "3rd Grade All Subject"
+    },
+    {
+        "id": 29,
+        "name": "3rd Grade Selected Subject"
+    },
+    {
+        "id": 30,
+        "name": "3rd Grade Maths"
+    },
+    {
+        "id": 31,
+        "name": "3rd Grade English"
+    },
+    {
+        "id": 32,
+        "name": "3rd Grade Hindi"
+    },
+    {
+        "id": 33,
+        "name": "3rd Grade Drawing"
+    },
+    {
+        "id": 34,
+        "name": "3rd Grade Music"
+    },
+    {
+        "id": 35,
+        "name": "4th Grade All Subject"
+    },
+    {
+        "id": 36,
+        "name": "4th Grade Selected Subject"
+    },
+    {
+        "id": 37,
+        "name": "4th Grade Maths"
+    },
+    {
+        "id": 38,
+        "name": "4th Grade English"
+    },
+    {
+        "id": 39,
+        "name": "4th Grade Hindi"
+    },
+    {
+        "id": 40,
+        "name": "4th Grade Drawing"
+    },
+    {
+        "id": 41,
+        "name": "4th Grade Music"
+    },
+    {
+        "id": 42,
+        "name": "4th Grade Science"
+    },
+    {
+        "id": 43,
+        "name": "4th Grade Social Science"
+    },
+    {
+        "id": 44,
+        "name": "4th Grade Kannada"
+    },
+    {
+        "id": 45,
+        "name": "4th Grade Tamil"
+    },
+    {
+        "id": 46,
+        "name": "4th Grade Sanskrit"
+    },
+    {
+        "id": 47,
+        "name": "5th Grade All Subject"
+    },
+    {
+        "id": 48,
+        "name": "5th Grade Selected Subject"
+    },
+    {
+        "id": 49,
+        "name": "5th Grade Maths"
+    },
+    {
+        "id": 50,
+        "name": "5th Grade English"
+    },
+    {
+        "id": 51,
+        "name": "5th Grade Hindi"
+    },
+    {
+        "id": 52,
+        "name": "5th Grade Drawing"
+    },
+    {
+        "id": 53,
+        "name": "5th Grade Music"
+    },
+    {
+        "id": 54,
+        "name": "5th Grade Science"
+    },
+    {
+        "id": 55,
+        "name": "5th Grade Social Science"
+    },
+    {
+        "id": 56,
+        "name": "5th Grade Kannada"
+    },
+    {
+        "id": 57,
+        "name": "5th Grade Tamil"
+    },
+    {
+        "id": 58,
+        "name": "5th Grade Sanskrit"
+    },
+    {
+        "id": 59,
+        "name": "6th Grade All Subject"
+    },
+    {
+        "id": 60,
+        "name": "6th Grade Selected Subject"
+    },
+    {
+        "id": 61,
+        "name": "6th Grade Maths"
+    },
+    {
+        "id": 62,
+        "name": "6th Grade English"
+    },
+    {
+        "id": 63,
+        "name": "6th Grade Hindi"
+    },
+    {
+        "id": 64,
+        "name": "6th Grade Drawing"
+    },
+    {
+        "id": 65,
+        "name": "6th Grade Music"
+    },
+    {
+        "id": 66,
+        "name": "6th Grade Science"
+    },
+    {
+        "id": 67,
+        "name": "6th Grade Social Science"
+    },
+    {
+        "id": 68,
+        "name": "6th Grade Kannada"
+    },
+    {
+        "id": 69,
+        "name": "6th Grade Tamil"
+    },
+    {
+        "id": 70,
+        "name": "6th Grade Sanskrit"
+    },
+    {
+        "id": 71,
+        "name": "7th Grade All Subject"
+    },
+    {
+        "id": 72,
+        "name": "7th Grade Selected Subject"
+    },
+    {
+        "id": 73,
+        "name": "7th Grade Maths"
+    },
+    {
+        "id": 74,
+        "name": "7th Grade English"
+    },
+    {
+        "id": 75,
+        "name": "7th Grade Hindi"
+    },
+    {
+        "id": 76,
+        "name": "7th Grade Drawing"
+    },
+    {
+        "id": 77,
+        "name": "7th Grade Music"
+    },
+    {
+        "id": 78,
+        "name": "7th Grade Science"
+    },
+    {
+        "id": 79,
+        "name": "7th Grade Social Science"
+    },
+    {
+        "id": 80,
+        "name": "7th Grade Kannada"
+    },
+    {
+        "id": 81,
+        "name": "7th Grade Tamil"
+    },
+    {
+        "id": 82,
+        "name": "7th Grade Sanskrit"
+    },
+    {
+        "id": 83,
+        "name": "7th Grade History"
+    },
+    {
+        "id": 84,
+        "name": "7th Grade Geography"
+    },
+    {
+        "id": 85,
+        "name": "7th Grade Civics"
+    },
+    {
+        "id": 86,
+        "name": "7th Grade Disaster Management"
+    },
+    {
+        "id": 87,
+        "name": "7th Grade Political Science"
+    },
+    {
+        "id": 88,
+        "name": "7th Grade Economics"
+    },
+    {
+        "id": 89,
+        "name": "7th Grade Physcis"
+    },
+    {
+        "id": 90,
+        "name": "7th Grade Chemistry"
+    },
+    {
+        "id": 91,
+        "name": "7th Grade Biology"
+    },
+    {
+        "id": 92,
+        "name": "8th Grade All Subject"
+    },
+    {
+        "id": 93,
+        "name": "8th Grade Selected Subject"
+    },
+    {
+        "id": 94,
+        "name": "8th Grade Maths"
+    },
+    {
+        "id": 95,
+        "name": "8th Grade English"
+    },
+    {
+        "id": 96,
+        "name": "8th Grade Hindi"
+    },
+    {
+        "id": 97,
+        "name": "8th Grade Drawing"
+    },
+    {
+        "id": 98,
+        "name": "8th Grade Music"
+    },
+    {
+        "id": 99,
+        "name": "8th Grade Science"
+    },
+    {
+        "id": 100,
+        "name": "8th Grade Social Science"
+    },
+    {
+        "id": 101,
+        "name": "8th Grade Kannada"
+    },
+    {
+        "id": 102,
+        "name": "8th Grade Tamil"
+    },
+    {
+        "id": 103,
+        "name": "8th Grade Sanskrit"
+    },
+    {
+        "id": 104,
+        "name": "8th Grade History"
+    },
+    {
+        "id": 105,
+        "name": "8th Grade Geography"
+    },
+    {
+        "id": 106,
+        "name": "8th Grade Civics"
+    },
+    {
+        "id": 107,
+        "name": "8th Grade Disaster Management"
+    },
+    {
+        "id": 108,
+        "name": "8th Grade Political Science"
+    },
+    {
+        "id": 109,
+        "name": "8th Grade Economics"
+    },
+    {
+        "id": 110,
+        "name": "8th Grade Physcis"
+    },
+    {
+        "id": 111,
+        "name": "8th Grade Chemistry"
+    },
+    {
+        "id": 112,
+        "name": "8th Grade Biology"
+    },
+    {
+        "id": 113,
+        "name": "9th Grade All Subject"
+    },
+    {
+        "id": 114,
+        "name": "9th Grade Selected Subject"
+    },
+    {
+        "id": 115,
+        "name": "9th Grade Maths"
+    },
+    {
+        "id": 116,
+        "name": "9th Grade English"
+    },
+    {
+        "id": 117,
+        "name": "9th Grade Hindi"
+    },
+    {
+        "id": 118,
+        "name": "9th Grade Drawing"
+    },
+    {
+        "id": 119,
+        "name": "9th Grade Music"
+    },
+    {
+        "id": 120,
+        "name": "9th Grade Science"
+    },
+    {
+        "id": 121,
+        "name": "9th Grade Social Science"
+    },
+    {
+        "id": 122,
+        "name": "9th Grade Kannada"
+    },
+    {
+        "id": 123,
+        "name": "9th Grade Tamil"
+    },
+    {
+        "id": 124,
+        "name": "9th Grade Sanskrit"
+    },
+    {
+        "id": 125,
+        "name": "9th Grade History"
+    },
+    {
+        "id": 126,
+        "name": "9th Grade Geography"
+    },
+    {
+        "id": 126,
+        "name": "9th Grade Civics"
+    },
+    {
+        "id": 127,
+        "name": "9th Grade Disaster Management"
+    },
+    {
+        "id": 128,
+        "name": "9th Grade Political Science"
+    },
+    {
+        "id": 129,
+        "name": "9th Grade Economics"
+    },
+    {
+        "id": 130,
+        "name": "9th Grade Physcis"
+    },
+    {
+        "id": 131,
+        "name": "9th Grade Chemistry"
+    },
+    {
+        "id": 132,
+        "name": "9th Grade Biology"
+    },
+    {
+        "id": 133,
+        "name": "10th Grade All Subject"
+    },
+    {
+        "id": 134,
+        "name": "10th Grade Selected Subject"
+    },
+    {
+        "id": 135,
+        "name": "10th Grade Maths"
+    },
+    {
+        "id": 135,
+        "name": "10th Grade English"
+    },
+    {
+        "id": 136,
+        "name": "10th Grade Hindi"
+    },
+    {
+        "id": 137,
+        "name": "10th Grade Drawing"
+    },
+    {
+        "id": 138,
+        "name": "10th Grade Music"
+    },
+    {
+        "id": 139,
+        "name": "10th Grade Science"
+    },
+    {
+        "id": 140,
+        "name": "10th Grade Social Science"
+    },
+    {
+        "id": 141,
+        "name": "10th Grade Kannada"
+    },
+    {
+        "id": 142,
+        "name": "10th Grade Tamil"
+    },
+    {
+        "id": 143,
+        "name": "10th Grade Sanskrit"
+    },
+    {
+        "id": 144,
+        "name": "10th Grade History"
+    },
+    {
+        "id": 145,
+        "name": "10th Grade Geography"
+    },
+    {
+        "id": 146,
+        "name": "10th Grade Civics"
+    },
+    {
+        "id": 147,
+        "name": "10th Grade Disaster Management"
+    },
+    {
+        "id": 148,
+        "name": "10th Grade Political Science"
+    },
+    {
+        "id": 149,
+        "name": "10th Grade Economics"
+    },
+    {
+        "id": 150,
+        "name": "10th Grade Physcis"
+    },
+    {
+        "id": 160,
+        "name": "10th Grade Chemistry"
+    },
+    {
+        "id": 161,
+        "name": "10th Grade Biology"
+    },
+    {
+        "id": 162,
+        "name": "11th Grade All Subject"
+    },
+    {
+        "id": 163,
+        "name": "11th Grade Selected Subject"
+    },
+    {
+        "id": 164,
+        "name": "11th Grade Maths"
+    },
+    {
+        "id": 165,
+        "name": "11th Grade English"
+    },
+    {
+        "id": 166,
+        "name": "11th Grade Hindi"
+    },
+    {
+        "id": 167,
+        "name": "11th Grade Drawing"
+    },
+    {
+        "id": 168,
+        "name": "11th Grade Music"
+    },
+    {
+        "id": 169,
+        "name": "11th Grade Science"
+    },
+    {
+        "id": 170,
+        "name": "11th Grade Social Science"
+    },
+    {
+        "id": 171,
+        "name": "11th Grade Kannada"
+    },
+    {
+        "id": 172,
+        "name": "11th Grade Tamil"
+    },
+    {
+        "id": 173,
+        "name": "11th Grade Sanskrit"
+    },
+    {
+        "id": 174,
+        "name": "11th Grade History"
+    },
+    {
+        "id": 175,
+        "name": "11th Grade Geography"
+    },
+    {
+        "id": 176,
+        "name": "11th Grade Civics"
+    },
+    {
+        "id": 177,
+        "name": "11th Grade Disaster Management"
+    },
+    {
+        "id": 178,
+        "name": "11th Grade Political Science"
+    },
+    {
+        "id": 179,
+        "name": "11th Grade Economics"
+    },
+    {
+        "id": 180,
+        "name": "11th Grade Physcis"
+    },
+    {
+        "id": 181,
+        "name": "11th Grade Chemistry"
+    },
+    {
+        "id": 182,
+        "name": "11th Grade Biology"
+    },
+    {
+        "id": 183,
+        "name": "11th Grade Accountancy"
+    },
+    {
+        "id": 184,
+        "name": "11th Grade Economics"
+    },
+    {
+        "id": 185,
+        "name": "11th Grade Business Studies"
+    },
+    {
+        "id": 186,
+        "name": "11th Grade Physical Education"
+    },
+    {
+        "id": 187,
+        "name": "12th Grade All Subject"
+    },
+    {
+        "id": 188,
+        "name": "12th Grade Selected Subject"
+    },
+    {
+        "id": 189,
+        "name": "12th Grade Maths"
+    },
+    {
+        "id": 190,
+        "name": "12th Grade English"
+    },
+    {
+        "id": 191,
+        "name": "12th Grade Hindi"
+    },
+    {
+        "id": 192,
+        "name": "12th Grade Drawing"
+    },
+    {
+        "id": 193,
+        "name": "12th Grade Music"
+    },
+    {
+        "id": 194,
+        "name": "12th Grade Science"
+    },
+    {
+        "id": 195,
+        "name": "12th Grade Social Science"
+    },
+    {
+        "id": 196,
+        "name": "12th Grade Kannada"
+    },
+    {
+        "id": 197,
+        "name": "12th Grade Tamil"
+    },
+    {
+        "id": 198,
+        "name": "12th Grade Sanskrit"
+    },
+    {
+        "id": 199,
+        "name": "12th Grade History"
+    },
+    {
+        "id": 200,
+        "name": "12th Grade Geography"
+    },
+    {
+        "id": 201,
+        "name": "12th Grade Civics"
+    },
+    {
+        "id": 202,
+        "name": "12th Grade Disaster Management"
+    },
+    {
+        "id": 203,
+        "name": "12th Grade Political Science"
+    },
+    {
+        "id": 204,
+        "name": "12th Grade Economics"
+    },
+    {
+        "id": 205,
+        "name": "12th Grade Physcis"
+    },
+    {
+        "id": 206,
+        "name": "12th Grade Chemistry"
+    },
+    {
+        "id": 207,
+        "name": "12th Grade Biology"
+    },
+    {
+        "id": 208,
+        "name": "12th Grade Accountancy"
+    },
+    {
+        "id": 209,
+        "name": "12th Grade Economics"
+    },
+    {
+        "id": 210,
+        "name": "12th Grade Business Studies"
+    },
+    {
+        "id": 211,
+        "name": "12th Grade Physical Education"
+    }
+
+]

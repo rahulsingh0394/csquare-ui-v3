@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { Store, select } from '@ngrx/store';
-import * as fromState from './state/app.state';
-import * as stateActions from './state/app.actions';
 import { Observable } from 'rxjs';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -17,14 +15,21 @@ export class AppComponent implements OnInit {
   json$: Observable<any>;
 
   constructor(
+    private router: Router,
     @Inject(PLATFORM_ID) private platformId: string,
-    private store: Store<fromState.state>
   ) {
     this.testBrowser = isPlatformBrowser(platformId);
   }
 
   ngOnInit() {
-    // this.json$ = this.store.pipe(select(fromState.getJson)) as Observable<any>;
-    // this.store.dispatch(new stateActions.Load());
+    if(this.testBrowser == true){
+      this.router.events.subscribe((evt) => {
+        if (!(evt instanceof NavigationEnd)) {
+            return;
+        }
+        window.scrollTo(0, 0);
+    });
+    window.scroll(0, 0);
+    }
   }
 }

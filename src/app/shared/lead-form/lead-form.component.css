@@ -1,0 +1,44 @@
+:host /deep/ .mat-tab-label .mat-tab-label-content {
+    font-size: 1.1em!important;
+    font-weight: 900!important;
+    color: #000!important;
+}
+
+:host /deep/ .mat-tab-label {
+    opacity: 1!important;
+}
+
+:host /deep/ .mat-tab-label-active .mat-tab-label-content {
+    color: #fff!important;
+}
+
+:host /deep/ .mat-tab-label-active {
+    background-color: #FF6600;
+    border: none!important;
+}
+
+:host /deep/ .mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: #fff!important;
+}
+
+.image-form {
+    height: 195px;
+    width: 195px;
+}
+
+@media screen and (max-width: 600px) {
+     :host /deep/ .mat-tab-label .mat-tab-label-content {
+        font-size: .6em!important;
+    }
+    .image-form {
+        height: 170px;
+        width: 170px;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+     :host /deep/ .mat-tab-label .mat-tab-label-content {
+        font-size: .8em!important;
+    }
+}

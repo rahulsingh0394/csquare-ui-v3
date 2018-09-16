@@ -1,3 +1,7 @@
 .show {
     display: none;
 }
+
+:host /deep/ .mat-expansion-panel-content {
+    font: 400 13px/18px 'Raleway', sans-serif!important;
+}

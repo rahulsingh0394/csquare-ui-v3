@@ -1,0 +1,93 @@
+:host /deep/ .mat-tab-label .mat-tab-label-content {
+    font-size: 1.1em!important;
+    font-weight: 900!important;
+    color: #000!important;
+}
+
+:host /deep/ .mat-tab-label {
+    opacity: 1!important;
+}
+
+:host /deep/ .mat-tab-label-active .mat-tab-label-content {
+    color: #fff!important;
+}
+
+:host /deep/ .mat-tab-label-active {
+    background-color: #FF6600;
+    border: none!important;
+}
+
+:host /deep/ .mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: #fff!important;
+}
+
+.image-form {
+    height: 250px;
+    width: 250px;
+}
+
+.service-title {
+    font-size: 14px!important;
+}
+
+.service-img {
+    width: 100%;
+    height: 168px;
+}
+
+ul {
+    list-style: none;
+    margin-left: -12%;
+}
+
+li {
+    padding-bottom: 8px;
+    font-size: 0.9em!important;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.text {
+    font-size: .9em!important;
+    text-align: justify;
+}
+
+#tab_2 {
+    display: none;
+}
+
+#tab_3 {
+    display: none;
+}
+
+:host /deep/ .mat-tab-body .mat-tab-body-active {
+    height: 100%!important;
+    overflow-y: hidden!important;
+}
+
+@media screen and (max-width: 600px) {
+     :host /deep/ .mat-tab-label .mat-tab-label-content {
+        font-size: .6em!important;
+    }
+    .image-form {
+        height: 180px;
+        width: 180px;
+    }
+    .service-title {
+        font-size: 12px!important;
+    }
+    .service-img {
+        width: 80%;
+        padding-left: 1.5em;
+    }
+    ul {
+        margin-left: 0px;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+     :host /deep/ .mat-tab-label .mat-tab-label-content {
+        font-size: .8em!important;
+    }
+}

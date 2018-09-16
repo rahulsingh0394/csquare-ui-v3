@@ -1,0 +1,64 @@
+<mat-card>
+    <mat-card-title>{{title}}</mat-card-title>
+    <mat-card-content>
+        <mat-tab-group (selectedIndexChange)="changeTab($event)">
+            <mat-tab label="Find Tutor Near Me">
+                <p class="mt-1">I am a student and need tutor near me. </p>
+                <form [formGroup]="leadForm">
+                    <div class="p-1">
+                        <mat-form-field class="full-width">
+                            <input type="text" placeholder="Type subject or grade and select " aria-label="Number" matInput formControlName="grade" [matAutocomplete]="auto">
+                            <mat-autocomplete #auto="matAutocomplete">
+                                <mat-option *ngFor="let option of filteredSubject" [value]="option.name">
+                                    {{option.name}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </div>
+                    <div class="p-1">
+                        <mat-form-field class="full-width">
+                            <input type="text" placeholder="Type location or pincode and select " aria-label="Number" matInput formControlName="location" [matAutocomplete]="auto1">
+                            <mat-autocomplete #auto1="matAutocomplete">
+                                <mat-option *ngFor="let option of filteredLocation" [value]="option.location_name+' - '+option.pincode">
+                                    {{option.location_name}}&nbsp; - &nbsp;{{option.pincode}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </div>
+                </form>
+                <button role="button" mat-raised-button color="primary" (click)="student()">Search Tutors</button>
+            </mat-tab>
+            <mat-tab label="Find Student Near Me">
+                <p class="mt-1">I am a tutor and need student near me. </p>
+                <form [formGroup]="leadForm">
+                    <div class="p-1">
+                        <mat-form-field class="full-width">
+                            <input type="text" placeholder="Type subject or grade and select " aria-label="Number" matInput formControlName="grade" [matAutocomplete]="auto2">
+                            <mat-autocomplete #auto2="matAutocomplete">
+                                <mat-option *ngFor="let option of filteredSubject" [value]="option.name">
+                                    {{option.name}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </div>
+                    <div class="p-1">
+                        <mat-form-field class="full-width">
+                            <input type="text" placeholder="Type location or pincode and select " aria-label="Number" matInput formControlName="location" [matAutocomplete]="auto3">
+                            <mat-autocomplete #auto3="matAutocomplete">
+                                <mat-option *ngFor="let option of filteredLocation" [value]="option.location_name+' - '+option.pincode">
+                                    {{option.location_name}}&nbsp; - &nbsp;{{option.pincode}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </div>
+                </form>
+                <button role="button" mat-raised-button color="primary" (click)="tutor()">Search Students</button>
+            </mat-tab>
+            <mat-tab label="Online Tutor">
+                <div class="p-1">
+                    <img src="assets/images/coming-soon.png" class="image-form">
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-card-content>
+</mat-card>

@@ -27,12 +27,6 @@ export class HomeTuitionBangaloreComponent implements OnInit {
   ngOnInit() {
     this.json$.subscribe(res => {
       if (res != undefined) {
-        // res.json.forEach(element => {
-        //   // if (element.url == this.location.path()) {
-        //     this.data = element;
-        //   // }
-        // });
-        console.log(res);
         this.data = res.json;
       }
     })

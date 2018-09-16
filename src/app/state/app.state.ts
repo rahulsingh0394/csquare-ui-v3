@@ -7,6 +7,7 @@ export interface state {
 
 export interface SeoState{
     json: any
+    faq: any
 }
 
 const getJsonFeatureState = createFeatureSelector<SeoState>('reducer');
@@ -23,6 +24,11 @@ export function reducer(state, action: JsonActions): SeoState {
         return {
             ...state,
             json: action.payload
+        }
+        case AllJson.LoadFaqSuccess: 
+        return {
+            ...state,
+            faq: action.payload
         }
         default: 
         return state;

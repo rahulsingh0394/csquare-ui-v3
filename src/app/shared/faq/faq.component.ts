@@ -12,7 +12,7 @@ import { FireFilterPipe } from '../pipes/filters/filter.pipe';
 })
 export class FaqComponent implements OnInit {
 
-  json$: Observable<any>;
+  faq$: Observable<any>;
   allData: any [] = [];
   data: any [] = [];
   search: any;
@@ -21,24 +21,25 @@ export class FaqComponent implements OnInit {
     private store: Store<fromState.state>,
     private filter: FireFilterPipe
   ) { 
-    this.json$ = this.store.pipe(select(fromState.getJson)) as Observable<any>;
-    this.store.dispatch(new stateActions.Load('/faq'));
+    this.faq$ = this.store.pipe(select(fromState.getJson)) as Observable<any>;
+    this.store.dispatch(new stateActions.LoadFaq('/faq/CsquareEducation'));
   }
 
   ngOnInit() {
-    this.json$.subscribe(res =>{
-      if(res != undefined){
-        res.json.forEach(element => {
-          this.data.push(element);
-          this.allData.push(element);
-        });
-      }
-    })
+      this.faq$.subscribe(resp =>{
+        if(resp != undefined){
+          if(resp.faq){
+            resp.faq.forEach(element => {
+              this.data.push(element);
+              this.allData.push(element);
+            });
+          }
+        }
+      })
   }
 
   valuechange(){
     this.data = this.filter.transform(this.allData, this.search);
-    console.log(this.data);
   }
 
 }

@@ -43,6 +43,10 @@ export class BannerFormComponent implements OnInit {
     this.initForm();
     this.service.getCity().subscribe(res => {
       this.cityList = res.json();
+      if(this.data.value){
+        this.city.setValue((this.data.value.city).toString());
+        this.location.setValue(this.data.value.location);
+      }
     })
     this.service.getGrades().subscribe(res => {
       this.gradeList = res.json();
@@ -54,6 +58,7 @@ export class BannerFormComponent implements OnInit {
   }
 
   ngOnInit() {
+   
   }
 
   private initForm() {
@@ -70,6 +75,7 @@ export class BannerFormComponent implements OnInit {
     this.istutor = this.locationData.controls['istutor'];
 
     this.city.valueChanges.subscribe(val => {
+      this.location.reset();
       if (val) {
         this.service.searchLocationByCity(val).subscribe(res => {
           this.locationList = res.json();

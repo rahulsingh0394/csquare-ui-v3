@@ -18,12 +18,23 @@ export class AppEffects {
               private actions$: Actions) { }
 
   @Effect()
-  loadAcademicYear$: Observable<Action> = this.actions$.pipe(
+  loadJson$: Observable<Action> = this.actions$.pipe(
     ofType(jsonAction.AllJson.Load),
     mergeMap((action: any) =>
       this.service.getJson(action.payload).pipe(
-        map(academicYears => (new jsonAction.LoadSuccess(academicYears.json()))),
+        map(data => (new jsonAction.LoadSuccess(data.json()))),
         catchError(err => of(new jsonAction.LoadFail(err)))
+      )
+    )
+  );
+
+  @Effect()
+  loadFaq$: Observable<Action> = this.actions$.pipe(
+    ofType(jsonAction.AllJson.LoadFaq),
+    mergeMap((action: any) =>
+      this.service.getJson(action.payload).pipe(
+        map(data => (new jsonAction.LoadFaqSuccess(data.json()))),
+        catchError(err => of(new jsonAction.LoadFaqFail(err)))
       )
     )
   );

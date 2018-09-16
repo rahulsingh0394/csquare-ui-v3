@@ -1,37 +1,43 @@
 <div class="page-header">
     <img src="assets/images/banner.jpg" class="banner-img">
     <div class="overlay">
-        <div fxLayout="column" fxLayoutAlign="space-around center" class="pb-1">
+        <div fxLayout="column" fxLayoutAlign="space-around center">
             <div fxFlex="100">
-                <span id="1">H</span>
-                <span id="2">O</span>
-                <span id="3">M</span>
-                <span id="4">E</span>&nbsp;&nbsp;
-                <span id="5">T</span>
-                <span id="6">U</span>
-                <span id="7">I</span>
-                <span id="8">T</span>
-                <span id="9">I</span>
-                <span id="10">O</span>
-                <span id="11">N</span>&nbsp;&nbsp;
-                <span id="12">A</span>
-                <span id="13">N</span>
-                <span id="14">D</span>&nbsp;&nbsp;
-                <span id="15">T</span>
-                <span id="16">U</span>
-                <span id="17">T</span>
-                <span id="18">O</span>
-                <span id="19">R</span>&nbsp;&nbsp;
-                <span id="20">A</span>
-                <span id="21">T</span>&nbsp;&nbsp;
-                <span id="22">D</span>
-                <span id="23">O</span>
-                <span id="24">O</span>
-                <span id="25">R</span>&nbsp;&nbsp;
-                <span id="26">S</span>
-                <span id="27">T</span>
-                <span id="28">E</span>
-                <span id="29">P</span>
+                <div *ngIf="width == false">
+                    <h3 #a>H</h3>
+                    <h3 #b>O</h3>
+                    <h3 #c>M</h3>
+                    <h3 #d>E</h3>&nbsp;&nbsp;
+                    <h3 #e>T</h3>
+                    <h3 #f>U</h3>
+                    <h3 #g>I</h3>
+                    <h3 #h>T</h3>
+                    <h3 #i>I</h3>
+                    <h3 #j>O</h3>
+                    <h3 #k>N</h3>&nbsp;&nbsp;
+                    <h3 #l>A</h3>
+                    <h3 #m>N</h3>
+                    <h3 #n>D</h3>&nbsp;&nbsp;
+                    <h3 #o>T</h3>
+                    <h3 #p>U</h3>
+                    <h3 #q>T</h3>
+                    <h3 #r>O</h3>
+                    <h3 #s>R</h3>&nbsp;&nbsp;
+                    <h3 #t>A</h3>
+                    <h3 #u>T</h3>&nbsp;&nbsp;
+                    <h3 #v>D</h3>
+                    <h3 #w>O</h3>
+                    <h3 #x>O</h3>
+                    <h3 #y>R</h3>&nbsp;&nbsp;
+                    <h3 #z>S</h3>
+                    <h3 #aa>T</h3>
+                    <h3 #bb>E</h3>
+                    <h3 #cc>P</h3>
+                </div>
+                <div *ngIf="width == true">
+                    <h1>CsquareEducation</h1>
+                    <h3>A step towards learning!</h3>
+                </div>
             </div>
         </div>
         <div fxLayout="column" fxLayoutAlign="space-around center" class="pb-1">
@@ -45,23 +51,25 @@
             </div>
         </div>
         <div fxLayout="column" fxLayoutAlign="space-around center" class="pb-1">
-            <div fxFlex="100" class="mobile-view">
-                <ngu-carousel [inputs]="carouselOne">
-                    <ngu-item NguCarouselItem>
-                        <h3>CsquareEducation is providing home tuition from various range. CsquareEducation provides flexible range to select home tutor or tuition teacher for their kids. </h3>
-                    </ngu-item>
-                    <ngu-item NguCarouselItem>
-                        <h3>CsquareEducation provides flexibility to replace your home tutor/private tutor at any time if you’re not satisfied with the way of teaching of current tutor.</h3>
-                    </ngu-item>
-                    <ngu-item NguCarouselItem>
-                        <h3>Many of us need female tutor/ teacher for our kid’s as they handle kid’s in better way and they understand them in better way.</h3>
-                    </ngu-item>
-                    <ngu-item NguCarouselItem>
-                        <h3>Csquareeducation do documents verification for all their home tutor or tuition teacher. Every aspects of recruitment process is well verified.</h3>
-                    </ngu-item>
-                    <button NguCarouselPrev class='leftRs'>Previous</button>
-                    <button NguCarouselNext class='rightRs'>Next</button>
-                </ngu-carousel>
+            <div fxFlex="100">
+                <div *ngIf="width == false">
+                    <ngu-carousel [inputs]="carouselOne">
+                        <ngu-item NguCarouselItem>
+                            <h4>CsquareEducation is providing home tuition from various range. CsquareEducation provides flexible range to select home tutor or tuition teacher for their kids. </h4>
+                        </ngu-item>
+                        <ngu-item NguCarouselItem>
+                            <h4>CsquareEducation provides flexibility to replace your home tutor/private tutor at any time if you’re not satisfied with the way of teaching of current tutor.</h4>
+                        </ngu-item>
+                        <ngu-item NguCarouselItem>
+                            <h4>Many of us need female tutor/ teacher for our kid’s as they handle kid’s in better way and they understand them in better way.</h4>
+                        </ngu-item>
+                        <ngu-item NguCarouselItem>
+                            <h4>Csquareeducation do documents verification for all their home tutor or tuition teacher. Every aspects of recruitment process is well verified.</h4>
+                        </ngu-item>
+                        <button NguCarouselPrev class='leftRs'>Previous</button>
+                        <button NguCarouselNext class='rightRs'>Next</button>
+                    </ngu-carousel>
+                </div>
             </div>
         </div>
         <div fxLayout="column" fxLayoutAlign="space-around center" class="pb-1">

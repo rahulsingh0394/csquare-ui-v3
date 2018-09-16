@@ -17,7 +17,9 @@ import {
     MatExpansionModule,
     MatDialogModule,
     MatStepperModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatCardModule,
+    MatTabsModule
 } from '@angular/material';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
@@ -26,6 +28,8 @@ import { BannerTopComponent } from './banner-top/banner-top.component';
 import { BannerFormComponent } from './banner-form/banner-form.component';
 import { BannerFormService } from './banner-form/banner-form.service';
 import { ApiService } from './banner-form/api-service.service';
+import { BannerSeoComponent } from './banner-seo/banner-seo.component';
+import { LeadFormComponent } from './lead-form/lead-form.component';
 
 @NgModule({
     imports: [
@@ -44,7 +48,9 @@ import { ApiService } from './banner-form/api-service.service';
         MatDialogModule,
         MatStepperModule,
         MatSelectModule,
-        MatAutocompleteModule
+        MatAutocompleteModule,
+        MatCardModule,
+        MatTabsModule
     ],
     entryComponents: [
         BannerComponent,
@@ -52,7 +58,9 @@ import { ApiService } from './banner-form/api-service.service';
         FooterComponent,
         FaqComponent,
         BannerTopComponent,
-        BannerFormComponent
+        BannerFormComponent,
+        BannerSeoComponent,
+        LeadFormComponent
     ],
     declarations: [
         BannerComponent,
@@ -60,7 +68,9 @@ import { ApiService } from './banner-form/api-service.service';
         FooterComponent,
         FaqComponent,
         BannerTopComponent,
-        BannerFormComponent
+        BannerFormComponent,
+        BannerSeoComponent,
+        LeadFormComponent
     ],
     exports: [
         BannerComponent,
@@ -68,7 +78,9 @@ import { ApiService } from './banner-form/api-service.service';
         FooterComponent,
         FaqComponent,
         BannerTopComponent,
-        BannerFormComponent
+        BannerFormComponent,
+        BannerSeoComponent,
+        LeadFormComponent
     ],
     providers: [
         BannerComponent,
@@ -77,7 +89,9 @@ import { ApiService } from './banner-form/api-service.service';
         FaqComponent,
         BannerTopComponent,
         BannerFormService,
-        ApiService
+        ApiService,
+        BannerSeoComponent,
+        LeadFormComponent
     ]
 })
 export class SharedModule { }

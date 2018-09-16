@@ -70,7 +70,7 @@
     display: inline-block;
     width: 2px;
     height: 180px;
-    background: #E9B000;
+    background: #FF6600;
     border-radius: 5px;
     position: relative;
     left: 20;
@@ -98,7 +98,7 @@
 }
 
 .nav-item:hover {
-    border-bottom: 4px solid #E9B000;
+    border-bottom: 4px solid #FF6600;
 }
 
 // Footer
@@ -170,19 +170,72 @@
     .nav-link {
         font-size: 1.5vw;
     }
+    .footer-link {
+        font-size: 3vw;
+    }
     .footer-img {
         margin-bottom: 2%;
     }
     .copyright {
-        font-size: 1.5vw;
+        font-size: 3vw;
     }
     .contact {
-        font-size: 3vw;
+        font-size: 3.4vw;
         display: flex;
         height: 60px;
     }
     .thread {
         height: 350px;
         margin-top: -3em;
+    }
+    .footer-text {
+        font-size: 3vw;
+    }
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 23px;
+    color: #000;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav .socail-icon {
+    display: inline-block!important;
+}
+
+.sidenav a:hover {
+    color: #0074E1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
     }
 }

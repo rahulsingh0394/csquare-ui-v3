@@ -1,9 +1,14 @@
-span {
+h3 {
     font-size: 3vw;
     font-weight: 700;
     color: #fff;
-    display: inline-flex;
+    display: inline-block;
     letter-spacing: .1rem;
+    margin-bottom: 1px;
+}
+
+h4 {
+    color: #fff;
 }
 
 .leftRs {
@@ -36,7 +41,7 @@ span {
 }
 
 .border-button {
-    border: 4px solid #E9B000;
+    border: 4px solid #FF6600;
 }
 
 @media screen and (max-width: 600px) {
@@ -45,11 +50,21 @@ span {
         font-weight: 500;
     }
     #h2 {
-        margin-top: 10%;
-        margin-bottom: 10%;
+        margin-top: 9%;
+        margin-bottom: 7%;
+        margin-left: 11%;
+        margin-right: 13%;
+        font-size: 74%!important;
     }
     button {
         margin-bottom: 10%;
+    }
+    h1 {
+        font-size: 217%!important;
+        margin-bottom: 1px!important;
+    }
+    h3 {
+        font-size: 4vw!important;
     }
 }
 

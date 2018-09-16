@@ -10,12 +10,8 @@ const routes: Routes = [
   { path: 'contact', loadChildren: './contact/contact.module#ContactModule' },
   { path: 'terms', loadChildren: './terms/terms.module#TermsModule' },
   { path: 'privacy', loadChildren: './privacy/privacy.module#PrivacyModule' },
-  { path: 'bangalore/home-tutors-private-tutors/Class-wise-best-private-home-tutor', component: HomeTuitionBangaloreComponent },
-  { path: 'bangalore/home-tutors-private-tutors', component: HomeTuitionBangaloreComponent },
-  { path: 'bangalore/home-tutors-private-tutors/Syllabus-wise-best-private-home-tutor', component: HomeTuitionBangaloreComponent },
-  { path: 'bangalore/home-tutors-private-tutors/Class-wise-best-private-home-tutor/Class1', component: HomeTuitionBangaloreComponent },
-  { path: 'bangalore/home-tutors-private-tutors/Syllabus-wise-best-private-home-tutor/CBSE', component: HomeTuitionBangaloreComponent },
-  { path: 'home-tuition-bangalore', component: HomeTuitionBangaloreComponent}
+  { path: 'careers', loadChildren: './careers/careers.module#CarrersModule'},
+  { path: 'bangalore', loadChildren: './seo-pages/seo-pages.module#SeoPagesModule'}  
 ];
 
 @NgModule({

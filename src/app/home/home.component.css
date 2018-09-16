@@ -87,10 +87,6 @@
     height: 60px;
 }
 
-.checked {
-    color: orange;
-}
-
 .chart {
     /* transform: rotate(-10deg); */
     margin-top: 2em;

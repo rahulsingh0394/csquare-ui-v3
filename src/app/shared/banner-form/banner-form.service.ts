@@ -40,7 +40,7 @@ export class BannerFormService {
      }
    }
 
-  public confirm(isMobile: string, height, width, message: string): Observable<boolean> {
+  public confirm(isMobile: string, height, width, message: string, value: any): Observable<boolean> {
     isMobile = this.isMobile;
     height = this.height;
     width = this.width;
@@ -48,8 +48,8 @@ export class BannerFormService {
     dialogRef = this.dialog.open(BannerFormComponent, {
       width: this.width+'px',
       height: this.height+'px',
-      disableClose: true,
-      data: { isMobile, message, width, height }
+      disableClose: false,
+      data: { isMobile, message, width, height, value }
     });
     return dialogRef.afterClosed();
   }

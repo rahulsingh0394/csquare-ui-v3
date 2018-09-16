@@ -38,7 +38,6 @@ import {
 import { HomeComponent } from './home/home.component';
 import { HomeTuitionBangaloreComponent } from './home-tuition-bangalore/home-tuition-bangalore.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

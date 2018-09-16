@@ -5,7 +5,23 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Raleway", sans-serif
+    font-family: 'Raleway', sans-serif!important;
+}
+
+.mat-expansion-panel-content {
+    font-family: 'Raleway', sans-serif!important;
+}
+
+.mat-card {
+    font-family: 'Raleway', sans-serif!important;
+}
+
+.mat-tab-group {
+    font-family: 'Raleway', sans-serif!important;
+}
+
+.link:hover {
+    cursor: pointer;
 }
 
 body,
@@ -21,6 +37,18 @@ h3 {
     color: #fff;
     font-weight: 700;
     letter-spacing: .1rem;
+}
+
+h5 {
+    font-size: 1em;
+}
+
+p {
+    font-size: 1em;
+}
+
+ul {
+    font-size: 1em;
 }
 
 
@@ -51,7 +79,7 @@ h3 {
 }
 
 .sub-title {
-    font-size: 12px;
+    font-size: 15px;
     color: rgb(97, 97, 97);
     line-height: 17px;
 }
@@ -81,6 +109,15 @@ h3 {
 
 .pl-1 {
     padding-left: 15%;
+}
+
+.p-2 {
+    padding: 10%;
+}
+
+.p-3 {
+    padding-left: 30%;
+    padding-right: 30%;
 }
 
 
@@ -233,8 +270,12 @@ h3 {
 
 /* Card */
 
+.mat-card-title {
+    font-weight: 600;
+}
+
 .mat-card-actions {
-    background-color: #E9B000;
+    background-color: #FF6600;
     color: white;
     font-weight: 600px!important;
 }
@@ -266,8 +307,8 @@ h3 {
     width: 68%;
     top: -4%;
     left: -3%;
-    border-top: 15px solid #E9B000;
-    border-left: 15px solid #E9B000;
+    border-top: 15px solid #FF6600;
+    border-left: 15px solid #FF6600;
 }
 
 .mat-card-right {
@@ -297,8 +338,8 @@ h3 {
     width: 68%;
     top: 29%;
     left: 32%;
-    border-bottom: 15px solid #E9B000;
-    border-right: 15px solid #E9B000;
+    border-bottom: 15px solid #FF6600;
+    border-right: 15px solid #FF6600;
 }
 
 .mat-icon {
@@ -359,7 +400,7 @@ h3 {
 .success {}
 
 .read-more {
-    background: #E9B000;
+    background: #FF6600;
     font-size: 1vw;
     color: #fff;
     border-radius: 0px!important;
@@ -379,13 +420,13 @@ h3 {
     font-weight: 600;
     color: #000;
     border-radius: 0px;
-    border: 6px solid #E9B000;
+    border: 6px solid #FF6600;
     margin-right: 10px;
     cursor: pointer;
 }
 
 .alert:hover {
-    background: #E9B000;
+    background: #FF6600;
     color: #fff;
 }
 
@@ -415,12 +456,12 @@ h3 {
 }
 
 .icon-holder:hover {
-    background-color: #E9B000;
+    background-color: #FF6600;
 }
 
 .description {
     text-align: center;
-    font-size: 12px;
+    font-size: 15px;
     color: rgb(97, 97, 97);
     line-height: 17px;
 }
@@ -442,11 +483,11 @@ h3 {
 }
 
 .patch:hover {
-    background-color: #E9B000;
+    background-color: #FF6600;
 }
 
 .punch {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 900;
     text-transform: uppercase;
     -webkit-font-smoothing: antialiased;
@@ -454,7 +495,7 @@ h3 {
 }
 
 .para {
-    font-size: 12px;
+    font-size: 15px;
     -webkit-font-smoothing: antialiased;
     color: #fff;
     text-align: justify;
@@ -489,7 +530,7 @@ h3 {
 }
 
 .profile-footer {
-    background-color: #E9B000;
+    background-color: #FF6600;
 }
 
 //Hexagon div 
@@ -560,7 +601,11 @@ h3 {
 }
 
 .yellow {
-    background-color: #E9B000;
+    background-color: #FF6600;
+}
+
+.secondary-color {
+    color: #0074E1;
 }
 
 .yellow:hover {
@@ -591,6 +636,37 @@ h3 {
     background-color: rgba(37, 146, 247, 0.932);
 }
 
+#talkbubble {
+    background: rgba(245, 245, 245, 0.822);
+    position: relative;
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 1px 8px 1px 8px;
+    color: #000;
+}
+
+#talkbubble:before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    top: 16px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 26px solid rgba(245, 245, 245, 0.822);
+    border-bottom: 13px solid transparent;
+}
+
+.review-img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+.checked {
+    color: orange;
+}
+
 @-webkit-keyframes mymove {
     50% {
         box-shadow: 10px 6px 10px #949494;
@@ -619,8 +695,18 @@ h3 {
     h5 {
         font-size: 60%;
     }
+    p {
+        font-size: .8em;
+    }
+    ul {
+        font-size: .8em;
+    }
+    .p-3 {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
     small {
-        font-size: 0.6em;
+        font-size: 1em;
         font-weight: bold;
     }
     .title {
@@ -664,8 +750,11 @@ h3 {
         margin-left: 30%;
         font-size: 6vw;
     }
+    .mat-card-title {
+        font-size: .7em;
+    }
     .description {
-        font-size: 60%;
+        font-size: 75%;
     }
     .mobile-view {
         display: none;
@@ -784,6 +873,25 @@ h3 {
     h3 {
         font-size: 90%;
     }
+    .p-3 {
+        padding-left: 18%;
+        padding-right: 18%;
+    }
+    .p-1 {
+        padding: 1%;
+    }
+    h5 {
+        font-size: .8em;
+    }
+    ul {
+        font-size: .9em;
+    }
+    .mat-card-title {
+        font-size: .8em;
+    }
+    p {
+        font-size: .9em;
+    }
     .title {
         font-size: 4vw;
         font-weight: 600;
@@ -826,22 +934,51 @@ h3 {
     .chart {
         display: none;
     }
+    .contact {
+        font-size: 1.9vw!important;
+    }
 }
 
 @media screen and (min-width: 1000px) and (max-width: 1200px) {
+    .p-3 {
+        padding-left: 20%;
+        padding-right: 20%;
+    }
     .overlay {
-        margin: 0px;
-        padding-top: 18%;
+        margin-top: 10%;
     }
-    .icon-holder {
-        margin-left: 25%;
+    h5 {
+        font-size: 1em;
     }
-    .icon-holder-img {
-        margin-top: 25%;
-        margin-left: 25%;
-        font-size: 5vw;
+    p {
+        font-size: 1em;
     }
-    .mobile-service {
-        margin-top: 3em!important;
+    ul {
+        font-size: 1em;
+    }
+    .p-1 {
+        padding: 2%;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+    .p-3 {
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+    .overlay {
+        margin-top: 8%;
+    }
+    h5 {
+        font-size: 1em;
+    }
+    p {
+        font-size: 1em;
+    }
+    ul {
+        font-size: 1em;
+    }
+    .p-1 {
+        padding: 1%;
     }
 }

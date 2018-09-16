@@ -3,6 +3,7 @@ import { TweenMax } from "gsap";
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
+import { BannerFormService } from '../banner-form/banner-form.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,69 +15,55 @@ export class NavbarComponent implements OnInit {
   private toggleButton: any;
   private sidebarVisible: boolean;
   @ViewChild(".nav-link") el: ElementRef;
+  @ViewChild('mySidenav') sideNav: ElementRef;
   showLink: object;
-  screenHeight: any;
+  imgWidth: any = 'row';
   screenWidth: any;
   deviceInfo: any;
   testBrowser: any;
+  test: Date = new Date();
 
   constructor(
     private element: ElementRef,
     private router: Router,
+    private dialog: BannerFormService,
     private renderer: Renderer2, @Inject(PLATFORM_ID) private platformId: string) {
     this.testBrowser = isPlatformBrowser(platformId);
     this.sidebarVisible = false;
   }
   ngOnInit() {
-    // const navbar: HTMLElement = this.element.nativeElement;
-    // this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
     if (this.testBrowser == true) {
       const width = window.screen.width;
       const height = window.screen.height;
-      if (width <= 800 && height <= 800) {
-
+      if(width <= 700) {
+        this.imgWidth = 'column';
+      }
+      if (width <= 800) {
+        this.screenWidth = true;
       } else {
-        // TweenMax.from(document.getElementById("nav"), 0.5, {opacity: 0, y: -50, delay: 1});
+        this.screenWidth = false;
         TweenMax.staggerFrom(document.getElementsByClassName("labelBtn"), 0.5, { opacity: 0, y: -50, delay: 1.5 }, 0.2);
         TweenMax.staggerFrom(document.getElementsByClassName("nav-item"), 0.5, { opacity: 0, y: -50, delay: 2 }, 0.2);
-       // TweenMax.fromTo(document.getElementById("logo-head"), 2, { x: -20, y: -10 }, { x: 20, y: 10 }).repeat(20);
       }
     }
   }
-  // sidebarOpen() {
-  //   const toggleButton = this.toggleButton;
-  //   const html = document.getElementsByTagName('html')[0];
 
-  //   setTimeout(function () {
-  //     toggleButton.classList.add('toggled');
-  //   }, 100);
-  //   html.classList.add('nav-open');
-
-  //   this.sidebarVisible = true;
-  // };
-  // sidebarClose() {
-  //   const html = document.getElementsByTagName('html')[0];
-  //   this.toggleButton.classList.remove('toggled');
-  //   this.sidebarVisible = false;
-  //   html.classList.remove('nav-open');
-  // };
-  // sidebarToggle() {
-  //   if (this.sidebarVisible === false) {
-  //     this.sidebarOpen();
-  //   } else {
-  //     this.sidebarClose();
-  //   }
-  // };
-
-  buttonClick(data: any) {
-    this.router.navigateByUrl(data);
+  buttonClick(id: any) {
+    if(id == '1'){
+      this.sideNav.nativeElement.style.width = "0";
+      this.dialog.confirm('', '', '', '', '').subscribe(res => {
+  
+      })
+    } else {
+      this.sideNav.nativeElement.style.width = "0";
+      this.dialog.confirm('', '', '', '', '').subscribe(res => {
+  
+      })
+    }
   }
 
   menuToggle(event: any) {
-    debugger;
-    // console.log(event.target);
-    // this.remove();
-    if(event.currentTarget.className == 'navbar-brand'){
+    if (event.currentTarget.className == 'navbar-brand') {
       this.remove();
       this.renderer.addClass(document.getElementById("home"), "active");
     } else {
@@ -92,5 +79,13 @@ export class NavbarComponent implements OnInit {
       this.renderer.removeClass(element, "active");
     });
     //this.renderer.removeClass(elements, "active");
+  }
+
+  openNav() {
+    this.sideNav.nativeElement.style.width = "100%";
+  }
+
+  closeNav() {
+    this.sideNav.nativeElement.style.width = "0";
   }
 }
