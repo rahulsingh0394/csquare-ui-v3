@@ -101,8 +101,8 @@
         <div fxLayout="row" fxLayoutwrap="wrap">
             <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
             <div fxFlex="100" fxFlex.gt-xs="80">
-                <div fxLayout="row" fxLayoutwrap="wrap">
-                    <div fxFlex="100" fxFlex.gt-xs="50" class="pr-1 mobile-service">
+                <div fxLayout="{{imgWidth}}" fxLayoutAlign="space-evenly center" class="p-1">
+                    <div fxFlex="100" fxFlex.gt-xs="50" class="mobile-service pr-1">
                         <div class="pb-1">
                             <mat-card class="mat-card-left">
                                 <mat-card-content class="p-0">
@@ -181,6 +181,16 @@
             </div>
             <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
         </div>
+    </div>
+</div>
+<div>
+    <h1 class="title test-center" *ngIf="isMobile == false">Take a tour of how it works?</h1>
+    <div fxLayout="row" fxLayoutWrap="wrap" *ngIf="isMobile == false">
+        <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
+        <div fxFlex="100" fxFlex.gt-xs="80">
+            <app-tour></app-tour>
+        </div>
+        <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
     </div>
 </div>
 <div id="picDis" fxLayout="row" fxLayoutWrap="wrap" class="tesimonials" style="margin-bottom: 4em;">
@@ -306,7 +316,9 @@
     </div>
     <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
 </div>
-<app-faq></app-faq>
+<div class="p-1">
+    <app-faq></app-faq>
+</div>
 <div fxLayout="row" fxLayoutWrap="wrap" class="mt-1" style="margin-top: 6em;">
     <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
     <div fxFlex="100" fxFlex.gt-xs="80">

@@ -1,0 +1,102 @@
+<!-- <mat-card>
+    <mat-card-content> -->
+<mat-tab-group>
+    <mat-tab label="How it works for students or parents?">
+        <h4>If you are a student/parent then follow this step. If you are a tutor then go to next tab. (How it works for tutors or teachers?)</h4>
+        <div fxLayout="{{imgWidth}}" fxLayoutAlign="space-evenly center" class="p-1">
+            <div fxFlex="100" fxFlex.gt-sm="32" fxFlex.sm="32">
+                <mat-card class="default" id="areaOne">
+                    <mat-card-title class="one">Click the button which is shown in image.</mat-card-title>
+                    <mat-card-content>
+                        <img src="assets/images/main-page-pic.jpg" style="width: 100%; height: 160px;">
+                    </mat-card-content>
+                    <mat-card-subtitle style="margin-bottom: 2em;">You can see in top of this page a button (Need Tutor?). If you are student and need a tutor for your studies just click that button.</mat-card-subtitle>
+                    <a role="button" class="alert mobile" (click)="startTour()">Start Tour</a>
+                </mat-card>
+            </div>
+            <div fxFlex="100" fxFlex.gt-sm="2" fxFlex.sm="2"></div>
+            <div fxFlex="100" fxFlex.gt-sm="40" fxFlex.sm="32">
+                <mat-card class="default" id="areaOne">
+                    <mat-card-title class="m-0">Follow the instruction's and fill up form</mat-card-title>
+                    <mat-card-content>
+                        <img class="two" src="assets/images/form-fill-up.jpg" style="width: 100%; height: 200px;">
+                    </mat-card-content>
+                    <mat-card-subtitle>Once you click Need Tutor button a modal pop's up. Just follow the steps and fill a form so that we can get you best home tutor.</mat-card-subtitle>
+                    <div class="three">
+                        Form will contain 3 steps.
+                        <ul>
+                            <li>One for location details.</li>
+                            <li>Second for personal details.</li>
+                            <li>Third for grade details for which you need tutor.</li>
+                        </ul>
+                    </div>
+                </mat-card>
+            </div>
+            <div fxFlex="100" fxFlex.gt-sm="2" fxFlex.sm="2"></div>
+            <div fxFlex="100" fxFlex.gt-sm="24" fxFlex.sm="32">
+                <mat-card class="default" id="areaTwo">
+                    <mat-card-title>You are all done.</mat-card-title>
+                    <mat-card-subtitle>Just sit back and relax we will do the rest for you.</mat-card-subtitle>
+                    <mat-card-content>
+                        <div>
+                            <p class="mat-card-subtitle mb-1" style="margin-bottom: 2em;">If this was difficult just chick the below button and follow steps. And we will do rest for you.
+                                <br> <i class="fa fa-hand-o-down fa-2x ml-1" aria-hidden="true"></i>
+                            </p>
+                            <a role="button" class="alert mobile" (click)="buttonClick('1')">&nbsp;Get Tutor!&nbsp;</a>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </mat-tab>
+    <mat-tab label="How it works for tutors or teachers?">
+        <h4>If you are a tutor then follow this step. If you are a student/parent then go to next tab. (How it works for students or parents?)</h4>
+        <div fxLayout="{{imgWidth}}" fxLayoutAlign="space-evenly center" class="p-1">
+            <div fxFlex="100" fxFlex.gt-sm="32" fxFlex.sm="32">
+                <mat-card class="default" id="areaOne">
+                    <mat-card-title class="one">Click the button which is shown in image.</mat-card-title>
+                    <mat-card-content>
+                        <img src="assets/images/main-page-pic.jpg" style="width: 100%; height: 160px;">
+                    </mat-card-content>
+                    <mat-card-subtitle style="margin-bottom: 2em;">You can see in top of this page a button (Need Tutor?). If you are student and need a tutor for your studies just click that button.</mat-card-subtitle>
+                    <a role="button" class="alert mobile" (click)="startTour()">Start Tour</a>
+                </mat-card>
+            </div>
+            <div fxFlex="100" fxFlex.gt-sm="2" fxFlex.sm="2"></div>
+            <div fxFlex="100" fxFlex.gt-sm="40" fxFlex.sm="32">
+                <mat-card class="default" id="areaOne">
+                    <mat-card-title class="m-0">Follow the instruction's and fill up form</mat-card-title>
+                    <mat-card-content>
+                        <img class="two" src="assets/images/form-fill-up.jpg" style="width: 100%; height: 200px;">
+                    </mat-card-content>
+                    <mat-card-subtitle>Once you click Need Tutor button a modal pop's up. Just follow the steps and fill a form so that we can get you best home tutor.</mat-card-subtitle>
+                    <div class="three">
+                        Form will contain 3 steps.
+                        <ul>
+                            <li>One for location details.</li>
+                            <li>Second for personal details.</li>
+                            <li>Third for grade details for which you need tutor.</li>
+                        </ul>
+                    </div>
+                </mat-card>
+            </div>
+            <div fxFlex="100" fxFlex.gt-sm="2" fxFlex.sm="2"></div>
+            <div fxFlex="100" fxFlex.gt-sm="24" fxFlex.sm="32">
+                <mat-card class="default" id="areaTwo">
+                    <mat-card-title>You are all done.</mat-card-title>
+                    <mat-card-subtitle>Just sit back and relax we will do the rest for you.</mat-card-subtitle>
+                    <mat-card-content>
+                        <div>
+                            <p class="mat-card-subtitle mb-1" style="margin-bottom: 2em;">If this was difficult just chick the below button and follow steps. And we will do rest for you.
+                                <br> <i class="fa fa-hand-o-down fa-2x ml-1" aria-hidden="true"></i>
+                            </p>
+                            <a role="button" class="alert mobile" (click)="buttonClick('2')">&nbsp;Be A Tutor!&nbsp;</a>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </mat-tab>
+</mat-tab-group>
+<!-- </mat-card-content>
+</mat-card> -->

@@ -25,216 +25,38 @@
             <mat-card class="mb-1">
                 <mat-card-content>
                     <mat-tab-group>
-                        <mat-tab label="Services in bangalore">
-                            <div fxLayout="{{imgWidth}}" fxLayoutWrap="wrap" class="mt-1 pt-1" style="overflow-y: hidden;">
-                                <div fxFlex="100" fxFlex.gt-xs="33" class="p-1">
-                                    <mat-card class="mb-1">
-                                        <mat-card-title class="service-title">
-                                            Home tuition in bangalore for Class I-IV
-                                        </mat-card-title>
-                                        <mat-card-content>
-                                            <img src="assets/images/class1-4.png" class="service-img">
-                                            <ul>
-                                                <li class="link" class="link">Home tuition for class I in Bangalore</li>
-                                                <li class="link">Home tuition for class II in Bangalore</li>
-                                                <li class="link">Home tuition for class III in Bangalore</li>
-                                                <li class="link">Home tuition for class IV in Bangalore</li>
-                                                <li class="link">Home tuition for class I Mathematics in Bangalore</li>
-                                                <li class="link">Home tuition for class I Science in Bangalore</li>
-                                                <li class="link" *ngIf="readMore1 == 'See Less...'">Home tuition for class I English in Bangalore</li>
-                                                <li class="link" *ngIf="readMore1 == 'See Less...'">Home tuition for class II Mathematics in Bangalore</li>
-                                                <li class="link" *ngIf="readMore1 == 'See Less...'">Home tuition for class II Science in Bangalore</li>
-                                                <li class="link" *ngIf="readMore1 == 'See Less...'">Home tuition for class II English in Bangalore</li>
-                                                <li class="link" *ngIf="readMore1 == 'See Less...'">Home tuition for class III Mathematics in Bangalore</li>
-                                                <li class="link" *ngIf="readMore1 == 'See Less...'">Home tuition for class III Science in Bangalore</li>
-                                                <li class="link" *ngIf="readMore1 == 'See Less...'">Home tuition for class III English in Bangalore</li>
-                                                <li class="link" *ngIf="readMore1 == 'See Less...'">Home tuition for class IV Mathematics in Bangalore</li>
-                                                <li class="link" *ngIf="readMore1 == 'See Less...'">Home tuition for class IV Science in Bangalore</li>
-                                                <li class="link" *ngIf="readMore1 == 'See Less...'">Home tuition for class IV English in Bangalore</li>
-                                                <p style="color: #FF6600;" class="para link" (click)="changeButton('1')">
-                                                    {{readMore1}}
-                                                </p>
-                                            </ul>
-                                        </mat-card-content>
-                                    </mat-card>
-                                </div>
-                                <div fxFlex="100" fxFlex.gt-xs="33" class="p-1">
-                                    <mat-card class="mb-1">
-                                        <mat-card-title class="service-title">
-                                            Home tuition in bangalore for Class V-X
-                                        </mat-card-title>
-                                        <mat-card-content>
-                                            <img src="assets/images/class5-10.jpg" class="service-img">
-                                            <ul>
-                                                <li class="link">Home tuition for class V in Bangalore</li>
-                                                <li class="link">Home tuition for class VI in Bangalore</li>
-                                                <li class="link">Home tuition for class VII in Bangalore</li>
-                                                <li class="link">Home tuition for class VIII in Bangalore</li>
-                                                <li class="link">Home tuition for class IX in Bangalore</li>
-                                                <li class="link">Home tuition for class X in Bangalore</li>
-                                                <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class V Mathematics in Bangalore</li>
-                                                <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class V Science in Bangalore</li>
-                                                <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class V Social Science in Bangalore</li>
-                                                <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class V English in Bangalore</li>
-                                                <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class VI Mathematics in Bangalore</li>
-                                                <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class VI Science in Bangalore</li>
-                                                <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class VI Social Science in Bangalore</li>
-                                                <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class VI English in Bangalore</li>
-                                                <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class VII Mathematics in Bangalore</li>
-                                                <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class VII Science in Bangalore</li>
-                                                <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class VII Social Science in Bangalore</li>
-                                                <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class VII English in Bangalore</li>
-                                                <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class VIII Mathematics in Bangalore</li>
-                                                <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class VIII Science in Bangalore</li>
-                                                <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class VIII Social Science in Bangalore</li>
-                                                <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class VIII English in Bangalore</li>
-                                                <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class IX Mathematics in Bangalore</li>
-                                                <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class IX Science in Bangalore</li>
-                                                <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class IX Social Science in Bangalore</li>
-                                                <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class IX English in Bangalore</li>
-                                                <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class X Mathematics in Bangalore</li>
-                                                <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class X Science in Bangalore</li>
-                                                <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class X Social Science in Bangalore</li>
-                                                <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class X English in Bangalore</li>
-                                                <p style="color: #FF6600;" class="para link" (click)="changeButton('2')">
-                                                    {{readMore2}}
-                                                </p>
-                                            </ul>
-                                        </mat-card-content>
-                                    </mat-card>
-                                </div>
-                                <div fxFlex="100" fxFlex.gt-xs="33" class="p-1">
-                                    <mat-card class="mb-1">
-                                        <mat-card-title class="service-title">
-                                            Home tuition in bangalore for Class XI-XII
-                                        </mat-card-title>
-                                        <mat-card-content>
-                                            <img src="assets/images/class11-12.jpg" class="service-img">
-                                            <ul>
-                                                <li class="link">Home tuition for class XI in Bangalore</li>
-                                                <li class="link">Home tuition for class XII in Bangalore</li>
-                                                <li class="link">Home tuition for class XI Mathematics in Bangalore</li>
-                                                <li class="link">Home tuition for class XI Physics in Bangalore</li>
-                                                <li class="link">Home tuition for class XI Chemistry in Bangalore</li>
-                                                <li class="link">Home tuition for class XI Accountancy in Bangalore</li>
-                                                <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XI Business Studies in Bangalore</li>
-                                                <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XI Biology in Bangalore</li>
-                                                <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XI Economics in Bangalore</li>
-                                                <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XI History in Bangalore</li>
-                                                <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XI Geography in Bangalore</li>
-                                                <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XI Political Science in Bangalore</li>
-                                                <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Mathematics in Bangalore</li>
-                                                <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Physics in Bangalore</li>
-                                                <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Chemistry in Bangalore</li>
-                                                <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Accountancy in Bangalore</li>
-                                                <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Business Studies in Bangalore</li>
-                                                <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Biology in Bangalore</li>
-                                                <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Economics in Bangalore</li>
-                                                <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII History in Bangalore</li>
-                                                <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Geography in Bangalore</li>
-                                                <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Political Science in Bangalore</li>
-                                                <p style="color: #FF6600;" class="para link" (click)="changeButton('3')">
-                                                    {{readMore3}}
-                                                </p>
-                                            </ul>
-                                        </mat-card-content>
-                                    </mat-card>
-                                </div>
-                            </div>
-                            <div fxLayout="{{imgWidth}}" fxLayoutWrap="wrap" class="mt-1 pt-1" style="overflow-y: hidden;">
-                                <div fxFlex="100" fxFlex.gt-xs="33" class="p-1">
-                                    <mat-card class="mb-1">
-                                        <mat-card-title class="service-title">
-                                            Tuition in bangalore for Competitive Exam
-                                        </mat-card-title>
-                                        <mat-card-content>
-                                            <img src="assets/images/competitive.jpg" class="service-img">
-                                            <ul>
-                                                <li class="link">Home tuition for Symbiosis Institute of Design Exam</li>
-                                                <li class="link" *ngIf="readMore4 == 'See Less...'">Home tuition for Footwear Design and Development Institute Exam</li>
-                                                <li class="link">Home tuition for MIT Institute of Design Exam</li>
-                                                <li class="link">Home tuition for National Institute of Design Exam</li>
-                                                <li class="link" *ngIf="readMore4 == 'See Less...'">Home tuition for National Institute of Fashion Design Exam</li>
-                                                <li class="link" *ngIf="readMore4 == 'See Less...'">Home tuition for National Aptitude Test in Architecture Exam</li>
-                                                <li class="link" *ngIf="readMore4 == 'See Less...'">Home tuition for Center for Environmental Planning and Technology (CEPT) Exam</li>
-                                                <li class="link">Home tuition for CIVIL Services Exam</li>
-                                                <li class="link">Home tuition for UPSC Exam</li>
-                                                <li class="link">Home tuition for RBI Grade B Exam</li>
-                                                <li class="link" *ngIf="readMore4 == 'See Less...'">Home tuition for SBI PO Exam</li>
-                                                <li class="link" *ngIf="readMore4 == 'See Less...'">Home tuition for IBPS PO Exam</li>
-                                                <li class="link" *ngIf="readMore4 == 'See Less...'">Home tuition for IBPS Specialist Officer Examination</li>
-                                                <li class="link" *ngIf="readMore4 == 'See Less...'">Home tuition for SSC CGL Examination</li>
-                                                <li class="link" *ngIf="readMore4 == 'See Less...'">Home tuition for Indian Railways Examination</li>
-                                                <li class="link" *ngIf="readMore4 == 'See Less...'">Home tuition for LIC AAO Examination</li>
-                                                <li class="link" *ngIf="readMore4 == 'See Less...'">Home tuition for IBPS & SBI Clerk Examination</li>
-                                                <li class="link" *ngIf="readMore4 == 'See Less...'">Home tuition for Teachers’ Eligibility Test (TET)</li>
-                                                <p style="color: #FF6600;" class="para link" (click)="changeButton('4')">
-                                                    {{readMore4}}
-                                                </p>
-                                            </ul>
-                                        </mat-card-content>
-                                    </mat-card>
-                                </div>
-                                <div fxFlex="100" fxFlex.gt-xs="33" class="p-1">
-                                    <mat-card class="mb-1">
-                                        <mat-card-title class="service-title">
-                                            Home tuition in bangalore for Engineering
-                                        </mat-card-title>
-                                        <mat-card-content>
-                                            <img src="assets/images/engineering.jpg" class="service-img">
-                                            <ul>
-                                                <li class="link">Home tuition for IIT-JEE Exam</li>
-                                                <li class="link">Home tuition for BITSAT Exam</li>
-                                                <li class="link">Home tuition for COMED-K Exam</li>
-                                                <li class="link">Home tuition for IPU-CET (B. Tech) Exam</li>
-                                                <li class="link">Home tuition for Manipal (B. Tech) Exam</li>
-                                                <li class="link">Home tuition for VITEEE Exam</li>
-                                                <li class="link" *ngIf="readMore5 == 'See Less...'">Home tuition for AMU (B. Tech) Exam</li>
-                                                <li class="link" *ngIf="readMore5 == 'See Less...'">Home tuition for NDA Entrance with PCM (MPC) Exam</li>
-                                                <li class="link" *ngIf="readMore5 == 'See Less...'">Home tuition for All India Engineering Entrance Exam with PCM (MPC)</li>
-                                                <li class="link" *ngIf="readMore5 == 'See Less...'">Home tuition for MU OET</li>
-                                                <li class="link" *ngIf="readMore5 == 'See Less...'">Home tuition for SRMJEEE</li>
-                                                <li class="link" *ngIf="readMore5 == 'See Less...'">Home tuition for MET</li>
-                                                <li class="link" *ngIf="readMore5 == 'See Less...'">Home tuition for KIITJEE</li>
-                                                <li class="link" *ngIf="readMore5 == 'See Less...'">Home tuition for SIT</li>
-                                                <p style="color: #FF6600;" class="para link" (click)="changeButton('5')">
-                                                    {{readMore5}}
-                                                </p>
-                                            </ul>
-                                        </mat-card-content>
-                                    </mat-card>
-                                </div>
-                                <div fxFlex="100" fxFlex.gt-xs="33" class="p-1">
-                                    <mat-card class="mb-1">
-                                        <mat-card-title class="service-title">
-                                            Home tuition in bangalore for Medical
-                                        </mat-card-title>
-                                        <mat-card-content>
-                                            <img src="assets/images/medical.jpg" class="service-img">
-                                            <ul>
-                                                <li class="link">Home tuition for AIIMS (UG) Exam</li>
-                                                <li class="link">Home tuition for CMC-Vellore (UG) Exam</li>
-                                                <li class="link">Home tuition for CMC-Ludhiana (UG) Exam</li>
-                                                <li class="link">Home tuition for JIPMER (UG) Exam</li>
-                                                <li class="link">Home tuition for Manipal (UG) Exam</li>
-                                                <li class="link">Home tuition for NEET (UG) Exam</li>
-                                                <li class="link" *ngIf="readMore6 == 'See Less...'">Home tuition for NEET (PG) Exam</li>
-                                                <li class="link" *ngIf="readMore6 == 'See Less...'">Home tuition for AIIMS (PG) Exam</li>
-                                                <li class="link" *ngIf="readMore6 == 'See Less...'">Home tuition for JIPMER (PG) Exam</li>
-                                                <li class="link" *ngIf="readMore6 == 'See Less...'">Home tuition for CMC-Vellore (PG) Exam</li>
-                                                <li class="link" *ngIf="readMore6 == 'See Less...'">Home tuition for CMC-Ludhiana (PG) Exam</li>
-                                                <li class="link" *ngIf="readMore6 == 'See Less...'">Home tuition for Manipal (PG) Exam</li>
-                                                <li class="link" *ngIf="readMore6 == 'See Less...'">Home tuition for AFMC Exam</li>
-                                                <p style="color: #FF6600;" class="para link" (click)="changeButton('6')">
-                                                    {{readMore6}}
-                                                </p>
-                                            </ul>
-                                        </mat-card-content>
-                                    </mat-card>
+                        <mat-tab label="Best Home Tutor for {{pageName}} in bangalore">
+                            <div #tab2 class="mt-1">
+                                <div *ngFor="let item of data" fxLayout="{{imgWidth}}" fxLayoutWrap="wrap" class="pt-1">
+                                    <div fxFlex="100" fxFlex.gt-xs="5"></div>
+                                    <div fxFlex="100" fxFlex.gt-xs="20" class="text-center">
+                                        <img src="{{item.url}}" class="review-img">
+                                    </div>
+                                    <div fxFlex="100" fxFlex.gt-xs="10" class="text-center">
+                                        <h4>{{item.name}}</h4>
+                                        <h4>Experience: {{item.exp}}</h4>
+                                        <div class="star mb-1">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                        </div>
+                                        <a href="tel:+91-78-9934-2386"><i class="fa fa-phone-square fa-2x secondary-color" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                                        <a href="mailto:csquarebangalore@gmail.com"><i class="fa fa-envelope fa-2x secondary-color" aria-hidden="true"></i></a>
+                                    </div>
+                                    <div fxFlex="100" fxFlex.gt-xs="5"></div>
+                                    <div fxFlex="100" fxFlex.gt-xs="55">
+                                        <div id="talkbubble">
+                                            <p style="text-align:justify;"> {{item.desp}}</p>
+                                        </div>
+                                    </div>
+                                    <div fxFlex="100" fxFlex.gt-xs="5"></div>
+                                    <mat-divider></mat-divider>
                                 </div>
                             </div>
                         </mat-tab>
-                        <mat-tab label="Customer's review in bangalore">
+                        <mat-tab label="Customer's for {{pageName}} review, in bangalore">
                             <div #tab2 class="mt-1">
                                 <div *ngFor="let item of data" fxLayout="{{imgWidth}}" fxLayoutWrap="wrap" class="pt-1">
                                     <div fxFlex="100" fxFlex.gt-xs="5"></div>
@@ -305,27 +127,28 @@
         <div fxFlex="100" fxFlex.gt-xs="5"></div>
     </div>
 </div>
-<!-- <div fxLayout="{{imgWidth}}" fxLayoutWrap="wrap" class="p-1">
+<div>
+    <h1 class="title test-center" *ngIf="isMobile == false">Take a tour of how it works?</h1>
+    <div fxLayout="row" fxLayoutWrap="wrap" *ngIf="isMobile == false">
+        <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
+        <div fxFlex="100" fxFlex.gt-xs="80">
+            <app-tour></app-tour>
+        </div>
+        <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
+    </div>
+</div>
+<div fxLayout="{{imgWidth}}" fxLayoutWrap="wrap" class="pt-1 mt-1">
     <div fxFlex="100" fxFlex.gt-xs="5"></div>
     <div fxFlex="100" fxFlex.gt-xs="90">
         <mat-card>
+            <mat-card-title class="text-center">Home Tuiton in bangalore</mat-card-title>
             <mat-card-content>
-                <div fxLayout="{{imgWidth}}" fxLayoutWrap="wrap">
-                    <div fxFlex="100" fxFlex.gt-xs="33">
-                        <h4 class="text-center">Home tuition in bangalore location wise</h4>
-                    </div>
-                    <div fxFlex="100" fxFlex.gt-xs="33">
-                        <h4 class="text-center">Home tuition in bangalore location wise</h4>
-                    </div>
-                    <div fxFlex="100" fxFlex.gt-xs="33">
-                        <h4 class="text-center">Home tuition in bangalore location wise</h4>
-                    </div>
-                </div>
+                <app-menu></app-menu>
             </mat-card-content>
         </mat-card>
     </div>
     <div fxFlex="100" fxFlex.gt-xs="5"></div>
-</div> -->
+</div>
 <div id="tab_2">
     <div *ngFor="let item of data" fxLayout="{{imgWidth}}" fxLayoutWrap="wrap" class="pt-1 mt-1">
         <div fxFlex="100" fxFlex.gt-xs="5"></div>

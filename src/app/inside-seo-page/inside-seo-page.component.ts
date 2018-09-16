@@ -20,7 +20,7 @@ export class InsideSeoPageComponent implements OnInit {
   faq: any [] = [];
   imgUrl: any = 'assets/images/seo2.jpg';
   testBrowser: any;
-  textTitle: any = 'Home Tuition in Bangalore';
+  textTitle: any;
   imgWidth: any = 'row';
   city: any = 5;
   readMore1: any = 'See More...';
@@ -30,6 +30,8 @@ export class InsideSeoPageComponent implements OnInit {
   readMore5: any = 'See More...';
   readMore6: any = 'See More...';
   search: any;
+  isMobile: any = false;
+  pageName: any;
 
   constructor(
     private store: Store<fromState.state>,
@@ -40,6 +42,11 @@ export class InsideSeoPageComponent implements OnInit {
     this.testBrowser = isPlatformBrowser(platformId);
     this.json$ = this.store.pipe(select(fromState.getJson)) as Observable<any>;
     this.store.dispatch(new stateActions.Load(location.path()));
+    if(location.path().split('/').length == 5){
+      this.pageName = location.path().split('/')[4];
+    } else {
+      this.pageName = location.path().split('/')[3];
+    }
     this.store.dispatch(new stateActions.LoadFaq('/faq/CsquareEducation'));
   }
 
@@ -49,6 +56,7 @@ export class InsideSeoPageComponent implements OnInit {
 
       if (width <= 800) {
         this.imgWidth = 'column';
+        this.isMobile = true;
       }
     }
     this.json$.subscribe(res => {
@@ -56,6 +64,7 @@ export class InsideSeoPageComponent implements OnInit {
         this.data = res.json;
         if (this.data) {
           let disData = [];
+          this.textTitle = this.data.h1Des;
           for (let i = 1; i <= 10; i++) {
             let item = {};
             item['name'] = res.json["t" + i];

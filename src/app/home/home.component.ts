@@ -30,7 +30,8 @@ export class HomeComponent implements OnInit {
   public carouselTileItems: Array<any>;
   public carouselTile: NguCarousel;
   panelOpenState = false;
-
+  isMobile: any = false;
+  imgWidth: any = 'row';
   padding: any;
 
   constructor(
@@ -78,6 +79,10 @@ export class HomeComponent implements OnInit {
      let width = window.innerWidth;
      if(width > 600 && width < 1000){
        this.padding = 'pr-1';
+     }
+     if(width < 800) {
+       this.isMobile = true;
+       this.imgWidth = 'column';
      }
      }
   }

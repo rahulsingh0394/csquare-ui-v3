@@ -32,6 +32,7 @@ export class SeoPagesComponent implements OnInit {
   readMore5: any = 'See More...';
   readMore6: any = 'See More...';
   search: any;
+  isMobile: any = false;
 
   constructor(
     private store: Store<fromState.state>,
@@ -51,6 +52,7 @@ export class SeoPagesComponent implements OnInit {
 
       if (width <= 800) {
         this.imgWidth = 'column';
+        this.isMobile = true;
       }
     }
     this.json$.subscribe(res => {

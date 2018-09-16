@@ -19,6 +19,7 @@ import {
     MatStepperModule,
     MatAutocompleteModule,
     MatCardModule,
+    MatSnackBarModule,
     MatTabsModule
 } from '@angular/material';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -30,6 +31,8 @@ import { BannerFormService } from './banner-form/banner-form.service';
 import { ApiService } from './banner-form/api-service.service';
 import { BannerSeoComponent } from './banner-seo/banner-seo.component';
 import { LeadFormComponent } from './lead-form/lead-form.component';
+import { AppTourComponent } from './app-tour/app-tour.component';
+import { AppMenuComponent } from './app-menu/app-menu.component';
 
 @NgModule({
     imports: [
@@ -50,7 +53,8 @@ import { LeadFormComponent } from './lead-form/lead-form.component';
         MatSelectModule,
         MatAutocompleteModule,
         MatCardModule,
-        MatTabsModule
+        MatTabsModule,
+        MatSnackBarModule
     ],
     entryComponents: [
         BannerComponent,
@@ -60,7 +64,9 @@ import { LeadFormComponent } from './lead-form/lead-form.component';
         BannerTopComponent,
         BannerFormComponent,
         BannerSeoComponent,
-        LeadFormComponent
+        LeadFormComponent,
+        AppTourComponent,
+        AppMenuComponent
     ],
     declarations: [
         BannerComponent,
@@ -70,7 +76,9 @@ import { LeadFormComponent } from './lead-form/lead-form.component';
         BannerTopComponent,
         BannerFormComponent,
         BannerSeoComponent,
-        LeadFormComponent
+        LeadFormComponent,
+        AppTourComponent,
+        AppMenuComponent
     ],
     exports: [
         BannerComponent,
@@ -80,7 +88,9 @@ import { LeadFormComponent } from './lead-form/lead-form.component';
         BannerTopComponent,
         BannerFormComponent,
         BannerSeoComponent,
-        LeadFormComponent
+        LeadFormComponent,
+        AppTourComponent,
+        AppMenuComponent
     ],
     providers: [
         BannerComponent,
@@ -91,7 +101,9 @@ import { LeadFormComponent } from './lead-form/lead-form.component';
         BannerFormService,
         ApiService,
         BannerSeoComponent,
-        LeadFormComponent
+        LeadFormComponent,
+        AppTourComponent,
+        AppMenuComponent
     ]
 })
 export class SharedModule { }

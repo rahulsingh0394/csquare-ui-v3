@@ -1,3 +1,4 @@
+@import '~hopscotch/dist/css/hopscotch.min.css';
 body,
 h1,
 h2,
@@ -26,7 +27,7 @@ h6 {
 
 body,
 html {
-    line-height: 1.2;
+    line-height: 1.4;
     margin: 0px;
     letter-spacing: 1px;
 }
@@ -342,6 +343,15 @@ ul {
     border-right: 15px solid #FF6600;
 }
 
+.mat-card-title {
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.mat-card-subtitle {
+    font-size: 0.9em;
+}
+
 .mat-icon {
     color: #fff;
 }
@@ -495,7 +505,7 @@ ul {
 }
 
 .para {
-    font-size: 15px;
+    font-size: 17px;
     -webkit-font-smoothing: antialiased;
     color: #fff;
     text-align: justify;
@@ -681,25 +691,25 @@ ul {
 
 @media screen and (max-width: 600px) {
     body {
-        line-height: 1;
+        line-height: 1.4;
     }
     h1 {
-        font-size: 85%;
+        font-size: 95%;
     }
     h2 {
-        font-size: 85%;
+        font-size: 90%;
     }
     h3 {
-        font-size: 80%;
+        font-size: 85%;
     }
     h5 {
-        font-size: 60%;
+        font-size: 85%;
     }
     p {
-        font-size: .8em;
+        font-size: 80%;
     }
     ul {
-        font-size: .8em;
+        font-size: 80%;
     }
     .p-3 {
         padding-left: 4%;
@@ -760,10 +770,10 @@ ul {
         display: none;
     }
     .punch {
-        font-size: 10px;
+        font-size: 80%;
     }
     .para {
-        font-size: 8px;
+        font-size: 80%;
     }
     .service-divider {
         margin-top: 1em!important;
@@ -923,7 +933,7 @@ ul {
         font-size: 12px;
     }
     .para {
-        font-size: 10px;
+        font-size: 15px;
     }
     .mobile-service {
         margin-top: 4em!important;

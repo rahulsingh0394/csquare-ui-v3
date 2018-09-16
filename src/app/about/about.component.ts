@@ -16,6 +16,7 @@ export class AboutComponent implements OnInit {
   box: any;
   imgUrl: any = 'assets/images/about-us-banner.png';
   textTitle: any = 'About Us';
+  isMobile: any = false;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: string,
@@ -32,6 +33,9 @@ export class AboutComponent implements OnInit {
         this.gap = 'mt-1';
         this.padding = 'p-1';
         this.box = 'pr-1';
+      }
+      if(width <=800) {
+        this.isMobile = true;
       }
     }
   }
