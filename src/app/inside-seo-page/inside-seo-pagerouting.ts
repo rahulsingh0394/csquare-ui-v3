@@ -7,7 +7,6 @@ const routes: Routes = [
         component: InsideSeoPageComponent,
         children: [
             { path: 'Class-wise-best-private-home-tutor', component: InsideSeoPageComponent },
-            { path: 'Class-wise-best-private-home-tutor', component: InsideSeoPageComponent },
             { path: 'Class-wise-best-private-home-tutor/Kindergarten', component: InsideSeoPageComponent },
             { path: 'Class-wise-best-private-home-tutor/Class1', component: InsideSeoPageComponent },
             { path: 'Class-wise-best-private-home-tutor/Class2', component: InsideSeoPageComponent },

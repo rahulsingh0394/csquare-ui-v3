@@ -3,9 +3,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
-import { routing } from './contact.routing';
+import { routing } from './question.routing';
 import { SharedModule } from '../shared/shared.module';
-import { AgmCoreModule } from '@agm/core';
 
 // Material Modules 
 import {
@@ -17,7 +16,7 @@ import {
     MatExpansionModule,
     MatDividerModule
 } from '@angular/material';
-import { ContactComponent } from './contact.component';
+import { QuestionComponent } from './question.component';
 
 
 @NgModule({
@@ -37,14 +36,11 @@ import { ContactComponent } from './contact.component';
         ReactiveFormsModule,
         FormsModule,
         SharedModule,
-        routing,
-        AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyAr-uCXXb-_eTGzKpR6oS0J5WAmrpGu3Fs'
-          }),
+        routing
     ],
     declarations: [
 
-        ContactComponent,
+        QuestionComponent,
     ],
     providers: [
     ],
@@ -52,5 +48,5 @@ import { ContactComponent } from './contact.component';
     ]
 
 })
-export class ContactModule {
+export class QuestionModule {
 }
