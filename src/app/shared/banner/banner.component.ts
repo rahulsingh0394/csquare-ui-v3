@@ -128,7 +128,9 @@ export class BannerComponent implements OnInit {
   }
 
   lead(){
-    this.dialog.confirm('', '', '', '', '').subscribe(res =>{
+    let value = {};
+    value['type'] = 1;
+    this.dialog.confirm('', '', '', '', value).subscribe(res =>{
       
     })
   }

@@ -28,6 +28,30 @@ ul {
     list-style: square;
 }
 
+.blue {
+    background-color: rgba(64, 157, 243, 0.432);
+}
+
+.profile-link {
+    color: #fff;
+    font-size: 2vw;
+    padding: 5%;
+    cursor: pointer;
+}
+
+.profile-link:hover {}
+
+.profile-name,
+.para,
+.tag {
+    color: #000!important;
+}
+
+.para {
+    font-size: 1vw!important;
+    font-weight: 500;
+}
+
 @media (max-width: 600px) {
     .img1 {
         margin-left: 32%;

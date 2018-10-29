@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { NguCarousel, NguCarouselStore, NguCarouselService } from '@ngu/carousel';
+import { BannerFormService } from '../shared/banner-form/banner-form.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -37,7 +39,9 @@ export class HomeComponent implements OnInit {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: string,
-    private carousel: NguCarouselService
+    private carousel: NguCarouselService,
+    private form: BannerFormService,
+    private router: Router
   ) {
     this.testBrowser = isPlatformBrowser(platformId);
   }
@@ -116,6 +120,16 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       this.slideShow = true;
     }, 5000);
+  }
+
+  buttonClick(type: any) {
+    if(type == '2') {
+      let value = {};
+      value['type'] = 2;
+      this.form.confirm('','','','',value).subscribe(res =>{
+        
+      })
+    }
   }
 
   changeButton1() {

@@ -7,7 +7,8 @@ import * as stateActions from '../state/app.actions';
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { FireFilterPipe } from '../shared/pipes/filters/filter.pipe';
-
+// import * as Faq from '../../assets/faq.json';
+ 
 @Component({
   selector: 'app-inside-seo-page',
   templateUrl: './inside-seo-page.component.html',
@@ -15,7 +16,9 @@ import { FireFilterPipe } from '../shared/pipes/filters/filter.pipe';
 })
 export class InsideSeoPageComponent implements OnInit {
   json$: Observable<any>;
+  // faq$: Observable<any>;
   data: any;
+  tutorReview: any [] = [];
   faqList: any [] = [];
   faq: any [] = [];
   imgUrl: any = 'assets/images/seo2.jpg';
@@ -42,7 +45,6 @@ export class InsideSeoPageComponent implements OnInit {
     } else {
       this.pageName = location.path().split('/')[3];
     }
-    this.store.dispatch(new stateActions.LoadFaq('/faq/CsquareEducation'));
   }
 
   ngOnInit() {
@@ -57,32 +59,22 @@ export class InsideSeoPageComponent implements OnInit {
     }
     this.json$.subscribe(res => {
       if (res != undefined) {
-        this.data = res.json;
+        this.data = res;
         if (this.data) {
           let disData = [];
           this.textTitle = this.data.h1Des;
           for (let i = 1; i <= 10; i++) {
             let item = {};
-            item['name'] = res.json["t" + i];
-            item['desp'] = res.json["t" + i + 'Desp'];
-            item['exp'] = res.json["t" + i + 'Exp'];
-            item['url'] = res.json["t" + i + 'Url'];
+            item['name'] = res["t" + i];
+            item['desp'] = res["t" + i + 'Desp'];
+            item['exp'] = res["t" + i + 'Exp'];
+            item['url'] = res["t" + i + 'Url'];
             disData[i - 1] = item;
           }
-          this.data = disData;
+          this.tutorReview = disData;
         }
-       if(res.faq){
-        res.faq.forEach(element => {
-          this.faqList.push(element);
-          this.faq.push(element);
-        });
-       }
       }
     })
-  }
-
-  valuechange(){
-    this.faqList = this.filter.transform(this.faq, this.search);
   }
 
 }

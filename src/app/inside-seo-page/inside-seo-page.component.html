@@ -27,7 +27,7 @@
                     <mat-tab-group>
                         <mat-tab label="Best Home Tutor for {{pageName}} in bangalore">
                             <div #tab2 class="mt-1">
-                                <div *ngFor="let item of data" fxLayout="{{imgWidth}}" fxLayoutWrap="wrap" class="pt-1">
+                                <div *ngFor="let item of tutorReview" fxLayout="{{imgWidth}}" fxLayoutWrap="wrap" class="pt-1">
                                     <div fxFlex="100" fxFlex.gt-xs="5"></div>
                                     <div fxFlex="100" fxFlex.gt-xs="20" class="text-center">
                                         <img src="{{item.url}}" class="review-img">
@@ -58,7 +58,7 @@
                         </mat-tab>
                         <mat-tab label="Customer's for {{pageName}} review, in bangalore">
                             <div #tab2 class="mt-1">
-                                <div *ngFor="let item of data" fxLayout="{{imgWidth}}" fxLayoutWrap="wrap" class="pt-1">
+                                <div *ngFor="let item of tutorReview" fxLayout="{{imgWidth}}" fxLayoutWrap="wrap" class="pt-1">
                                     <div fxFlex="100" fxFlex.gt-xs="5"></div>
                                     <div fxFlex="100" fxFlex.gt-xs="20" class="text-center">
                                         <img src="{{item.url}}" class="review-img">
@@ -87,39 +87,11 @@
                                 </div>
                             </div>
                         </mat-tab>
-                        <mat-tab label="Frequently asked questions">
+                        <!-- <mat-tab label="Frequently asked questions">
                             <div #tab3>
-                                <div fxLayout="row" fxLayoutWrap="wrap" class="mb-1">
-                                    <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
-                                    <div fxFlex="100" fxFlex.gt-xs="80">
-                                        <h1 class="title text-center">Frequently Asked Questions?</h1>
-                                        <div fxLayout="row" fxLayoutWrap="wrap">
-                                            <div fxFlex="100" fxFlex.gt-xs="30" class="mobile-view"></div>
-                                            <div fxFlex="100" fxFlex.gt-xs="40">
-                                                <mat-form-field class="full-width">
-                                                    <input matInput placeholder="Please Enter Your Question!" [(ngModel)]="search" (input)="valuechange()">
-                                                </mat-form-field>
-                                            </div>
-                                            <div fxFlex="100" fxFlex.gt-xs="30" class="mobile-view"></div>
-                                        </div>
-                                        <mat-accordion *ngFor="let item of faqList; let i = index" [attr.data-index]="i">
-                                            <mat-expansion-panel *ngIf="i <= 49" class="mb-1" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                                                <mat-expansion-panel-header>
-                                                    <mat-panel-title>
-                                                        <h5>{{item.Question}}</h5>
-                                                    </mat-panel-title>
-                                                </mat-expansion-panel-header>
-
-                                                <p style="text-align: justify;">
-                                                    {{item.Answer}}
-                                                </p>
-                                            </mat-expansion-panel>
-                                        </mat-accordion>
-                                    </div>
-                                    <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
-                                </div>
+                                <app-faq></app-faq>
                             </div>
-                        </mat-tab>
+                        </mat-tab> -->
                     </mat-tab-group>
                 </mat-card-content>
             </mat-card>
@@ -140,17 +112,21 @@
 <div fxLayout="{{imgWidth}}" fxLayoutWrap="wrap" class="pt-1 mt-1">
     <div fxFlex="100" fxFlex.gt-xs="5"></div>
     <div fxFlex="100" fxFlex.gt-xs="90">
-        <mat-card>
+        <!-- <mat-card>
             <mat-card-title class="text-center">Home Tuiton in Bangalore Class Wise or Course Wise</mat-card-title>
-            <mat-card-content>
-                <app-menu></app-menu>
-            </mat-card-content>
-        </mat-card>
+            <mat-card-content> -->
+        <h1 class="title test-center">Home Tuiton in Bangalore Class Wise or Course Wise</h1>
+        <app-menu></app-menu>
+        <!-- </mat-card-content>
+        </mat-card> -->
     </div>
     <div fxFlex="100" fxFlex.gt-xs="5"></div>
 </div>
+<div #faqTab class="p-1">
+    <app-faq></app-faq>
+</div>
 <div id="tab_2">
-    <div *ngFor="let item of data" fxLayout="{{imgWidth}}" fxLayoutWrap="wrap" class="pt-1 mt-1">
+    <div *ngFor="let item of tutorReview" fxLayout="{{imgWidth}}" fxLayoutWrap="wrap" class="pt-1 mt-1">
         <div fxFlex="100" fxFlex.gt-xs="5"></div>
         <div fxFlex="100" fxFlex.gt-xs="20" class="text-center">
             <img src="{{item.url}}" class="review-img">
@@ -176,15 +152,5 @@
         </div>
         <div fxFlex="100" fxFlex.gt-xs="5"></div>
         <mat-divider></mat-divider>
-    </div>
-</div>
-<div id="tab_3">
-    <div *ngFor="let item of faqList; let i = index" [attr.data-index]="i">
-        <p>
-            {{item.Question}}
-        </p>
-        <p>
-            {{item.Answer}}
-        </p>
     </div>
 </div>

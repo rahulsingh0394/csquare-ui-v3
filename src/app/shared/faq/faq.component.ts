@@ -1,9 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, Renderer2 } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as fromState from '../../state/app.state';
 import * as stateActions from '../../state/app.actions';
 import { FireFilterPipe } from '../pipes/filters/filter.pipe';
+import { PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import * as Faq from '../../../assets/faq.json';
+import * as CryptoJS from 'crypto-js';
+import * as _ from "lodash";
 
 @Component({
   selector: 'app-faq',
@@ -12,34 +17,59 @@ import { FireFilterPipe } from '../pipes/filters/filter.pipe';
 })
 export class FaqComponent implements OnInit {
 
-  faq$: Observable<any>;
+  @ViewChild("faqShow") show: ElementRef;
+  // faq$: Observable<any>;
   allData: any [] = [];
-  data: any [] = [];
+  faqList: any [] = [];
   search: any;
+  testBrowser: any;
 
   constructor(
     private store: Store<fromState.state>,
-    private filter: FireFilterPipe
-  ) { 
-    this.faq$ = this.store.pipe(select(fromState.getJson)) as Observable<any>;
-    this.store.dispatch(new stateActions.LoadFaq('/faq/CsquareEducation'));
+    private filter: FireFilterPipe,
+    public renderer: Renderer2,
+    @Inject(PLATFORM_ID) private platformId: string) { 
+    this.testBrowser = isPlatformBrowser(platformId);
+    // let data = <any>Faq;
+    // var len = Object.keys(data).length;
+    // for (let i = 0; i < len - 1; i++) {
+    //   this.allData.push(data[i]);
+    //   this.faqList.push(data[i]);
+    // }
+    if(this.testBrowser) {
+      let data = localStorage.getItem('CsquareEducation: Faq - ');
+      let bytes = CryptoJS.AES.decrypt(data, 'secret key 123');
+      this.allData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+      // this.faqList = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+    }
   }
 
   ngOnInit() {
-      this.faq$.subscribe(resp =>{
-        if(resp != undefined){
-          if(resp.faq.length){
-            resp.faq.forEach(element => {
-              this.data.push(element);
-              this.allData.push(element);
-            });
-          }
-        }
-      })
   }
 
   valuechange(){
-    this.data = this.filter.transform(this.allData, this.search);
+    this.faqList = [];
+    if(this.search) {
+      // let words = this.search.split(" ");
+      // if(words.length == 1) {
+      //   this.faqList = this.getFilterData(this.search);
+      // } else if ( words.length == 2) {
+      //   let data;
+      //   words.forEach(element => {
+      //     data.push(this.getFilterData, element);
+      //   });
+      //   this.faqList = this.filter.transform(data, )
+      // }
+      this.faqList = this.filter.transform(this.allData, this.search);
+    } else  {
+      this.faqList = this.allData;
+    }
+  }
+
+  getFilterData(item) {
+    let data: any [] = [];
+    data = this.filter.transform(this.allData, item);
+    return data;
   }
 
 }

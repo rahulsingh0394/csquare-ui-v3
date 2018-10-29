@@ -25,7 +25,7 @@ export class BannerFormService {
       let width = window.innerWidth;
       let height = window.innerHeight;
       if(width <= 800) {
-        this.width = width - 60;
+        this.width = width - 20;
         this.height = height - 40;
         this.isMobile = true;
       } else if(width > 800 && width <= 1200) {

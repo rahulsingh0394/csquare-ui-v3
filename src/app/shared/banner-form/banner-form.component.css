@@ -1,14 +1,18 @@
-.first-img {
+/* .first-img {
     margin-top: -20%;
-}
+} */
 
 .title {
     font-size: 100%;
 }
 
+:host /deep/ .nextBtn {
+    margin-left: 42px!important;
+}
+
 @media screen and (max-width: 400px) {
     .first-img {
-        margin-top: -40%;
+        margin-top: 1%;
     }
     .vertical-stepper {
         margin-left: -15%;
@@ -16,14 +20,18 @@
     }
 }
 
+small {
+    font-size: .6em!important;
+}
+
 @media screen and (min-width: 401px) and (max-width: 800px) {
-    .first-img {
+    /* .first-img {
         margin-top: -20%;
-    }
+    } */
 }
 
 @media screen and (min-width: 801px) and (max-width: 1600px) {
-    .first-img {
+    /* .first-img {
         margin-top: -10%;
-    }
+    } */
 }

@@ -11,8 +11,8 @@
             </div>
             <div fxFlex="100" fxFlex.gt-xs="30" class="mobile-view"></div>
         </div>
-        <mat-accordion *ngFor="let item of data; let i = index" [attr.data-index]="i">
-            <mat-expansion-panel *ngIf="i < 10" class="mb-1" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-accordion *ngFor="let item of faqList; let i = index" [attr.data-index]="i">
+            <mat-expansion-panel *ngIf="i < 15" class="mb-1" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
                         <h5>{{item.Question}}</h5>
@@ -27,15 +27,10 @@
     </div>
     <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
 </div>
-<div class="show">
-    <div *ngFor="let item of data; let i = index" [attr.data-index]="i">
-        <div *ngIf="i >= 10">
-            <p>
-                {{item.Question}}
-            </p>
-            <p>
-                {{item.Answer}}
-            </p>
+<div>
+    <div *ngFor="let item of allData; let i = index" [attr.data-index]="i">
+        <div class="show">
+            {{item.Question}}: "{{item.Answer}}"
         </div>
     </div>
 </div>

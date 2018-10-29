@@ -7,28 +7,25 @@ export interface state {
 
 export interface SeoState{
     json: any
-    faq: any
+}
+
+export const init: SeoState = {
+    json: []
 }
 
 const getJsonFeatureState = createFeatureSelector<SeoState>('reducer');
 
 export const getJson = createSelector(
     getJsonFeatureState,
-    store => store
+    store => store.json
 )
 
-
-export function reducer(state, action: JsonActions): SeoState {
+export function reducer(state = init, action: JsonActions): SeoState {
     switch (action.type) {
         case AllJson.LoadSuccess: 
         return {
             ...state,
             json: action.payload
-        }
-        case AllJson.LoadFaqSuccess: 
-        return {
-            ...state,
-            faq: action.payload
         }
         default: 
         return state;

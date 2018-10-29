@@ -59,17 +59,6 @@
     </div>
     <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
 </div>
-
-<div>
-    <h1 class="title test-center" *ngIf="isMobile == false && isBrowser == true">Take a tour of how it works?</h1>
-    <div fxLayout="row" fxLayoutWrap="wrap" *ngIf="isMobile == false && isBrowser == true">
-        <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
-        <div fxFlex="100" fxFlex.gt-xs="80">
-            <app-tour></app-tour>
-        </div>
-        <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
-    </div>
-</div>
 <!-- <div class="blue mb-3">
     <h2 class="text-center pt-1">How We Work.</h2>
     <h5 class="tag text-center">Small team working on big challenges in honest collaboration with our clients. </h5>
@@ -142,8 +131,10 @@
                     Teamwork is so important that it is virtually impossible for you to reach the heights of your capabilities or make the money that you want without becoming very good at it.
                 </p>
                 <mat-card-actions>
-                    <button mat-button>LIKE</button>
-                    <button mat-button>SHARE</button>
+                    <a class="profile-link" href="/home"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a class="profile-link" href="/home"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a class="profile-link" href="/home"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    <a class="profile-link" href="/home"><i class="fa fa-google" aria-hidden="true"></i></a>
                 </mat-card-actions>
             </mat-card-content>
         </mat-card>
@@ -164,8 +155,10 @@
                     A group becomes a team when each member is sure enough of himself and his contribution to praise the skill of the others. No one can whistle a symphony. It takes an orchestra to play it.
                 </p>
                 <mat-card-actions>
-                    <button mat-button>LIKE</button>
-                    <button mat-button>SHARE</button>
+                    <a class="profile-link" href="/home"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a class="profile-link" href="/home"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a class="profile-link" href="/home"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    <a class="profile-link" href="/home"><i class="fa fa-google" aria-hidden="true"></i></a>
                 </mat-card-actions>
             </mat-card-content>
         </mat-card>
@@ -186,11 +179,23 @@
                     The strength of the team is each individual member. The strength of each member is the team. If you can laugh together, you can work together, silence isn’t golden, it’s deadly.
                 </p>
                 <mat-card-actions>
-                    <button mat-button>LIKE</button>
-                    <button mat-button>SHARE</button>
+                    <a class="profile-link" href="/home"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a class="profile-link" href="/home"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a class="profile-link" href="/home"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    <a class="profile-link" href="/home"><i class="fa fa-google" aria-hidden="true"></i></a>
                 </mat-card-actions>
             </mat-card-content>
         </mat-card>
     </div>
     <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
+</div>
+<div>
+    <h1 class="title test-center" *ngIf="isMobile == false && isBrowser == true">Take a tour of how it works?</h1>
+    <div fxLayout="row" fxLayoutWrap="wrap" *ngIf="isMobile == false && isBrowser == true">
+        <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
+        <div fxFlex="100" fxFlex.gt-xs="80">
+            <app-tour></app-tour>
+        </div>
+        <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
+    </div>
 </div>

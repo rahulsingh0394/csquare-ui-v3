@@ -5,7 +5,7 @@
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.1vw;
     position: fixed;
-    z-index: 3;
+    z-index: 99;
     background-color: #fff;
     width: 100%;
     line-height: 1.5;
@@ -171,7 +171,7 @@
         font-size: 1.5vw;
     }
     .footer-link {
-        font-size: 3vw;
+        font-size: 5vw;
     }
     .footer-img {
         margin-bottom: 2%;
@@ -180,9 +180,12 @@
         font-size: 3vw;
     }
     .contact {
-        font-size: 3.4vw;
+        font-size: 5.4vw;
         display: flex;
-        height: 60px;
+        padding: 0;
+    }
+    .contact a {
+        text-decoration: none!important;
     }
     .thread {
         height: 350px;
@@ -204,15 +207,29 @@
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
+    overflow: hidden!important;
 }
 
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 23px;
+    font-size: 18px;
     color: #000;
     display: block;
     transition: 0.3s;
+}
+
+.float-btn-menu {
+    border: 1px solid #d4d4d452!important;
+    margin-bottom: 0px;
+    margin-left: 3px;
+    margin-right: 3px;
+    border-radius: 9%;
+    transition: 0.3s ease;
+}
+
+.float-btn-menu:hover {
+    box-shadow: 2px 2px #ccc;
 }
 
 .sidenav .socail-icon {
@@ -221,6 +238,10 @@
 
 .sidenav a:hover {
     color: #0074E1;
+}
+
+.phoneNo {
+    z-index: 999!important;
 }
 
 .sidenav .closebtn {
@@ -237,5 +258,39 @@
     }
     .sidenav a {
         font-size: 18px;
+    }
+}
+
+.phoneNo {
+    z-index: 999!important;
+    background-color: #69db4b;
+    text-align: center;
+    padding-top: 3%;
+}
+
+.phoneNo:hover {
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+@keyframes shake {
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
     }
 }

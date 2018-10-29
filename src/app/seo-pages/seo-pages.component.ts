@@ -18,8 +18,6 @@ export class SeoPagesComponent implements OnInit {
 
   json$: Observable<any>;
   data: any;
-  faqList: any [] = [];
-  faq: any [] = [];
   imgUrl: any = 'assets/images/seo2.jpg';
   testBrowser: any;
   textTitle: any = 'Home Tuition in Bangalore';
@@ -38,7 +36,6 @@ export class SeoPagesComponent implements OnInit {
     this.testBrowser = isPlatformBrowser(platformId);
     this.json$ = this.store.pipe(select(fromState.getJson)) as Observable<any>;
     this.store.dispatch(new stateActions.Load(location.path()));
-    this.store.dispatch(new stateActions.LoadFaq('/faq/CsquareEducation'));
   }
 
   ngOnInit() {
@@ -53,31 +50,22 @@ export class SeoPagesComponent implements OnInit {
     }
     this.json$.subscribe(res => {
       if (res != undefined) {
-        this.data = res.json;
+        console.log(res)
+        this.data = res;
         if (this.data) {
           let disData = [];
           for (let i = 1; i <= 10; i++) {
             let item = {};
-            item['name'] = res.json["t" + i];
-            item['desp'] = res.json["t" + i + 'Desp'];
-            item['exp'] = res.json["t" + i + 'Exp'];
-            item['url'] = res.json["t" + i + 'Url'];
+            item['name'] = res["t" + i];
+            item['desp'] = res["t" + i + 'Desp'];
+            item['exp'] = res["t" + i + 'Exp'];
+            item['url'] = res["t" + i + 'Url'];
             disData[i - 1] = item;
           }
           this.data = disData;
         }
-       if(res.faq){
-        res.faq.forEach(element => {
-          this.faqList.push(element);
-          this.faq.push(element);
-        });
-       }
       }
     })
-  }
-
-  valuechange(){
-    this.faqList = this.filter.transform(this.faq, this.search);
   }
 
 }

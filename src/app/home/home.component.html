@@ -95,6 +95,16 @@
         </div>
     </div>
 </div>
+<div>
+    <h1 class="title test-center" *ngIf="isMobile == false && isBrowser == true">Take a tour of how it works?</h1>
+    <div fxLayout="row" fxLayoutWrap="wrap" *ngIf="isMobile == false && isBrowser == true">
+        <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
+        <div fxFlex="100" fxFlex.gt-xs="80">
+            <app-tour></app-tour>
+        </div>
+        <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
+    </div>
+</div>
 <div fxLayout="row" fxLayoutWrap="wrap" class="blue mt-1 mb-1 ">
     <div fxFlex="100">
         <h1 class="text-center" style="padding-top: 1.5em;">Services we offer!</h1>
@@ -116,6 +126,9 @@
                                 of and creative skills from students. In Csquareeducation we believe that our secret of success and tremendous growth is just because of tremendous efforts, dedication as well as hard work from our faculties members. Csquareeducation
                                 always provide a best and wide opportunity and a convenient environment to our tutors.
                             </p>
+                            <div class="text-center">
+                                <a role="button" class="alert mobile" style="width: 80%;" (click)="buttonClick('2')">&nbsp;Enroll as A Tutor!&nbsp;</a>
+                            </div>
                             <div *ngIf="show2 == true">
                                 <p class="para">Only because of a best tutor, students will able to concentrate on their studies without distracting their mind on other activities. Hence best tutor is required to achieve any kind of achievements from students. We are
                                     offering both part time as well as full time tutor jobs. We consider our tutors as our own members and are asset for Csquareeducation.
@@ -181,16 +194,6 @@
             </div>
             <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
         </div>
-    </div>
-</div>
-<div>
-    <h1 class="title test-center" *ngIf="isMobile == false && isBrowser == true">Take a tour of how it works?</h1>
-    <div fxLayout="row" fxLayoutWrap="wrap" *ngIf="isMobile == false && isBrowser == true">
-        <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
-        <div fxFlex="100" fxFlex.gt-xs="80">
-            <app-tour></app-tour>
-        </div>
-        <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
     </div>
 </div>
 <div id="picDis" fxLayout="row" fxLayoutWrap="wrap" class="tesimonials" style="margin-bottom: 4em;">
@@ -316,7 +319,7 @@
     </div>
     <div fxFlex="100" fxFlex.gt-xs="10" class="mobile-view"></div>
 </div>
-<div class="p-1">
+<div #faqTab class="p-1">
     <app-faq></app-faq>
 </div>
 <div fxLayout="row" fxLayoutWrap="wrap" class="mt-1" style="margin-top: 6em;">

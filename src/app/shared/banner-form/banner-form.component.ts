@@ -1,9 +1,10 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormBuilder, FormGroup, AbstractControl, Validators, FormArray, Form } from '@angular/forms';
 import { ApiService } from './api-service.service';
 import { FireFilterPipe, SortPipe } from '../pipes/filters/filter.pipe';
 import { ToastrService } from 'ngx-toastr';
+import { MatStepper } from '@angular/material';
 
 @Component({
   selector: 'app-banner-form',
@@ -17,6 +18,8 @@ export class BannerFormComponent implements OnInit {
   basicDetail: FormGroup;
   start: any = false;
   activeStep: any = 0;
+  type: any;
+  error: any;
 
   public location: AbstractControl;
   public city: AbstractControl;
@@ -43,7 +46,7 @@ export class BannerFormComponent implements OnInit {
     this.initForm();
     this.service.getCity().subscribe(res => {
       this.cityList = res.json();
-      if(this.data.value){
+      if(this.data.value.city){
         this.city.setValue((this.data.value.city).toString());
         this.location.setValue(this.data.value.location);
       }
@@ -53,12 +56,52 @@ export class BannerFormComponent implements OnInit {
     })
   }
 
+  goBack(stepper: MatStepper) {
+    stepper.previous();
+  }
+  goForward(stepper: MatStepper) {
+    if(stepper.selectedIndex == 0) {
+      if(this.locationData.valid) {
+        stepper.next();
+      } else {
+        for (let i in this.locationData.controls) {
+          if (this.locationData.controls[i]) {
+            this.locationData.controls[i].markAsTouched();
+          }
+        }
+      }
+    } else if(stepper.selectedIndex == 1) {
+      if(this.personalData.valid) {
+        stepper.next();
+      } else {
+        for (let i in this.personalData.controls) {
+          if (this.personalData.controls[i]) {
+            this.personalData.controls[i].markAsTouched();
+          }
+        }
+      }
+    } else {
+      if(this.basicDetail.valid) {
+        this.submit();
+      } else {
+        for (let i in this.basicDetail.controls) {
+          if (this.basicDetail.controls[i]) {
+            this.basicDetail.controls[i].markAsTouched();
+          }
+        }
+      }
+    }
+  }
+
   onNoClick(): void {
     this.dialogRef.close();
   }
 
   ngOnInit() {
-   
+    if(this.data.value) {
+      this.type = this.data.value.type;
+      this.start = true;
+    }
   }
 
   private initForm() {
@@ -90,7 +133,7 @@ export class BannerFormComponent implements OnInit {
 
     this.personalData = this.fb.group({
       'firstName': ['', Validators.compose([Validators.required])],
-      'phone': ['', Validators.compose([Validators.required, Validators.maxLength(10),
+      'phone': ['', Validators.compose([Validators.required, Validators.pattern('[0-9]*'), Validators.maxLength(10),
       Validators.minLength(10)])],
       'email': ['', Validators.compose([Validators.required, Validators.email])]
     })
@@ -110,7 +153,14 @@ export class BannerFormComponent implements OnInit {
   }
 
   proceed() {
-    this.start = !this.start;
+    if(!this.type) {
+      this.error = 'Please select any one and then proceed.'
+      setTimeout(() => {
+        this.error = '';
+      }, 3000);
+    } else {
+      this.start = !this.start;
+    }
   }
 
   submit() {
@@ -125,7 +175,15 @@ export class BannerFormComponent implements OnInit {
     formData['firstName'] = this.firstName.value;
     formData['phone'] = this.phone.value;
     formData['email'] = this.email.value;
-    formData['leadGradeList'] = [{ 'gradeId': this.grade.value }];
+    let list: any = [];
+    if(this.type == 1) {
+      formData['leadGradeList'] = [{ 'gradeId': this.grade.value }];
+    } else {
+      this.grade.value.forEach(element => {
+        list.push({ 'gradeId': element });
+      });
+      formData['leadGradeList'] = list;
+    }
     formData['comment'] = this.comment.value;
     this.service.addLead(formData).subscribe(res => {
      if(res._body == 'Email already exists'){

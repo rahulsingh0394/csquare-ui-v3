@@ -20,7 +20,8 @@ import {
     MatAutocompleteModule,
     MatCardModule,
     MatSnackBarModule,
-    MatTabsModule
+    MatTabsModule,
+    MatRadioModule
 } from '@angular/material';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
@@ -54,7 +55,8 @@ import { AppMenuComponent } from './app-menu/app-menu.component';
         MatAutocompleteModule,
         MatCardModule,
         MatTabsModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatRadioModule
     ],
     entryComponents: [
         BannerComponent,

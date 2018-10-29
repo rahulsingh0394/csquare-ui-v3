@@ -27,15 +27,4 @@ export class AppEffects {
       )
     )
   );
-
-  @Effect()
-  loadFaq$: Observable<Action> = this.actions$.pipe(
-    ofType(jsonAction.AllJson.LoadFaq),
-    mergeMap((action: any) =>
-      this.service.getJson(action.payload).pipe(
-        map(data => (new jsonAction.LoadFaqSuccess(data.json()))),
-        catchError(err => of(new jsonAction.LoadFaqFail(err)))
-      )
-    )
-  );
 }

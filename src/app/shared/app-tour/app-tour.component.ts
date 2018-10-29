@@ -103,11 +103,15 @@ export class AppTourComponent implements OnInit, OnDestroy {
 
   buttonClick(id: any) {
     if (id == '1') {
-      this.dialog.confirm('', '', '', '', '').subscribe(res => {
+      let value = {};
+      value['type'] = 1;
+      this.dialog.confirm('', '', '', '', value).subscribe(res => {
 
       })
     } else {
-      this.dialog.confirm('', '', '', '', '').subscribe(res => {
+      let value = {};
+      value['type'] = 2;
+      this.dialog.confirm('', '', '', '', value).subscribe(res => {
 
       })
     }

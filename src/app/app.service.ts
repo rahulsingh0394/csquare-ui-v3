@@ -10,7 +10,6 @@ export class AppService {
     constructor(private http: Http) {}
 
     getJson(data: any): Observable<any> {
-        console.log(data);
         return this.http.get('https://csquareeducation.co.in/json'+data+'.json');
     }
 }

@@ -7,22 +7,22 @@
             <mat-card-content>
                 <img src="assets/images/class1-4.png" class="service-img">
                 <ul>
-                    <li class="link" class="link">Home tuition for class I in Bangalore</li>
-                    <li class="link">Home tuition for class II in Bangalore</li>
-                    <li class="link">Home tuition for class III in Bangalore</li>
-                    <li class="link">Home tuition for class IV in Bangalore</li>
-                    <li class="link">Home tuition for class I Mathematics in Bangalore</li>
-                    <li class="link">Home tuition for class I Science in Bangalore</li>
-                    <li class="link" *ngIf="readMore1 == 'See Less...'">Home tuition for class I English in Bangalore</li>
-                    <li class="link" *ngIf="readMore1 == 'See Less...'">Home tuition for class II Mathematics in Bangalore</li>
-                    <li class="link" *ngIf="readMore1 == 'See Less...'">Home tuition for class II Science in Bangalore</li>
-                    <li class="link" *ngIf="readMore1 == 'See Less...'">Home tuition for class II English in Bangalore</li>
-                    <li class="link" *ngIf="readMore1 == 'See Less...'">Home tuition for class III Mathematics in Bangalore</li>
-                    <li class="link" *ngIf="readMore1 == 'See Less...'">Home tuition for class III Science in Bangalore</li>
-                    <li class="link" *ngIf="readMore1 == 'See Less...'">Home tuition for class III English in Bangalore</li>
-                    <li class="link" *ngIf="readMore1 == 'See Less...'">Home tuition for class IV Mathematics in Bangalore</li>
-                    <li class="link" *ngIf="readMore1 == 'See Less...'">Home tuition for class IV Science in Bangalore</li>
-                    <li class="link" *ngIf="readMore1 == 'See Less...'">Home tuition for class IV English in Bangalore</li>
+                    <li class="link" class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Class-wise-best-private-home-tutor/Class1')">Home tuition for class I in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Class-wise-best-private-home-tutor/Class2')">Home tuition for class II in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Class-wise-best-private-home-tutor/Class3')">Home tuition for class III in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Class-wise-best-private-home-tutor/Class4')">Home tuition for class IV in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Maths')">Home tuition for class I Mathematics in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Science')">Home tuition for class I Science in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/English')" *ngIf="readMore1 == 'See Less...'">Home tuition for class I English in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Mathematics')" *ngIf="readMore1 == 'See Less...'">Home tuition for class II Mathematics in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Science')" *ngIf="readMore1 == 'See Less...'">Home tuition for class II Science in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/English')" *ngIf="readMore1 == 'See Less...'">Home tuition for class II English in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Maths')" *ngIf="readMore1 == 'See Less...'">Home tuition for class III Mathematics in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Science')" *ngIf="readMore1 == 'See Less...'">Home tuition for class III Science in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/English')" *ngIf="readMore1 == 'See Less...'">Home tuition for class III English in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Mathematics')" *ngIf="readMore1 == 'See Less...'">Home tuition for class IV Mathematics in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Science')" *ngIf="readMore1 == 'See Less...'">Home tuition for class IV Science in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/English')" *ngIf="readMore1 == 'See Less...'">Home tuition for class IV English in Bangalore</li>
                     <p style="color: #FF6600;" class="para link" (click)="changeButton('1')">
                         {{readMore1}}
                     </p>
@@ -38,36 +38,36 @@
             <mat-card-content>
                 <img src="assets/images/class5-10.jpg" class="service-img">
                 <ul>
-                    <li class="link">Home tuition for class V in Bangalore</li>
-                    <li class="link">Home tuition for class VI in Bangalore</li>
-                    <li class="link">Home tuition for class VII in Bangalore</li>
-                    <li class="link">Home tuition for class VIII in Bangalore</li>
-                    <li class="link">Home tuition for class IX in Bangalore</li>
-                    <li class="link">Home tuition for class X in Bangalore</li>
-                    <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class V Mathematics in Bangalore</li>
-                    <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class V Science in Bangalore</li>
-                    <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class V Social Science in Bangalore</li>
-                    <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class V English in Bangalore</li>
-                    <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class VI Mathematics in Bangalore</li>
-                    <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class VI Science in Bangalore</li>
-                    <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class VI Social Science in Bangalore</li>
-                    <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class VI English in Bangalore</li>
-                    <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class VII Mathematics in Bangalore</li>
-                    <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class VII Science in Bangalore</li>
-                    <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class VII Social Science in Bangalore</li>
-                    <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class VII English in Bangalore</li>
-                    <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class VIII Mathematics in Bangalore</li>
-                    <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class VIII Science in Bangalore</li>
-                    <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class VIII Social Science in Bangalore</li>
-                    <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class VIII English in Bangalore</li>
-                    <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class IX Mathematics in Bangalore</li>
-                    <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class IX Science in Bangalore</li>
-                    <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class IX Social Science in Bangalore</li>
-                    <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class IX English in Bangalore</li>
-                    <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class X Mathematics in Bangalore</li>
-                    <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class X Science in Bangalore</li>
-                    <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class X Social Science in Bangalore</li>
-                    <li class="link" *ngIf="readMore2 == 'See Less...'">Home tuition for class X English in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Class-wise-best-private-home-tutor/Class5')">Home tuition for class V in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Class-wise-best-private-home-tutor/Class6')">Home tuition for class VI in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Class-wise-best-private-home-tutor/Class7')">Home tuition for class VII in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Class-wise-best-private-home-tutor/Class8')">Home tuition for class VIII in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Class-wise-best-private-home-tutor/Class9')">Home tuition for class IX in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Class-wise-best-private-home-tutor/Class10')">Home tuition for class X in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Mathematics')" *ngIf="readMore2 == 'See Less...'">Home tuition for class V Mathematics in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Science')" *ngIf="readMore2 == 'See Less...'">Home tuition for class V Science in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Social_Science')" *ngIf="readMore2 == 'See Less...'">Home tuition for class V Social Science in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/English')" *ngIf="readMore2 == 'See Less...'">Home tuition for class V English in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Mathematics')" *ngIf="readMore2 == 'See Less...'">Home tuition for class VI Mathematics in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Science')" *ngIf="readMore2 == 'See Less...'">Home tuition for class VI Science in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Social_Science')" *ngIf="readMore2 == 'See Less...'">Home tuition for class VI Social Science in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/English')" *ngIf="readMore2 == 'See Less...'">Home tuition for class VI English in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Maths')" *ngIf="readMore2 == 'See Less...'">Home tuition for class VII Mathematics in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Science')" *ngIf="readMore2 == 'See Less...'">Home tuition for class VII Science in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Social_Science')" *ngIf="readMore2 == 'See Less...'">Home tuition for class VII Social Science in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/English')" *ngIf="readMore2 == 'See Less...'">Home tuition for class VII English in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Mathematics')" *ngIf="readMore2 == 'See Less...'">Home tuition for class VIII Mathematics in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Science')" *ngIf="readMore2 == 'See Less...'">Home tuition for class VIII Science in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Social_Science')" *ngIf="readMore2 == 'See Less...'">Home tuition for class VIII Social Science in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/English')" *ngIf="readMore2 == 'See Less...'">Home tuition for class VIII English in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Mathematics')" *ngIf="readMore2 == 'See Less...'">Home tuition for class IX Mathematics in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Science')" *ngIf="readMore2 == 'See Less...'">Home tuition for class IX Science in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Social_Science')" *ngIf="readMore2 == 'See Less...'">Home tuition for class IX Social Science in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/English')" *ngIf="readMore2 == 'See Less...'">Home tuition for class IX English in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Maths')" *ngIf="readMore2 == 'See Less...'">Home tuition for class X Mathematics in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Science')" *ngIf="readMore2 == 'See Less...'">Home tuition for class X Science in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Social_Science')" *ngIf="readMore2 == 'See Less...'">Home tuition for class X Social Science in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/English')" *ngIf="readMore2 == 'See Less...'">Home tuition for class X English in Bangalore</li>
                     <p style="color: #FF6600;" class="para link" (click)="changeButton('2')">
                         {{readMore2}}
                     </p>
@@ -83,28 +83,32 @@
             <mat-card-content>
                 <img src="assets/images/class11-12.jpg" class="service-img">
                 <ul>
-                    <li class="link">Home tuition for class XI in Bangalore</li>
-                    <li class="link">Home tuition for class XII in Bangalore</li>
-                    <li class="link">Home tuition for class XI Mathematics in Bangalore</li>
-                    <li class="link">Home tuition for class XI Physics in Bangalore</li>
-                    <li class="link">Home tuition for class XI Chemistry in Bangalore</li>
-                    <li class="link">Home tuition for class XI Accountancy in Bangalore</li>
-                    <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XI Business Studies in Bangalore</li>
-                    <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XI Biology in Bangalore</li>
-                    <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XI Economics in Bangalore</li>
-                    <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XI History in Bangalore</li>
-                    <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XI Geography in Bangalore</li>
-                    <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XI Political Science in Bangalore</li>
-                    <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Mathematics in Bangalore</li>
-                    <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Physics in Bangalore</li>
-                    <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Chemistry in Bangalore</li>
-                    <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Accountancy in Bangalore</li>
-                    <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Business Studies in Bangalore</li>
-                    <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Biology in Bangalore</li>
-                    <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Economics in Bangalore</li>
-                    <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII History in Bangalore</li>
-                    <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Geography in Bangalore</li>
-                    <li class="link" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Political Science in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Class-wise-best-private-home-tutor/Class_11_Science')">Home tuition for class XI Science in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Class-wise-best-private-home-tutor/Class_11_Commerce')">Home tuition for class XI Commerce in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Class-wise-best-private-home-tutor/Class_11_Arts')">Home tuition for class XI Arts in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Class-wise-best-private-home-tutor/Class_12_Science')">Home tuition for class XII Science in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Class-wise-best-private-home-tutor/Class_12_Commerce')">Home tuition for class XII Commerce in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Class-wise-best-private-home-tutor/Class_12_Arts')">Home tuition for class XII Arts in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Mathematics')" *ngIf="readMore3 == 'See Less...'">Home tuition for class XI Mathematics in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Physics')" *ngIf="readMore3 == 'See Less...'">Home tuition for class XI Physics in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Chemistry')" *ngIf="readMore3 == 'See Less...'">Home tuition for class XI Chemistry in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Account')" *ngIf="readMore3 == 'See Less...'">Home tuition for class XI Accountancy in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Business_Studies')" *ngIf="readMore3 == 'See Less...'">Home tuition for class XI Business Studies in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Biology')" *ngIf="readMore3 == 'See Less...'">Home tuition for class XI Biology in Bangalore</li>
+                    <!-- <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Business_Studies')" *ngIf="readMore3 == 'See Less...'">Home tuition for class XI Economics in Bangalore</li> -->
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/History')" *ngIf="readMore3 == 'See Less...'">Home tuition for class XI History in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Geography')" *ngIf="readMore3 == 'See Less...'">Home tuition for class XI Geography in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Civics')" *ngIf="readMore3 == 'See Less...'">Home tuition for class XI Political Science in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Mathematics')" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Mathematics in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Physics')" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Physics in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Chemistry')" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Chemistry in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Account')" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Accountancy in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Business_Studies')" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Business Studies in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Biology')" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Biology in Bangalore</li>
+                    <!-- <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Economics')" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Economics in Bangalore</li> -->
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/History')" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII History in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Geography')" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Geography in Bangalore</li>
+                    <li class="link" (click)="navigate('/bangalore/home-tutors-private-tutors/Subjects-wise-best-private-home-tutor/Civics')" *ngIf="readMore3 == 'See Less...'">Home tuition for class XII Political Science in Bangalore</li>
                     <p style="color: #FF6600;" class="para link" (click)="changeButton('3')">
                         {{readMore3}}
                     </p>
@@ -205,3 +209,9 @@
         </mat-card>
     </div>
 </div>
+<!-- <h1 class="title test-center">Home tuition in your localities</h1>
+<div fxLayout="{{imgWidth}}" fxLayoutWrap="wrap" class="mt-1 pt-1" style="overflow-y: hidden;">
+    <div fxFlex="100" fxFlex.gt-xs="33" class="p-1">
+
+    </div>
+</div> -->

@@ -10,8 +10,8 @@
 
 #loading {
     -webkit-animation: rotation 2s infinite linear;
-    width: 140px;
-    height: 140px;
+    width: 120px;
+    height: 120px;
 }
 
 @-webkit-keyframes rotation {

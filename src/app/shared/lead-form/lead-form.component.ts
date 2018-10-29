@@ -19,6 +19,7 @@ export class LeadFormComponent implements OnInit {
   filteredSubject: any [] = [];
   locationList: any [] = [];
   filteredLocation: any [] = [];
+  shoeMultiple: any = false;
 
   public grade: AbstractControl;
   public location: AbstractControl;
@@ -68,8 +69,10 @@ export class LeadFormComponent implements OnInit {
   changeTab(event){
    if(event == 1){
      this.title = 'Get Students for tuition near your localities.';
+     this.shoeMultiple = true;
    } else if(event == 0){
      this.title = 'Need home tuition? You are at right place.';
+     this.shoeMultiple = false;
    } else {
      this.title = 'Need online tutor? We will help you.';
    }
@@ -79,13 +82,22 @@ export class LeadFormComponent implements OnInit {
     let value = {};
     value['city'] = this.city;
     value['location'] = this.location.value;
+    // value['grade'] = this.grade.value;
+    value['type'] = 1;
     this.modal.confirm('','','','',value).subscribe(res =>{
 
     })
   }
 
   tutor(){
-    
+    let value = {};
+    value['city'] = this.city;
+    value['location'] = this.location.value;
+    // value['grade'] = this.grade.value;
+    value['type'] = 2;
+    this.modal.confirm('','','','',value).subscribe(res =>{
+
+    })
   }
 
 }

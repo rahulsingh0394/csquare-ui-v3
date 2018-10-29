@@ -51,12 +51,16 @@ export class NavbarComponent implements OnInit {
   buttonClick(id: any) {
     if(id == '1'){
       this.sideNav.nativeElement.style.width = "0";
-      this.dialog.confirm('', '', '', '', '').subscribe(res => {
+      let value = {};
+      value['type'] = 1;
+      this.dialog.confirm('', '', '', '', value).subscribe(res => {
   
       })
     } else {
       this.sideNav.nativeElement.style.width = "0";
-      this.dialog.confirm('', '', '', '', '').subscribe(res => {
+      let value = {};
+      value['type'] = 2;
+      this.dialog.confirm('', '', '', '', value).subscribe(res => {
   
       })
     }

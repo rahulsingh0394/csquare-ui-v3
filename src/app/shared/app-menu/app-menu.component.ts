@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -20,6 +21,7 @@ export class AppMenuComponent implements OnInit {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: string,
+    private router: Router
   ) {
     this.testBrowser = isPlatformBrowser(platformId);
   }
@@ -71,6 +73,11 @@ export class AppMenuComponent implements OnInit {
         this.readMore6 = 'See More...';
       }
     }
+  }
+
+  navigate(data) {
+    this.router.navigateByUrl(data);
+    window.location.reload();
   }
 
 }

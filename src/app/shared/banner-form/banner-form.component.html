@@ -2,20 +2,33 @@
     <h4 class="title text-center">Need home tutor or home tuition? We are here to help.</h4>
     <div fxLayout="column" fxLayoutAlign="space-evenly center" class="text-center">
         <div fxFlex="100" fxFlex.gt-xs="50">
-            <img class="first-img" src="assets/images/tutor.png" height="{{data.isMobile == true? data.height - 200 : data.height - 200}}" width="{{data.width < '600'?data.width - 80: 400}}">
+            <div fxLayout="column" fxLayoutAlign="space-evenly center" class="text-center">
+                <div fxFlex="100" fxFlex.gt-xs="50">
+                    <mat-radio-group [(ngModel)]="type">
+                        <mat-radio-button value="1">I am a student/parent.</mat-radio-button><br>
+                        <mat-radio-button value="2">I am a tutor/teacher.</mat-radio-button>
+                    </mat-radio-group><br>
+                    <small *ngIf="error" style="color: red;">
+                        {{error}}
+                    </small>
+                </div>
+            </div>
+            <img class="first-img" src="assets/images/tutor.png" height="{{data.isMobile == true? data.height - 300 : data.height - 300}}" width="{{data.width < '600'?data.width - 80: 500}}">
         </div>
         <div fxFlex="100" fxFlex.gt-xs="50">
-            <p class="sub-title">Just click proceed button and answer few questions and we will do the rest for you.</p>
             <button mat-raised-button color="primary" (click)="proceed()">Proceed</button>
         </div>
     </div>
 </div>
 <div *ngIf="start == true">
-    <h4 style="margin-left: 8%;" class="title text-center">Please answer these few question's and we will find best home tutor for you.</h4>
-    <div fxLayout="row" fxLayoutWrap="wrap">
+    <h4 style="margin-left: 8%;" class="title text-center">{{type == 1? 'Please answer these few questions and we will find best home tutor for you.': 'Please answer these few questions and we will find best home tuition for you.'}}</h4>
+    <div fxLayout="row" fxLayoutWrap="wrap" *ngIf="data.isMobile == true">
         <div fxFlex="100" fxFlex.gt-xs="5" class="mobile-view"></div>
         <div fxFlex="100" fxFlex.gt-xs="90" class="vertical-stepper">
-            <mat-vertical-stepper *ngIf="data.isMobile == true" linear #stepper>
+            <button mat-raised-button class="yellow nextBtn" (click)="goBack(stepper)" *ngIf="stepper.selectedIndex !== 0" type="button">Back</button>
+            <button mat-raised-button class="blue" style="float:right!important;color: #fff!important;" (click)="goForward(stepper)" *ngIf="stepper.selectedIndex !== 2" type="button">Next</button>
+            <button mat-raised-button class="blue" style="float:right!important;color: #fff!important;" (click)="goForward(stepper)" *ngIf="stepper.selectedIndex === 2" type="button">Submit</button>
+            <mat-vertical-stepper #stepper>
                 <mat-step [stepControl]="locationData">
                     <ng-template matStepperIcon="edit">
                         <mat-icon>check</mat-icon>
@@ -39,9 +52,12 @@
                         </mat-form-field>
                         <small>You Can Skip this field if your location is not listed.</small>
                     </form>
+                    <!-- <div class="p-1">
+                        <button mat-raised-button class="yellow" (click)="start = !start">Back</button>&nbsp;&nbsp;
+                    </div>
                     <div class="p-1">
                         <button mat-raised-button color="primary" matStepperNext>Next</button>
-                    </div>
+                    </div> -->
                 </mat-step>
                 <mat-step [stepControl]="personalData">
                     <ng-template matStepperIcon="edit">
@@ -66,16 +82,21 @@
                             <div fxFLex="100" fxFlex.gt-xs="50">
                                 <mat-form-field class="full-width">
                                     <input matInput placeholder="Email" formControlName="email">
+                                    <div class="text-danger" *ngIf="!email.valid && email.touched">
+                                        <small>
+                                            Please provide valid email.
+                                        </small>
+                                    </div>
                                 </mat-form-field>
                             </div>
                         </div>
                     </form>
-                    <div class="p-1">
+                    <!-- <div class="p-1">
                         <button mat-raised-button class="yellow" matStepperPrevious>Back</button>&nbsp;&nbsp;
                     </div>
                     <div class="p-1">
                         <button mat-raised-button color="primary" matStepperNext>Next</button>
-                    </div>
+                    </div> -->
                 </mat-step>
                 <mat-step [stepControl]="basicDetail">
                     <ng-template matStepperIcon="edit">
@@ -95,21 +116,21 @@
                         </mat-form-field>
                         <small>You Can Skip this field if you don't have any question.</small>
                     </form>
-                    <div class="p-1">
+                    <!-- <div class="p-1">
                         <button mat-raised-button class="yellow" matStepperPrevious>Back</button>&nbsp;&nbsp;
                     </div>
                     <div class="p-1">
-                        <button mat-raised-button color="primary" matStepperNext>Next</button>
+                        <button mat-raised-button color="primary" (click)="submit()">Submit</button>
                     </div>
                     <div class="p-1">
                         <button mat-raised-button color="primary" (click)="dialogRef.close(false)" style="background-color: red; color: white;">Cancel</button>
-                    </div>
+                    </div> -->
                 </mat-step>
             </mat-vertical-stepper>
         </div>
         <div fxFlex="100" fxFlex.gt-xs="5" class="mobile-view"></div>
     </div>
-    <mat-horizontal-stepper *ngIf="data.isMobile  == false" linear #stepper>
+    <mat-horizontal-stepper *ngIf="data.isMobile  == false" linear #stepper2>
         <mat-step [stepControl]="locationData">
             <ng-template matStepperIcon="edit">
                 <mat-icon>check</mat-icon>
@@ -137,6 +158,7 @@
                 <small>You Can Skip this field if your location is not listed.</small>
             </form>
             <div class="p-1">
+                <button mat-raised-button class="yellow" (click)="start = !start">Back</button>&nbsp;&nbsp;
                 <button mat-raised-button color="primary" matStepperNext>Next</button>
             </div>
         </mat-step>
@@ -158,14 +180,22 @@
                             <input matInput placeholder="Enter your contact number" formControlName="phone">
                         </mat-form-field>
                         <div class="text-danger" *ngIf="!phone.valid && phone.touched">
-                            <small *ngIf="phone.errors.minlength || phone.errors.maxlength">
-                                Contact number can only be of 10 digits.
+                            <small *ngIf="phone.errors.patterns && !(phone.errors.minlength || phone.errors.maxlength)">
+                                Phone can only be number.(0-9)
+                            </small>
+                            <small *ngIf="(phone.errors.minlength || phone.errors.maxlength) && !phone.errors.patterns">
+                                Phone number can only be of 10 digits.
                             </small>
                         </div>
                     </div>
                     <div fxFLex="100" fxFlex.gt-xs="50">
                         <mat-form-field class="full-width">
                             <input matInput placeholder="Enter your email" formControlName="email">
+                            <div class="text-danger" *ngIf="!email.valid && email.touched">
+                                <small>
+                                    Please provide valid email.
+                                </small>
+                            </div>
                         </mat-form-field>
                     </div>
                 </div>
@@ -185,7 +215,7 @@
             <ng-template matStepLabel>Academic Detail's</ng-template>
             <form [formGroup]="basicDetail">
                 <mat-form-field class="full-width">
-                    <mat-select placeholder="Select Class for which you need tuition" formControlName="grade">
+                    <mat-select placeholder="Select Class for which you need tuition" formControlName="grade" [multiple]="type == 2">
                         <mat-option *ngFor="let item of gradeList | sortBy: 'sortorder'" [value]="item.pk">
                             {{item.grade}}
                         </mat-option>

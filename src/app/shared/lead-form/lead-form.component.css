@@ -29,16 +29,10 @@
 
 @media screen and (max-width: 600px) {
      :host /deep/ .mat-tab-label .mat-tab-label-content {
-        font-size: .6em!important;
+        font-size: .8em!important;
     }
     .image-form {
         height: 170px;
         width: 170px;
-    }
-}
-
-@media screen and (min-width: 601px) and (max-width: 1000px) {
-     :host /deep/ .mat-tab-label .mat-tab-label-content {
-        font-size: .8em!important;
     }
 }

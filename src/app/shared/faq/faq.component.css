@@ -1,5 +1,8 @@
 .show {
-    display: none;
+    /* display: none; */
+    opacity: 0;
+    /* margin-bottom: -6.7%!important; */
+    height: 0px!important;
 }
 
 :host /deep/ .mat-expansion-panel-content {

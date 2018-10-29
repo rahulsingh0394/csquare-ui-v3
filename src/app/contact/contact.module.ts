@@ -39,7 +39,7 @@ import { ContactComponent } from './contact.component';
         SharedModule,
         routing,
         AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyAr-uCXXb-_eTGzKpR6oS0J5WAmrpGu3Fs'
+            apiKey: 'AIzaSyBXjp9cFFor379eup2SY8hn33DNNmB5ixo'
           }),
     ],
     declarations: [

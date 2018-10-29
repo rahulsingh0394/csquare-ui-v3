@@ -1,32 +1,40 @@
-<div fxLayout="{{imgWidth}}" fxLayoutAlign="space-evenly" class="contact">
-    <div fxFlex="100" fxFlex.gt-xs="5"></div>
-    <div fxFlex="100" fxFlex.gt-xs="60">
-        Call Us on:
+<div fxLayout="row" fxLayoutAlign="space-evenly" class="contact">
+    <div fxFlex="100" fxFlex.gt-xs="5" class="mobile-view"></div>
+    <div fxFlex="100" fxFlex.gt-xs="60" class="mobile-view">
+        Click to call:
         <i class="fa fa-phone" aria-hidden="true"></i> &nbsp;
         <a href="tel:+91-80-4162-7767">8041627767</a> or
         <a href="tel:+91-78-9934-2386">7899342386</a> or
         <a href="tel:+91-90-3619-8865">9036198865</a>
     </div>
-    <div fxFlex="100" fxFlex.gt-xs="30">
-        Whatsapp on:
+    <div fxFlex="100" fxFlex.gt-xs="50" class="phoneNo" style="background-color:#0074E1!important;border-right: 1px solid #fff;" *ngIf="imgWidth == 'column'">
+        <a href="tel:+91-80-4162-7767" style="background-color:#0074E1; color: #fff;"><i class="fa fa-phone"  aria-hidden="true"></i> &nbsp;Click to call</a>
+    </div>
+    <div fxFlex="100" fxFlex.gt-xs="30" class="mobile-view">
+        Click to whatsapp:
         <i class="fa fa-whatsapp" aria-hidden="true"></i> &nbsp;
         <a href="https://wa.me/919886265509">9886265509</a>
     </div>
-    <div fxFlex="100" fxFlex.gt-xs="5"></div>
+    <div fxFlex="100" fxFlex.gt-xs="50" class="phoneNo" style="background-color:#0074E1!important;" *ngIf="imgWidth == 'column'">
+        <a href="https://wa.me/919886265509" style="background-color:#0074E1; color: #fff;"><i class="fa fa-whatsapp" aria-hidden="true"></i> &nbsp;Whatsapp us</a>
+
+        <!-- <a href="https://wa.me/919886265509">9886265509</a> -->
+    </div>
+    <div fxFlex="100" fxFlex.gt-xs="5" class="mobile-view"></div>
 </div>
 <div #mySidenav class="sidenav">
     <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
-    <a [routerLink]="['/home']" (click)="closeNav()">Home</a>
-    <a (click)="buttonClick('1')">Need Home Tutor?</a>
-    <a (click)="buttonClick('2')">Be A Tutor.</a>
-    <a [routerLink]="['/about']" (click)="closeNav()">About</a>
-    <a [routerLink]="['/question']" (click)="closeNav()">Question Paper</a>
-    <a href="https://csquareeducation.co.in/blog/" (click)="closeNav()">Blog</a>
-    <a [routerLink]="['/bangalore']" (click)="closeNav()">Home Tuition In Bangalore</a>
-    <a [routerLink]="['/bangalore']" (click)="closeNav()">Home Tuition In Delhi</a>
-    <a [routerLink]="['/bangalore']" (click)="closeNav()">Home Tuition In Ranchi</a>
-    <a href="https://www.payumoney.com/paybypayumoney/#/293697" (click)="closeNav()">Payment</a>
-    <a [routerLink]="['/contact']" (click)="closeNav()">Contact Us</a>
+    <a [routerLink]="['/home']" class="float-btn-menu" (click)="closeNav()">Home</a>
+    <a (click)="buttonClick('1')" class="float-btn-menu">Need Home Tutor?</a>
+    <a (click)="buttonClick('2')" class="float-btn-menu">Be A Tutor.</a>
+    <a [routerLink]="['/about']" class="float-btn-menu" (click)="closeNav()">About</a>
+    <a [routerLink]="['/question']" class="float-btn-menu" (click)="closeNav()">Question Paper</a>
+    <a href="https://csquareeducation.co.in/blog/" class="float-btn-menu" (click)="closeNav()">Blog</a>
+    <a [routerLink]="['/bangalore']" class="float-btn-menu" (click)="closeNav()">Home Tuition In Bangalore</a>
+    <a [routerLink]="['/bangalore']" class="float-btn-menu" (click)="closeNav()">Home Tuition In Delhi</a>
+    <a [routerLink]="['/bangalore']" class="float-btn-menu" (click)="closeNav()">Home Tuition In Ranchi</a>
+    <a href="https://www.payumoney.com/paybypayumoney/#/293697" class="float-btn-menu" (click)="closeNav()">Payment</a>
+    <a [routerLink]="['/contact']" class="float-btn-menu" (click)="closeNav()">Contact Us</a>
     <div fxLayout="row" fxLayoutWrap="wrap">
         <div fxFlex="100" class="text-center">
             <h4>Like us On:
@@ -59,17 +67,20 @@
 </div>
 <div fxLayout="row" fxLayoutWrap="wrap" class="app-body" *ngIf="screenWidth == true">
     <nav class="navbar navbar-expand-lg fixed-top theme">
-        <div fxFlex="100" fxFlex.gt-xs="15">
-            <div class="thread">
+        <div fxFlex="100" fxFlex.gt-xs="10">
+            <span style="font-size:30px;cursor:pointer;margin-left: 2%;" (click)="openNav()">&#9776;</span>
+        </div>
+        <div fxFlex="100" fxFlex.gt-xs="90" style="text-align: left;" class="pr-1">
+            <a class="navbar-brand" [routerLink]="['/home']" (click)="menuToggle($event)">
+                <img src="assets/images/logo2.jpg" class="logo" alt="CsquareEducation- A Step towards Learning">
+            </a>
+            <!-- <div class="thread">
                 <div class="pendulum">
                     <a class="navbar-brand" [routerLink]="['/home']" (click)="menuToggle($event)">
                         <img src="assets/images/logo2.jpg" class="logo" alt="CsquareEducation- A Step towards Learning">
                     </a>
                 </div>
-            </div>
-        </div>
-        <div fxFlex="100" fxFlex.gt-xs="85">
-            <span style="font-size:30px;cursor:pointer;margin-left: 80%;" (click)="openNav()">&#9776;</span>
+            </div> -->
         </div>
     </nav>
 </div>
