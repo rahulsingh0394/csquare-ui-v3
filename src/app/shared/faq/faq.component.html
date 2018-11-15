@@ -4,15 +4,18 @@
         <h1 class="title text-center">Frequently Asked Questions?</h1>
         <div fxLayout="row" fxLayoutWrap="wrap">
             <div fxFlex="100" fxFlex.gt-xs="30" class="mobile-view"></div>
-            <div fxFlex="100" fxFlex.gt-xs="40">
+            <div fxFlex="100" fxFlex.gt-xs="38">
                 <mat-form-field class="full-width">
                     <input matInput placeholder="Please Enter Your Question!" [(ngModel)]="search" (input)="valuechange()">
                 </mat-form-field>
             </div>
+            <div fxFlex="100" fxFlex.gt-xs="2">
+                <i *ngIf="search" (click)="clear()" class="material-icons" style="margin-top: 88%;cursor: pointer;z-index: 999;">close</i>
+            </div>
             <div fxFlex="100" fxFlex.gt-xs="30" class="mobile-view"></div>
         </div>
         <mat-accordion *ngFor="let item of faqList; let i = index" [attr.data-index]="i">
-            <mat-expansion-panel *ngIf="i < 15" class="mb-1" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel class="mb-1" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
                         <h5>{{item.Question}}</h5>

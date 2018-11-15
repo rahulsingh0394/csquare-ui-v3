@@ -10,6 +10,11 @@
     margin-left: 42px!important;
 }
 
+.close-location {
+    color: red!important;
+    font-size: 20px;
+}
+
 @media screen and (max-width: 400px) {
     .first-img {
         margin-top: 1%;
@@ -28,10 +33,16 @@ small {
     /* .first-img {
         margin-top: -20%;
     } */
+    .close-location {
+        font-size: 12px;
+    }
 }
 
 @media screen and (min-width: 801px) and (max-width: 1600px) {
     /* .first-img {
         margin-top: -10%;
     } */
+    .close-location {
+        font-size: 16px;
+    }
 }

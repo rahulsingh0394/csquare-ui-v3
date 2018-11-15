@@ -43,14 +43,21 @@
                             </mat-select>
                         </mat-form-field>
                         <mat-form-field class="full-width">
-                            <input type="text" placeholder="Type and select Location" aria-label="Number" matInput formControlName="location" [matAutocomplete]="auto" [readonly]="!city.value">
+                            <input type="text" placeholder="Type and select your location by name or pincode" aria-label="Number" matInput formControlName="location" [matAutocomplete]="auto" [readonly]="!city.value">
                             <mat-autocomplete #auto="matAutocomplete">
-                                <mat-option *ngFor="let option of filteredOptions" [value]="option.location_name+' - '+option.pincode">
-                                    {{option.location_name}}&nbsp; - &nbsp;{{option.pincode}}
+                                <mat-option [disabled]="(type == 2)?true:false" *ngFor="let option of filteredOptions; let i = index" [value]="option.location_name+' - '+option.pincode">
+                                    <input *ngIf="type == 2" type="checkbox" [checked]="option.checked == true" (change)="locationSelect(option.location_name+' - '+option.pincode)"> <span style="color: #000!important;">{{option.location_name}}&nbsp; - &nbsp;{{option.pincode}}</span>
                                 </mat-option>
                             </mat-autocomplete>
                         </mat-form-field>
-                        <small>You Can Skip this field if your location is not listed.</small>
+                        <small>You Can Skip this field if your location is not listed.</small><br>
+                        <div *ngIf="type == 2">
+                            <span *ngFor="let item of locationChecked; let i = index">
+                                            <button mat-raised-button>{{item}}
+                                            </button>
+                                            <i class="fa fa-times-circle close-location" (click)="removeLocation(i, item)" aria-hidden="true"></i>  
+                                        </span>
+                        </div>
                     </form>
                     <!-- <div class="p-1">
                         <button mat-raised-button class="yellow" (click)="start = !start">Back</button>&nbsp;&nbsp;
@@ -65,29 +72,35 @@
                     </ng-template>
                     <form [formGroup]="personalData">
                         <ng-template matStepLabel>Personal Detail's</ng-template>
-                        <mat-form-field class="full-width">
-                            <input matInput placeholder="Full name" formControlName="firstName">
-                        </mat-form-field>
                         <div fxLayout="column" fxLayoutWrap="wrap">
                             <div fxFLex="100" fxFlex.gt-xs="50">
-                                <mat-form-field class="full-width">
-                                    <input matInput placeholder="Contact number" formControlName="phone">
-                                </mat-form-field>
-                                <div class="text-danger" *ngIf="!phone.valid && phone.touched">
-                                    <small *ngIf="phone.errors.minlength || phone.errors.maxlength">
-                                        Contact number can only be of 10 digits.
-                                    </small>
+                                <div>
+                                    <mat-form-field class="full-width">
+                                        <input matInput placeholder="Full name" formControlName="firstName">
+                                    </mat-form-field>
+                                </div>
+                                <div>
+                                    <mat-form-field class="full-width">
+                                        <input matInput placeholder="Contact number" formControlName="phone">
+                                        <div class="text-danger" *ngIf="!phone.valid && phone.touched">
+                                            <small *ngIf="phone.errors.minlength || phone.errors.maxlength">
+                                                Contact number can only be of 10 digits.
+                                            </small>
+                                        </div>
+                                    </mat-form-field>
                                 </div>
                             </div>
                             <div fxFLex="100" fxFlex.gt-xs="50">
-                                <mat-form-field class="full-width">
-                                    <input matInput placeholder="Email" formControlName="email">
-                                    <div class="text-danger" *ngIf="!email.valid && email.touched">
-                                        <small>
-                                            Please provide valid email.
-                                        </small>
-                                    </div>
-                                </mat-form-field>
+                                <div>
+                                    <mat-form-field class="full-width">
+                                        <input matInput placeholder="Email" formControlName="email">
+                                        <div class="text-danger" *ngIf="!email.valid && email.touched">
+                                            <small>
+                                                Please provide valid email.
+                                            </small>
+                                        </div>
+                                    </mat-form-field>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -105,7 +118,7 @@
                     <ng-template matStepLabel>Academic Detail's</ng-template>
                     <form [formGroup]="basicDetail">
                         <mat-form-field class="full-width">
-                            <mat-select placeholder="Select Grade" formControlName="grade">
+                            <mat-select placeholder="Select Class for which you need tuition" formControlName="grade" [multiple]="type == 2">
                                 <mat-option *ngFor="let item of gradeList | sortBy: 'sortorder'" [value]="item.pk">
                                     {{item.grade}}
                                 </mat-option>
@@ -150,12 +163,19 @@
                 <mat-form-field class="full-width">
                     <input type="text" placeholder="Type and select your location by name or pincode" aria-label="Number" matInput formControlName="location" [matAutocomplete]="auto" [readonly]="!city.value">
                     <mat-autocomplete #auto="matAutocomplete">
-                        <mat-option *ngFor="let option of filteredOptions" [value]="option.location_name+' - '+option.pincode">
-                            {{option.location_name}}&nbsp; - &nbsp;{{option.pincode}}
+                        <mat-option [disabled]="(type == 2)?true:false" *ngFor="let option of filteredOptions; let i = index" [value]="option.location_name+' - '+option.pincode">
+                            <input *ngIf="type == 2" type="checkbox" [checked]="option.checked == true" (change)="locationSelect(option.location_name+' - '+option.pincode)"> <span style="color: #000!important;">{{option.location_name}}&nbsp; - &nbsp;{{option.pincode}}</span>
                         </mat-option>
                     </mat-autocomplete>
                 </mat-form-field>
-                <small>You Can Skip this field if your location is not listed.</small>
+                <small>You Can Skip this field if your location is not listed.</small><br>
+                <div *ngIf="type == 2">
+                    <span *ngFor="let item of locationChecked; let i = index">
+                                <button mat-raised-button>{{item}}
+                                </button>
+                                <i class="fa fa-times-circle" style="color: red; font-size: 20px;" (click)="removeLocation(i, item)" aria-hidden="true"></i>  
+                            </span>
+                </div>
             </form>
             <div class="p-1">
                 <button mat-raised-button class="yellow" (click)="start = !start">Back</button>&nbsp;&nbsp;
@@ -171,37 +191,46 @@
             </div>
             <form [formGroup]="personalData">
                 <ng-template matStepLabel>Personal Detail's</ng-template>
-                <mat-form-field class="full-width">
-                    <input matInput placeholder="Enter your full name" formControlName="firstName">
-                </mat-form-field>
-                <div fxLayout="row" fxLayoutWrap="wrap">
+                <div fxLayout="row" fxLayoutWrap="wrap" class="mt-1">
                     <div fxFLex="100" fxFlex.gt-xs="50" class="pr-1">
-                        <mat-form-field class="full-width">
-                            <input matInput placeholder="Enter your contact number" formControlName="phone">
-                        </mat-form-field>
-                        <div class="text-danger" *ngIf="!phone.valid && phone.touched">
-                            <small *ngIf="phone.errors.patterns && !(phone.errors.minlength || phone.errors.maxlength)">
-                                Phone can only be number.(0-9)
-                            </small>
-                            <small *ngIf="(phone.errors.minlength || phone.errors.maxlength) && !phone.errors.patterns">
-                                Phone number can only be of 10 digits.
-                            </small>
+                        <div>
+                            <mat-form-field class="full-width">
+                                <input matInput placeholder="Full name" formControlName="firstName">
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field class="full-width">
+                                <input matInput placeholder="Contact number" formControlName="phone">
+                                <div class="text-danger" *ngIf="!phone.valid && phone.touched">
+                                    <small *ngIf="phone.errors.minlength || phone.errors.maxlength">
+                                            Contact number can only be of 10 digits.
+                                        </small>
+                                </div>
+                            </mat-form-field>
                         </div>
                     </div>
-                    <div fxFLex="100" fxFlex.gt-xs="50">
-                        <mat-form-field class="full-width">
-                            <input matInput placeholder="Enter your email" formControlName="email">
-                            <div class="text-danger" *ngIf="!email.valid && email.touched">
-                                <small>
-                                    Please provide valid email.
-                                </small>
-                            </div>
-                        </mat-form-field>
+                    <div fxFLex="100" fxFlex.gt-xs="50" class="pr-1">
+                        <div>
+                            <mat-form-field class="full-width">
+                                <input matInput placeholder="Email" formControlName="email">
+                                <div class="text-danger" *ngIf="!email.valid && email.touched">
+                                    <small>
+                                        Please provide valid email.
+                                    </small>
+                                </div>
+                            </mat-form-field>
+                        </div>
+                        <div *ngIf="sentOtp">
+                            <mat-form-field class="full-width">
+                                <input matInput placeholder="Please Enter OTP sent to Contact Number" formControlName="otp">
+                            </mat-form-field>
+                        </div>
                     </div>
                 </div>
             </form>
             <div class="p-1">
                 <button mat-raised-button class="yellow" matStepperPrevious>Back</button>&nbsp;&nbsp;
+                <!-- <button mat-raised-button color="primary" [disabled]="!otpValid" matStepperNext>Next</button> -->
                 <button mat-raised-button color="primary" matStepperNext>Next</button>
             </div>
         </mat-step>

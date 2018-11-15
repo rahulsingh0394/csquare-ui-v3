@@ -5,6 +5,7 @@ import { ApiService } from './api-service.service';
 import { FireFilterPipe, SortPipe } from '../pipes/filters/filter.pipe';
 import { ToastrService } from 'ngx-toastr';
 import { MatStepper } from '@angular/material';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-banner-form',
@@ -30,10 +31,19 @@ export class BannerFormComponent implements OnInit {
   public isstudent: AbstractControl;
   public istutor: AbstractControl;
   public comment: AbstractControl;
+  public otp: AbstractControl;
   cityList: any[] = [];
   locationList: any[] = [];
   filteredOptions: any[] = [];
   gradeList: any[] = [];
+  locationChecked: any[] = [];
+  sentOtp: boolean = false;
+  otpValid: boolean = false;
+
+  source = timer(1000, 1000);
+  time: any = 60;
+  minute: any = 3;
+  second: any = 0;
 
   constructor(
     private fb: FormBuilder,
@@ -121,26 +131,73 @@ export class BannerFormComponent implements OnInit {
       this.location.reset();
       if (val) {
         this.service.searchLocationByCity(val).subscribe(res => {
-          this.locationList = res.json();
-          this.filteredOptions = res.json();
+          let data = res.json();
+          data.forEach(element => {
+            element['checked'] = false;
+          });
+          this.locationList = data;
+          this.filteredOptions = data;
         })
       }
     })
 
     this.location.valueChanges.subscribe(val => {
-      this.filteredOptions = this.filter.transform(this.locationList, val);
+      let data = this.filter.transform(this.locationList, val);
+      data.forEach(ele => {
+        ele['checked'] = false;
+      })
+      this.filteredOptions = data;
     })
 
     this.personalData = this.fb.group({
       'firstName': ['', Validators.compose([Validators.required])],
       'phone': ['', Validators.compose([Validators.required, Validators.pattern('[0-9]*'), Validators.maxLength(10),
       Validators.minLength(10)])],
-      'email': ['', Validators.compose([Validators.required, Validators.email])]
+      'email': ['', Validators.compose([Validators.required, Validators.email])],
+      'otp': ['']
     })
     this.firstName = this.personalData.controls['firstName'];
     this.phone = this.personalData.controls['phone'];
     this.email = this.personalData.controls['email'];
+    this.otp = this.personalData.controls['otp'];
 
+    // this.phone.valueChanges.subscribe(val => {
+    //   if(val.length == 10) {
+    //     this.sentOtp = true;
+    //     const subscribe = this.source.subscribe(
+    //       val => {
+    //         if(val < 60) {
+    //           this.second = this.time - val;
+    //         } else if(val == 60) {
+    //           this.second = this.time - val;
+    //           this.minute = this.minute - 1;
+    //           this.time = 60;
+    //         } else if(val > 60 && val < 120) {
+    //           this.second = this.time - val % 60;
+    //         } else if(val == 120) {
+    //           this.second = this.time - 60;
+    //           this.minute--;
+    //           this.time = 60
+    //         } else if(val > 120 && val <180) {
+    //           this.second = this.time - (val/2) % 60;
+    //         } else if(val == 180) {
+    //           this.second = this.time - 60;
+    //           this.
+    //         }
+    //         // console.log(val)
+    //       });
+    //   }
+    // })
+
+    // this.otp.valueChanges.subscribe(val => {
+    //   if(val.length == 6) {
+    //     this.otpValid = true;
+    //     setTimeout(() => {
+    //       this.sentOtp = false;
+    //     }, 6000);
+    //   }
+    // })
+    
     this.basicDetail = this.fb.group({
       'leadGradeList': [''],
       'grade': ['', Validators.compose([Validators.required])],
@@ -166,19 +223,36 @@ export class BannerFormComponent implements OnInit {
   submit() {
     let formData = {};
     formData['city'] = this.city.value;
-    const index = this.locationList.findIndex(item => {
-      if (item.location_name + ' - ' + item.pincode == this.location.value) {
-        formData['location'] = item.pk;
-        return true;
-      }
-    })
+    let list: any = [];
+    formData['cityName'] = this.cityList.find(ite => ite.pK == this.city.value).city_name;
+    if(this.type == 1) {
+      let x = this.locationList.findIndex(i => {
+        if(this.location.value == i.location_name + ' - ' + i.pincode) {
+          formData['leadLocationList'] = [{ 'locationId': i.pk }];
+          formData['locationName'] = i.location_name + ' - ' + i.pincode;
+          return true;
+        }
+      })
+    } else {
+      this.locationChecked.forEach(element => {
+        let x = this.locationList.findIndex(i => {
+          if(element == i.location_name + ' - ' + i.pincode) {
+            list.push({ 'locationId': i.pk });
+            return true;
+          }
+        })
+      });
+      formData['leadLocationList'] = list;
+    }
+
     formData['firstName'] = this.firstName.value;
     formData['phone'] = this.phone.value;
     formData['email'] = this.email.value;
-    let list: any = [];
     if(this.type == 1) {
       formData['leadGradeList'] = [{ 'gradeId': this.grade.value }];
+      formData['grade'] = this.gradeList.find(ite => ite.pk == this.grade.value).grade;
     } else {
+      list = [];
       this.grade.value.forEach(element => {
         list.push({ 'gradeId': element });
       });
@@ -186,8 +260,8 @@ export class BannerFormComponent implements OnInit {
     }
     formData['comment'] = this.comment.value;
     this.service.addLead(formData).subscribe(res => {
-     if(res._body == 'Email already exists'){
-      this.toastr.warning('Warning', 'Email: ' + this.email.value + ' already exists. Please try with different email.')
+     if(res._body != 'Lead Successfully Created'){
+      this.toastr.warning('Warning', 'Sorry for inconvenience! Something went wrong. Please try to submit again or after sometime.')
      } else {
       this.toastr.success('Success', 'Thank you ' + this.firstName.value + ' for contacting CsqsuareEducation. Our representative will reach you soon.');
       this.dialogRef.close(true);
@@ -195,6 +269,43 @@ export class BannerFormComponent implements OnInit {
     }, error => {
       this.toastr.error('Error', 'Error submitting form. Please try after some time.')
     })
+  }
+
+  locationSelect(event:string) {
+    if (this.locationChecked.length) {
+      const index = this.locationChecked.findIndex(i => {
+        if(i == event.toString()) {
+          return true;
+        }
+      })
+      if(index < 0) {
+        const i = this.filteredOptions.findIndex(x => {
+          if(x.location_name + ' - ' + x.pincode == event.toString()) {
+            return true;
+          }
+        })
+        this.filteredOptions[i].checked = true;
+        this.locationChecked.push(event.toString());
+      }
+    } else {
+      const i = this.filteredOptions.findIndex(x => {
+        if(x.location_name + ' - ' + x.pincode == event.toString()) {
+          return true;
+        }
+      })
+      this.filteredOptions[i].checked = true;
+      this.locationChecked.push(event.toString());
+    }
+  }
+
+  removeLocation(index, event) {
+    this.locationChecked.splice(index, 1);
+    const i = this.filteredOptions.findIndex(x => {
+      if(x.location_name + ' - ' + x.pincode == event) {
+        return true;
+      }
+    })
+    this.filteredOptions[i].checked = false;
   }
 
 }

@@ -30,18 +30,18 @@ export class FaqComponent implements OnInit {
     public renderer: Renderer2,
     @Inject(PLATFORM_ID) private platformId: string) { 
     this.testBrowser = isPlatformBrowser(platformId);
-    // let data = <any>Faq;
-    // var len = Object.keys(data).length;
-    // for (let i = 0; i < len - 1; i++) {
-    //   this.allData.push(data[i]);
-    //   this.faqList.push(data[i]);
-    // }
-    if(this.testBrowser) {
-      let data = localStorage.getItem('CsquareEducation: Faq - ');
-      let bytes = CryptoJS.AES.decrypt(data, 'secret key 123');
-      this.allData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-      // this.faqList = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+    let data = <any>Faq;
+    var len = Object.keys(data).length;
+    for (let i = 0; i < len - 1; i++) {
+      this.allData.push(data[i]);
+      // this.faqList.push(data[i]);
     }
+    // if(this.testBrowser) {
+    //   let data = localStorage.getItem('CsquareEducation: Faq - ');
+    //   let bytes = CryptoJS.AES.decrypt(data, 'secret key 123');
+    //   this.allData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+    //   // this.faqList = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+    // }
   }
 
   ngOnInit() {
@@ -49,20 +49,27 @@ export class FaqComponent implements OnInit {
 
   valuechange(){
     this.faqList = [];
+    this.search = this.search.trim();
     if(this.search) {
-      // let words = this.search.split(" ");
-      // if(words.length == 1) {
-      //   this.faqList = this.getFilterData(this.search);
-      // } else if ( words.length == 2) {
-      //   let data;
-      //   words.forEach(element => {
-      //     data.push(this.getFilterData, element);
-      //   });
-      //   this.faqList = this.filter.transform(data, )
-      // }
-      this.faqList = this.filter.transform(this.allData, this.search);
+      let words = this.search.split(" ");
+      if(words.length == 1) {
+        this.faqList = this.getFilterData(this.search);
+      } else if ( words.length > 1) {
+        words.forEach(element => {
+          if(element != "" || element != " ") {
+            let data = this.getFilterData(element);
+            if(data.length) {
+              data.forEach(ele => {
+                this.faqList.push(ele);
+              })
+            }
+          }
+        });
+        // this.faqList = this.filter.transform(data, )
+      }
+      // this.faqList = this.filter.transform(this.allData, this.search);
     } else  {
-      this.faqList = this.allData;
+      this.faqList = [];
     }
   }
 
@@ -70,6 +77,11 @@ export class FaqComponent implements OnInit {
     let data: any [] = [];
     data = this.filter.transform(this.allData, item);
     return data;
+  }
+
+  clear() {
+    this.search = '';
+    this.faqList = [];
   }
 
 }
