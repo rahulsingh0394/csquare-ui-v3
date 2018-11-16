@@ -44,6 +44,9 @@ export class BannerFormComponent implements OnInit {
   time: any = 60;
   minute: any = 3;
   second: any = 0;
+  hideTimer: boolean = false;
+  subscribeTimer: any;
+  hideResend: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -56,7 +59,7 @@ export class BannerFormComponent implements OnInit {
     this.initForm();
     this.service.getCity().subscribe(res => {
       this.cityList = res.json();
-      if(this.data.value.city){
+      if (this.data.value.city) {
         this.city.setValue((this.data.value.city).toString());
         this.location.setValue(this.data.value.location);
       }
@@ -70,8 +73,8 @@ export class BannerFormComponent implements OnInit {
     stepper.previous();
   }
   goForward(stepper: MatStepper) {
-    if(stepper.selectedIndex == 0) {
-      if(this.locationData.valid) {
+    if (stepper.selectedIndex == 0) {
+      if (this.locationData.valid) {
         stepper.next();
       } else {
         for (let i in this.locationData.controls) {
@@ -80,8 +83,8 @@ export class BannerFormComponent implements OnInit {
           }
         }
       }
-    } else if(stepper.selectedIndex == 1) {
-      if(this.personalData.valid) {
+    } else if (stepper.selectedIndex == 1) {
+      if (this.personalData.valid) {
         stepper.next();
       } else {
         for (let i in this.personalData.controls) {
@@ -91,7 +94,7 @@ export class BannerFormComponent implements OnInit {
         }
       }
     } else {
-      if(this.basicDetail.valid) {
+      if (this.basicDetail.valid) {
         this.submit();
       } else {
         for (let i in this.basicDetail.controls) {
@@ -108,7 +111,7 @@ export class BannerFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(this.data.value) {
+    if (this.data.value) {
       this.type = this.data.value.type;
       this.start = true;
     }
@@ -161,43 +164,37 @@ export class BannerFormComponent implements OnInit {
     this.email = this.personalData.controls['email'];
     this.otp = this.personalData.controls['otp'];
 
-    // this.phone.valueChanges.subscribe(val => {
-    //   if(val.length == 10) {
-    //     this.sentOtp = true;
-    //     const subscribe = this.source.subscribe(
-    //       val => {
-    //         if(val < 60) {
-    //           this.second = this.time - val;
-    //         } else if(val == 60) {
-    //           this.second = this.time - val;
-    //           this.minute = this.minute - 1;
-    //           this.time = 60;
-    //         } else if(val > 60 && val < 120) {
-    //           this.second = this.time - val % 60;
-    //         } else if(val == 120) {
-    //           this.second = this.time - 60;
-    //           this.minute--;
-    //           this.time = 60
-    //         } else if(val > 120 && val <180) {
-    //           this.second = this.time - (val/2) % 60;
-    //         } else if(val == 180) {
-    //           this.second = this.time - 60;
-    //           this.
-    //         }
-    //         // console.log(val)
-    //       });
-    //   }
-    // })
+    this.phone.valueChanges.subscribe(val => {
+      if (val.length == 10) {
+        this.sentOtp = true;
+        this.stopwatch();
+        this.hideResend = true;
+        setTimeout(() => {
+          this.hideResend = false;
+        }, 180001);
+        let data = {};
+        data['phone'] = val;
+        this.service.verifyPhone(data).subscribe(res =>{ 
+          console.log(res);
+        }) 
+      }
+    })
 
-    // this.otp.valueChanges.subscribe(val => {
-    //   if(val.length == 6) {
-    //     this.otpValid = true;
-    //     setTimeout(() => {
-    //       this.sentOtp = false;
-    //     }, 6000);
-    //   }
-    // })
-    
+    this.otp.valueChanges.subscribe(val => {
+      if (val.length == 6) {
+        this.otpValid = true;
+        let data = {};
+        data['phone'] = this.phone.value;
+        data['otp'] = val;
+        this.service.verifyOtp(data).subscribe(res =>{
+          console.log(res.josn());
+        })
+        setTimeout(() => {
+          this.sentOtp = false;
+        }, 6000);
+      }
+    })
+
     this.basicDetail = this.fb.group({
       'leadGradeList': [''],
       'grade': ['', Validators.compose([Validators.required])],
@@ -210,7 +207,7 @@ export class BannerFormComponent implements OnInit {
   }
 
   proceed() {
-    if(!this.type) {
+    if (!this.type) {
       this.error = 'Please select any one and then proceed.'
       setTimeout(() => {
         this.error = '';
@@ -225,9 +222,9 @@ export class BannerFormComponent implements OnInit {
     formData['city'] = this.city.value;
     let list: any = [];
     formData['cityName'] = this.cityList.find(ite => ite.pK == this.city.value).city_name;
-    if(this.type == 1) {
+    if (this.type == 1) {
       let x = this.locationList.findIndex(i => {
-        if(this.location.value == i.location_name + ' - ' + i.pincode) {
+        if (this.location.value == i.location_name + ' - ' + i.pincode) {
           formData['leadLocationList'] = [{ 'locationId': i.pk }];
           formData['locationName'] = i.location_name + ' - ' + i.pincode;
           return true;
@@ -236,7 +233,7 @@ export class BannerFormComponent implements OnInit {
     } else {
       this.locationChecked.forEach(element => {
         let x = this.locationList.findIndex(i => {
-          if(element == i.location_name + ' - ' + i.pincode) {
+          if (element == i.location_name + ' - ' + i.pincode) {
             list.push({ 'locationId': i.pk });
             return true;
           }
@@ -248,7 +245,7 @@ export class BannerFormComponent implements OnInit {
     formData['firstName'] = this.firstName.value;
     formData['phone'] = this.phone.value;
     formData['email'] = this.email.value;
-    if(this.type == 1) {
+    if (this.type == 1) {
       formData['leadGradeList'] = [{ 'gradeId': this.grade.value }];
       formData['grade'] = this.gradeList.find(ite => ite.pk == this.grade.value).grade;
     } else {
@@ -260,27 +257,27 @@ export class BannerFormComponent implements OnInit {
     }
     formData['comment'] = this.comment.value;
     this.service.addLead(formData).subscribe(res => {
-     if(res._body != 'Lead Successfully Created'){
-      this.toastr.warning('Warning', 'Sorry for inconvenience! Something went wrong. Please try to submit again or after sometime.')
-     } else {
-      this.toastr.success('Success', 'Thank you ' + this.firstName.value + ' for contacting CsqsuareEducation. Our representative will reach you soon.');
-      this.dialogRef.close(true);
-     }
+      if (res._body != 'Lead Successfully Created') {
+        this.toastr.warning('Warning', 'Sorry for inconvenience! Something went wrong. Please try to submit again or after sometime.')
+      } else {
+        this.toastr.success('Success', 'Thank you ' + this.firstName.value + ' for contacting CsqsuareEducation. Our representative will reach you soon.');
+        this.dialogRef.close(true);
+      }
     }, error => {
       this.toastr.error('Error', 'Error submitting form. Please try after some time.')
     })
   }
 
-  locationSelect(event:string) {
+  locationSelect(event: string) {
     if (this.locationChecked.length) {
       const index = this.locationChecked.findIndex(i => {
-        if(i == event.toString()) {
+        if (i == event.toString()) {
           return true;
         }
       })
-      if(index < 0) {
+      if (index < 0) {
         const i = this.filteredOptions.findIndex(x => {
-          if(x.location_name + ' - ' + x.pincode == event.toString()) {
+          if (x.location_name + ' - ' + x.pincode == event.toString()) {
             return true;
           }
         })
@@ -289,7 +286,7 @@ export class BannerFormComponent implements OnInit {
       }
     } else {
       const i = this.filteredOptions.findIndex(x => {
-        if(x.location_name + ' - ' + x.pincode == event.toString()) {
+        if (x.location_name + ' - ' + x.pincode == event.toString()) {
           return true;
         }
       })
@@ -301,11 +298,67 @@ export class BannerFormComponent implements OnInit {
   removeLocation(index, event) {
     this.locationChecked.splice(index, 1);
     const i = this.filteredOptions.findIndex(x => {
-      if(x.location_name + ' - ' + x.pincode == event) {
+      if (x.location_name + ' - ' + x.pincode == event) {
         return true;
       }
     })
     this.filteredOptions[i].checked = false;
+  }
+
+  resendOtp() {
+    this.hideTimer = true;
+    this.unsbscribe();
+    setTimeout(() => {
+      this.hideTimer = false;
+      this.stopwatch();
+    }, 1000);
+    this.hideResend = true;
+    setTimeout(() => {
+      this.hideResend = false;
+    }, 3001);
+    let data = {};
+    data['phone'] = this.phone.value;
+    this.service.verifyPhone(data).subscribe(res =>{ 
+      console.log(res);
+    }) 
+  }
+
+  unsbscribe() {
+    this.source = timer(1000, 1000);
+    this.time = 60;
+    this.minute = 3;
+    this.second = 0;
+    this.subscribeTimer = '';
+    this.hideTimer = true;
+  }
+
+  stopwatch() {
+    this.subscribeTimer = this.source.subscribe(
+      val => {
+        if (val < 60) {
+          if (val > 1) {
+            this.second = this.time - val;
+          } else if (val == 1) {
+            this.second = this.time - val;
+            this.minute = this.minute - 1;
+          }
+        } else if (val == 60) {
+          this.second = this.time - val;
+          this.minute = this.minute - 1;
+          this.time = 60;
+        } else if (val > 60 && val < 120) {
+          this.second = this.time - val % 60;
+        } else if (val == 120) {
+          this.second = this.time - 60;
+          this.minute--;
+          this.time = 60
+        } else if (val > 120 && val < 180) {
+          this.second = this.time - val % 60;
+        } else if (val == 180) {
+          this.second = this.time - 60;
+          this.unsbscribe();
+        }
+      });
   }
 
 }

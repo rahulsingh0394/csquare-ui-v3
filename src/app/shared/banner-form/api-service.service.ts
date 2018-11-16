@@ -31,5 +31,17 @@ export class ApiService {
     let options = new RequestOptions({ headers: headers });
     return this.http.post(`${environment.serverUrl}/addLead`, data, options);
   }
+
+  verifyPhone(data: any): Observable<any> {
+    let headers = new Headers({ 'Content-Type': 'application/json;charset=UTF-8' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(`${environment.serverUrl}/generateLeadOTP`, data);
+  }
+
+  verifyOtp(data: any): Observable<any> {
+    let headers = new Headers({ 'Content-Type': 'application/json;charset=UTF-8' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(`${environment.serverUrl}/verifyLeadOTP`, data);
+  }
   
 }

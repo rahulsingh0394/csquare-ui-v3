@@ -224,14 +224,16 @@
                             <mat-form-field class="full-width">
                                 <input matInput placeholder="Please Enter OTP sent to Contact Number" formControlName="otp">
                             </mat-form-field>
+                            <span *ngIf="!hideTimer">OTP expires in 0{{minute}}: {{second}}</span>
+                            <button *ngIf="!hideResend" mat-raised-button class="yellow" (click)="resendOtp()">Resend OTP</button>
                         </div>
                     </div>
                 </div>
             </form>
             <div class="p-1">
                 <button mat-raised-button class="yellow" matStepperPrevious>Back</button>&nbsp;&nbsp;
-                <!-- <button mat-raised-button color="primary" [disabled]="!otpValid" matStepperNext>Next</button> -->
-                <button mat-raised-button color="primary" matStepperNext>Next</button>
+                <button mat-raised-button color="primary" [disabled]="!otpValid" matStepperNext>Next</button>
+                <!-- <button mat-raised-button color="primary" matStepperNext>Next</button> -->
             </div>
         </mat-step>
         <mat-step [stepControl]="basicDetail">
