@@ -79,7 +79,7 @@
                                         <input matInput placeholder="Full name" formControlName="firstName">
                                     </mat-form-field>
                                 </div>
-                                <div>
+                                <!-- <div>
                                     <mat-form-field class="full-width">
                                         <input matInput placeholder="Contact number" formControlName="phone">
                                         <div class="text-danger" *ngIf="!phone.valid && phone.touched">
@@ -88,7 +88,7 @@
                                             </small>
                                         </div>
                                     </mat-form-field>
-                                </div>
+                                </div> -->
                             </div>
                             <div fxFLex="100" fxFlex.gt-xs="50">
                                 <div>
@@ -100,6 +100,64 @@
                                             </small>
                                         </div>
                                     </mat-form-field>
+                                </div>
+                            </div>
+                            <div fxLayout="row" fxLayoutWrap="wrap" style="margin-top: 1%;">
+                                <div fxFlex="100" fxFlex.gt-xs="5" style="text-align: left;">
+                                    <div class="icon-holder" style="margin-top: 17%;" [ngStyle]="{'background-color': (phone.valid)?'#FF6600':'#10E7DC'}">
+                                        <span class="step-info">1</span>
+                                    </div>
+                                    <!-- <div class="text-center">
+                                        <small class="info-text">Provide mobile number</small>
+                                    </div> -->
+                                    <div class="icon-holder" style="margin-top: 88%;" [ngStyle]="{'background-color': (otpSentCheck == true)?'#FF6600':'#10E7DC'}">
+                                        <span class="step-info">2</span>
+                                    </div>
+                                    <!-- <div class="text-center">
+                                            <small class="info-text">Click Send OTP button.</small>
+                                        </div> -->
+                                    <div class="icon-holder" style="margin-top: 25%;" [ngStyle]="{'background-color': (otp.value)?'#FF6600':'#10E7DC'}">
+                                        <span class="step-info">3</span>
+                                    </div>
+                                    <!-- <div class="text-center">
+                                            <small class="info-text">Provide OTP sent to your mobile.</small>
+                                        </div> -->
+                                    <div class="icon-holder" style="margin-top: 45%;" [ngStyle]="{'background-color': (verifiedOtp == true)?'#FF6600':'#10E7DC'}">
+                                        <span class="step-info">4</span>
+                                    </div>
+                                    <!-- <div class="text-center">
+                                            <small class="info-text">Click Verify button to verify OTP sent.</small>
+                                        </div> -->
+                                </div>
+                                <div fxFlex="100" fxFlex.gt-xs="95">
+                                    <div>
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="Contact number" formControlName="phone">
+                                            <!-- <div class="text-danger" *ngIf="!phone.valid && phone.touched">
+                                                <small *ngIf="phone.errors.minlength || phone.errors.maxlength">
+                                                            Contact number can only be of 10 digits.
+                                                        </small>
+                                            </div> -->
+                                            <div class="text-success">
+                                                <small>
+                                                            Please verify your mobile number to proceed.
+                                                        </small>
+                                            </div>
+                                        </mat-form-field>
+                                    </div>
+                                    <div>
+                                        <button mat-raised-button color="primary" style="margin-top: 18%;" [disabled]="!phone.valid || otpSentCheck" (click)="sendOtp()">Send OTP</button>
+                                    </div>
+                                    <div>
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="Please Enter OTP" [readonly]="!otpSentCheck" formControlName="otp">
+                                        </mat-form-field>
+                                    </div>
+                                    <!-- <div>
+                                                <span *ngIf="!hideTimer">OTP expires in 0{{minute}}: {{second}}</span>
+                                            </div> -->
+                                    <button mat-raised-button color="primary" style="margin-bottom: 10px;" [disabled]="!otp.value" (click)="verifyOtp()">Verify OTP</button>
+                                    <button mat-raised-button class="yellow" [disabled]="!otpSentCheck" (click)="resendOtp()">Resend OTP</button>
                                 </div>
                             </div>
                         </div>
@@ -187,7 +245,7 @@
                 <mat-icon>check</mat-icon>
             </ng-template>
             <div class="text-center">
-                <img src="assets/images/personal.jpg" height="{{data.isMobile == true? data.height - 200 : data.height - 450}}" width="{{data.width < '600'?data.width - 80: 400}}">
+                <img src="assets/images/personal.jpg" height="{{data.isMobile == true? data.height - 200 : data.height - 600}}" width="{{data.width < '600'?data.width - 80: 400}}">
             </div>
             <form [formGroup]="personalData">
                 <ng-template matStepLabel>Personal Detail's</ng-template>
@@ -196,16 +254,6 @@
                         <div>
                             <mat-form-field class="full-width">
                                 <input matInput placeholder="Full name" formControlName="firstName">
-                            </mat-form-field>
-                        </div>
-                        <div>
-                            <mat-form-field class="full-width">
-                                <input matInput placeholder="Contact number" formControlName="phone">
-                                <div class="text-danger" *ngIf="!phone.valid && phone.touched">
-                                    <small *ngIf="phone.errors.minlength || phone.errors.maxlength">
-                                            Contact number can only be of 10 digits.
-                                        </small>
-                                </div>
                             </mat-form-field>
                         </div>
                     </div>
@@ -220,19 +268,84 @@
                                 </div>
                             </mat-form-field>
                         </div>
-                        <div *ngIf="sentOtp">
-                            <mat-form-field class="full-width">
-                                <input matInput placeholder="Please Enter OTP sent to Contact Number" formControlName="otp">
-                            </mat-form-field>
-                            <span *ngIf="!hideTimer">OTP expires in 0{{minute}}: {{second}}</span>
-                            <button *ngIf="!hideResend" mat-raised-button class="yellow" (click)="resendOtp()">Resend OTP</button>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutWrap="wrap" class="mt-1">
+                    <div fxFLex="100" fxFlex.gt-xs="25" class="phoneValid">
+                        <div class="icon-holder" [ngStyle]="{'background-color': (phone.valid)?'#FF6600':'#10E7DC'}">
+                            <span class="step-info">1</span>
                         </div>
+                        <div class="text-center">
+                            <small class="info-text">Provide mobile number</small>
+                        </div>
+                    </div>
+                    <div fxFLex="100" fxFlex.gt-xs="25" class="phoneValid">
+                        <div class="icon-holder" [ngStyle]="{'background-color': (otpSentCheck == true)?'#FF6600':'#10E7DC'}">
+                            <span class="step-info">2</span>
+                        </div>
+                        <div class="text-center">
+                            <small class="info-text">Click Send OTP button.</small>
+                        </div>
+                    </div>
+                    <div fxFLex="100" fxFlex.gt-xs="25" class="phoneValid">
+                        <div class="icon-holder" [ngStyle]="{'background-color': (otp.value)?'#FF6600':'#10E7DC'}">
+                            <span class="step-info">3</span>
+                        </div>
+                        <div class="text-center">
+                            <small class="info-text">Provide OTP sent to your mobile.</small>
+                        </div>
+                    </div>
+                    <div fxFLex="100" fxFlex.gt-xs="25" class="phoneValid">
+                        <div class="icon-holder" [ngStyle]="{'background-color': (verifiedOtp == true)?'#FF6600':'#10E7DC'}">
+                            <span class="step-info">4</span>
+                        </div>
+                        <div class="text-center">
+                            <small class="info-text">Click Verify button to verify OTP sent.</small>
+                        </div>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutWrap="wrap" class="mt-1">
+                    <div fxFLex="100" fxFlex.gt-xs="25" class="phoneValid">
+                        <div>
+                            <mat-form-field class="full-width">
+                                <input matInput placeholder="Contact number" formControlName="phone">
+                                <div class="text-danger" *ngIf="!phone.valid && phone.touched">
+                                    <small *ngIf="phone.errors.minlength || phone.errors.maxlength">
+                                        Contact number can only be of 10 digits.
+                                    </small>
+                                </div>
+                                <div class="text-success" *ngIf="phone.valid && phone.touched">
+                                    <small>
+                                        Please verify your mobile number to proceed.
+                                    </small>
+                                </div>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div fxFLex="100" fxFlex.gt-xs="25" class="phoneValid" style="padding-top: 2%;">
+                        <div class="text-center">
+                            <button mat-raised-button color="primary" [disabled]="!phone.valid || otpSentCheck" (click)="sendOtp()">Send OTP</button>
+                        </div>
+                    </div>
+                    <div fxFLex="100" fxFlex.gt-xs="25" class="phoneValid">
+                        <div>
+                            <mat-form-field class="full-width">
+                                <input matInput placeholder="Please Enter OTP" [readonly]="!otpSentCheck" formControlName="otp">
+                            </mat-form-field>
+                        </div>
+                        <!-- <div>
+                            <span *ngIf="!hideTimer">OTP expires in 0{{minute}}: {{second}}</span>
+                        </div> -->
+                    </div>
+                    <div fxFLex="100" fxFlex.gt-xs="25" class="phoneValidLeft" style="padding-top: 2%;">
+                        <button mat-raised-button color="primary" style="margin-right: 6px;" [disabled]="!otp.value" (click)="verifyOtp()">Verify OTP</button>
+                        <button mat-raised-button class="yellow" [disabled]="!otpSentCheck" (click)="resendOtp()">Resend OTP</button>
                     </div>
                 </div>
             </form>
             <div class="p-1">
                 <button mat-raised-button class="yellow" matStepperPrevious>Back</button>&nbsp;&nbsp;
-                <button mat-raised-button color="primary" [disabled]="!otpValid" matStepperNext>Next</button>
+                <button mat-raised-button color="primary" [disabled]="!verifiedOtp" matStepperNext>Next</button>
                 <!-- <button mat-raised-button color="primary" matStepperNext>Next</button> -->
             </div>
         </mat-step>

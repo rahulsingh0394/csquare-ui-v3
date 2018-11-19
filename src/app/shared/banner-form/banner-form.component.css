@@ -15,6 +15,65 @@
     font-size: 20px;
 }
 
+.phoneValid {
+    padding-right: 6px;
+}
+
+.phoneValidLeft {
+    padding-left: 36px;
+}
+
+.text-danger {
+    margin-top: 1em;
+}
+
+.text-success {
+    color: blue;
+    margin-top: 1em;
+}
+
+.icon-holder {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding-top: 2%;
+}
+
+
+/* .icon-holder::before {
+    content: '';
+    position: absolute;
+    top: .9em;
+    left: -4em;
+    width: 4em;
+    height: .2em;
+    background: dodgerblue;
+    z-index: -1;
+} */
+
+.icon-holder:first-child::before {
+    display: none;
+}
+
+.info-text {
+    font-size: 0.8em!important;
+}
+
+.step-info {
+    color: #fff;
+    padding-left: 35%;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 900px) {
+    .icon-holder {
+        margin-top: 2%;
+    }
+    .text-success {
+        margin-top: 0;
+    }
+}
+
 @media screen and (max-width: 400px) {
     .first-img {
         margin-top: 1%;

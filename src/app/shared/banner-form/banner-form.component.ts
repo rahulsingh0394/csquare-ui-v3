@@ -37,16 +37,14 @@ export class BannerFormComponent implements OnInit {
   filteredOptions: any[] = [];
   gradeList: any[] = [];
   locationChecked: any[] = [];
-  sentOtp: boolean = false;
-  otpValid: boolean = false;
+  otpSentCheck: boolean = false;
+  verifiedOtp: boolean = false;
 
   source = timer(1000, 1000);
   time: any = 60;
   minute: any = 3;
   second: any = 0;
-  hideTimer: boolean = false;
   subscribeTimer: any;
-  hideResend: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -165,33 +163,12 @@ export class BannerFormComponent implements OnInit {
     this.otp = this.personalData.controls['otp'];
 
     this.phone.valueChanges.subscribe(val => {
-      if (val.length == 10) {
-        this.sentOtp = true;
-        this.stopwatch();
-        this.hideResend = true;
-        setTimeout(() => {
-          this.hideResend = false;
-        }, 180001);
-        let data = {};
-        data['phone'] = val;
-        this.service.verifyPhone(data).subscribe(res =>{ 
-          console.log(res);
-        }) 
-      }
-    })
-
-    this.otp.valueChanges.subscribe(val => {
-      if (val.length == 6) {
-        this.otpValid = true;
-        let data = {};
-        data['phone'] = this.phone.value;
-        data['otp'] = val;
-        this.service.verifyOtp(data).subscribe(res =>{
-          console.log(res.josn());
-        })
-        setTimeout(() => {
-          this.sentOtp = false;
-        }, 6000);
+      if (val.length != 10) {
+       this.otpSentCheck = false;
+       this.verifiedOtp = false;
+       if(this.otp.value) {
+        this.otp.setValue('');
+       }
       }
     })
 
@@ -225,8 +202,8 @@ export class BannerFormComponent implements OnInit {
     if (this.type == 1) {
       let x = this.locationList.findIndex(i => {
         if (this.location.value == i.location_name + ' - ' + i.pincode) {
-          formData['leadLocationList'] = [{ 'locationId': i.pk }];
-          formData['locationName'] = i.location_name + ' - ' + i.pincode;
+          formData['location'] = i.pk;
+          formData['AreaName'] = i.location_name + ' - ' + i.pincode;
           return true;
         }
       })
@@ -306,21 +283,34 @@ export class BannerFormComponent implements OnInit {
   }
 
   resendOtp() {
-    this.hideTimer = true;
-    this.unsbscribe();
-    setTimeout(() => {
-      this.hideTimer = false;
-      this.stopwatch();
-    }, 1000);
-    this.hideResend = true;
-    setTimeout(() => {
-      this.hideResend = false;
-    }, 3001);
+    if(this.otp.value) {
+      this.otp.setValue('');
+    }
     let data = {};
     data['phone'] = this.phone.value;
     this.service.verifyPhone(data).subscribe(res =>{ 
       console.log(res);
     }) 
+  }
+
+  sendOtp() {
+    this.otpSentCheck = true;
+    let data = {};
+    data['phone'] = this.phone.value;
+    this.service.verifyPhone(data).subscribe(res =>{ 
+      console.log(res);
+    // this.otpValid = true;
+    }) 
+  }
+
+  verifyOtp() {
+    let data = {};
+    data['phone'] = this.phone.value;
+    data['otp'] = this.otp.value;
+    this.service.verifyOtp(data).subscribe(res =>{
+      console.log(res.json());
+    this.verifiedOtp = true;
+    })
   }
 
   unsbscribe() {
@@ -329,7 +319,6 @@ export class BannerFormComponent implements OnInit {
     this.minute = 3;
     this.second = 0;
     this.subscribeTimer = '';
-    this.hideTimer = true;
   }
 
   stopwatch() {
