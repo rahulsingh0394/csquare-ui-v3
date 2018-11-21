@@ -1,16 +1,16 @@
 .img1 {
     background-image: url("/assets/tutor-parents/lovely.jpg");
-    margin-left: 15%;
+    margin-left: 20%;
 }
 
 .img2 {
     background-image: url("/assets/tutor-parents/Rahul.jpg");
-    margin-left: 15%;
+    margin-left: 20%;
 }
 
 .img3 {
     background-image: url("/assets/tutor-parents/Prasu.jpg");
-    margin-left: 15%;
+    margin-left: 20%;
 }
 
 .tag {
@@ -29,7 +29,7 @@ ul {
 }
 
 .blue {
-    background-color: rgba(64, 157, 243, 0.432);
+    background-color: rgb(210, 212, 212);
 }
 
 .profile-link {

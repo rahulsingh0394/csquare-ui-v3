@@ -150,14 +150,14 @@
                                     </div>
                                     <div>
                                         <mat-form-field class="full-width">
-                                            <input matInput placeholder="Please Enter OTP" [readonly]="!otpSentCheck" formControlName="otp">
+                                            <input matInput placeholder="Please Enter OTP" [readonly]="!otpSentCheck || verifiedOtp" formControlName="otp">
                                         </mat-form-field>
                                     </div>
                                     <!-- <div>
                                                 <span *ngIf="!hideTimer">OTP expires in 0{{minute}}: {{second}}</span>
                                             </div> -->
-                                    <button mat-raised-button color="primary" style="margin-bottom: 10px;" [disabled]="!otp.value" (click)="verifyOtp()">Verify OTP</button>
-                                    <button mat-raised-button class="yellow" [disabled]="!otpSentCheck" (click)="resendOtp()">Resend OTP</button>
+                                    <button mat-raised-button color="primary" style="margin-bottom: 10px;" [disabled]="!otp.value || verifiedOtp" (click)="verifyOtp()">Verify OTP</button>
+                                    <button mat-raised-button class="yellow" [disabled]="!otpSentCheck || verifiedOtp" (click)="resendOtp()">Resend OTP</button>
                                 </div>
                             </div>
                         </div>
@@ -330,7 +330,7 @@
                     <div fxFLex="100" fxFlex.gt-xs="25" class="phoneValid">
                         <div>
                             <mat-form-field class="full-width">
-                                <input matInput placeholder="Please Enter OTP" [readonly]="!otpSentCheck" formControlName="otp">
+                                <input matInput placeholder="Please Enter OTP" [readonly]="!otpSentCheck || verifiedOtp" formControlName="otp">
                             </mat-form-field>
                         </div>
                         <!-- <div>
@@ -338,8 +338,8 @@
                         </div> -->
                     </div>
                     <div fxFLex="100" fxFlex.gt-xs="25" class="phoneValidLeft" style="padding-top: 2%;">
-                        <button mat-raised-button color="primary" style="margin-right: 6px;" [disabled]="!otp.value" (click)="verifyOtp()">Verify OTP</button>
-                        <button mat-raised-button class="yellow" [disabled]="!otpSentCheck" (click)="resendOtp()">Resend OTP</button>
+                        <button mat-raised-button color="primary" style="margin-right: 6px;" [disabled]="!otp.value || verifiedOtp" (click)="verifyOtp()">Verify OTP</button>
+                        <button mat-raised-button class="yellow" [disabled]="!otpSentCheck || verifiedOtp" (click)="resendOtp()">Resend OTP</button>
                     </div>
                 </div>
             </form>

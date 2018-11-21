@@ -83,7 +83,9 @@ export class BannerFormComponent implements OnInit {
       }
     } else if (stepper.selectedIndex == 1) {
       if (this.personalData.valid) {
-        stepper.next();
+        if(this.verifiedOtp == true) {
+          stepper.next();
+        }
       } else {
         for (let i in this.personalData.controls) {
           if (this.personalData.controls[i]) {
@@ -164,11 +166,11 @@ export class BannerFormComponent implements OnInit {
 
     this.phone.valueChanges.subscribe(val => {
       if (val.length != 10) {
-       this.otpSentCheck = false;
-       this.verifiedOtp = false;
-       if(this.otp.value) {
-        this.otp.setValue('');
-       }
+        this.otpSentCheck = false;
+        this.verifiedOtp = false;
+        if (this.otp.value) {
+          this.otp.setValue('');
+        }
       }
     })
 
@@ -217,6 +219,13 @@ export class BannerFormComponent implements OnInit {
         })
       });
       formData['leadLocationList'] = list;
+    }
+    if(this.type == 1) {
+      formData['isstudent'] = true;
+      formData['istutor'] = false;
+    } else {
+      formData['isstudent'] = false;
+      formData['istutor'] = true;
     }
 
     formData['firstName'] = this.firstName.value;
@@ -283,33 +292,40 @@ export class BannerFormComponent implements OnInit {
   }
 
   resendOtp() {
-    if(this.otp.value) {
+    if (this.otp.value) {
       this.otp.setValue('');
     }
     let data = {};
     data['phone'] = this.phone.value;
-    this.service.verifyPhone(data).subscribe(res =>{ 
+    this.service.verifyPhone(data).subscribe(res => {
       console.log(res);
-    }) 
+    })
   }
 
   sendOtp() {
     this.otpSentCheck = true;
     let data = {};
     data['phone'] = this.phone.value;
-    this.service.verifyPhone(data).subscribe(res =>{ 
-      console.log(res);
-    // this.otpValid = true;
-    }) 
+    this.service.verifyPhone(data).subscribe(res => {
+      if (res._body == 'OTP sent successfully') {
+        this.toastr.success('Success', res._body);
+      } else {
+        this.toastr.error('Error', 'Please try resend OTP');
+      }
+    })
   }
 
   verifyOtp() {
     let data = {};
     data['phone'] = this.phone.value;
     data['otp'] = this.otp.value;
-    this.service.verifyOtp(data).subscribe(res =>{
-      console.log(res.json());
-    this.verifiedOtp = true;
+    this.service.verifyOtp(data).subscribe(res => {
+      if (res._body == 'OTP matched successfully') {
+        this.toastr.success('Success', 'Successfully verified phone number.');
+      } else {
+        this.toastr.error('Error', res._body);
+      }
+      this.verifiedOtp = true;
     })
   }
 

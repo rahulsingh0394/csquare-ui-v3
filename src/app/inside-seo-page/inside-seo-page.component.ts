@@ -21,7 +21,7 @@ export class InsideSeoPageComponent implements OnInit {
   tutorReview: any [] = [];
   faqList: any [] = [];
   faq: any [] = [];
-  imgUrl: any = 'assets/images/seo2.jpg';
+  imgUrl: any = 'assets/images/banner2.jpg';
   testBrowser: any;
   textTitle: any;
   imgWidth: any = 'row';

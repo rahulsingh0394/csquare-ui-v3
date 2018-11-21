@@ -18,7 +18,7 @@ export class SeoPagesComponent implements OnInit {
 
   json$: Observable<any>;
   data: any;
-  imgUrl: any = 'assets/images/seo2.jpg';
+  imgUrl: any = 'assets/images/banner2.jpg';
   testBrowser: any;
   textTitle: any = 'Home Tuition in Bangalore';
   imgWidth: any = 'row';

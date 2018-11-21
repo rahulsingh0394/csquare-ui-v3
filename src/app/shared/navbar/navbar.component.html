@@ -88,16 +88,17 @@
     <nav class="navbar navbar-expand-lg fixed-top theme">
         <div fxFlex="100" fxFlex.gt-xs="10"></div>
         <div fxFlex="100" fxFlex.gt-xs="15">
-            <div class="thread">
-                <div class="pendulum">
-                    <a class="navbar-brand" [routerLink]="['/home']" (click)="menuToggle($event)">
-                        <img src="assets/images/logo2.jpg" class="logo" alt="CsquareEducation- A Step towards Learning">
-                    </a>
-                </div>
-            </div>
+            <!-- <div class="thread"> -->
+            <!-- <div class="pendulum"> -->
+            <a class="navbar-brand" [routerLink]="['/home']" (click)="menuToggle($event)">
+                <img src="assets/images/logo2.jpg" class="logo" alt="CsquareEducation- A Step towards Learning">
+            </a>
+            <!-- </div> -->
+            <!-- </div> -->
         </div>
         <div fxFlex="100" fxFlex.gt-xs="25" class="mobile-view">
             <a role="button" class="alert p-0 mobile" (click)="buttonClick('1')">&nbsp;Need Tutor?&nbsp;</a>
+            <a role="button" class="alert p-0 mobile" (click)="buttonClick('2')">&nbsp;Enroll as Tutor?&nbsp;</a>
         </div>
         <div fxFlex="100" fxFlex.gt-xs="5" class="mobile-view"></div>
         <div fxFlex="100" fxFlex.gt-xs="45">
