@@ -37,7 +37,7 @@
                     <form [formGroup]="locationData">
                         <mat-form-field class="full-width">
                             <mat-select placeholder="Select Your City" formControlName="city">
-                                <mat-option *ngFor="let item of cityList" [value]="item.pK">
+                                <mat-option *ngFor="let item of cityList | sortBy: 'city_name'" [value]="item.pK">
                                     {{item.city_name}}
                                 </mat-option>
                             </mat-select>
@@ -213,7 +213,7 @@
             <form [formGroup]="locationData">
                 <mat-form-field class="full-width">
                     <mat-select placeholder="Select Your City" formControlName="city">
-                        <mat-option *ngFor="let item of cityList" [value]="item.pK">
+                        <mat-option *ngFor="let item of cityList | sortBy: 'city_name'" [value]="item.pK">
                             {{item.city_name}}
                         </mat-option>
                     </mat-select>
