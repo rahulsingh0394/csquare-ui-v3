@@ -1,23 +1,22 @@
 .contact {
     padding-top: 10px;
+    margin-top: 2.85em;
     padding-left: 10px;
-    height: 50px;
+    height: 65px;
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.1vw;
     position: fixed;
     z-index: 99;
-    background-color: rgb(248, 141, 70);
     width: 100%;
     line-height: 1.5;
 }
 
 .navbar {
-    margin-top: 2.7em;
     border: 0;
     font-size: 14px;
     transition: all .4s;
     -webkit-transition: all .4s;
-    height: 5.7em;
+    height: 4.2em;
     -webkit-box-shadow: 0 10px 25px -8px rgba(0, 0, 0, .15);
     box-shadow: 0 10px 25px -8px rgba(0, 0, 0, .15);
     color: #fff;
@@ -53,7 +52,6 @@
     font-size: 1vw;
     font-weight: 500;
     height: 41px;
-    padding-top: 15px;
 }
 
 #logo {
@@ -84,7 +82,7 @@
 }
 
 .navbar-brand {
-    margin-left: -9.5em;
+    margin-left: -10.4em;
 }
 
 @keyframes moveIt {
@@ -263,7 +261,6 @@
 
 .phoneNo {
     z-index: 999!important;
-    background-color: #69db4b;
     text-align: center;
     padding-top: 3%;
 }
@@ -292,5 +289,12 @@
     40%,
     60% {
         transform: translate3d(4px, 0, 0);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .contact {
+        height: 45px;
+        margin-top: 3.05em;
     }
 }

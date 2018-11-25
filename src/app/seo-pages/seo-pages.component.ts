@@ -7,6 +7,7 @@ import * as stateActions from '../state/app.actions';
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { FireFilterPipe } from '../shared/pipes/filters/filter.pipe';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-seo-pages',
@@ -31,7 +32,8 @@ export class SeoPagesComponent implements OnInit {
     private store: Store<fromState.state>,
     private location: Location,
     @Inject(PLATFORM_ID) private platformId: string,
-    private filter: FireFilterPipe
+    private filter: FireFilterPipe,
+    private meta: Meta, private title: Title
   ) {
     this.testBrowser = isPlatformBrowser(platformId);
     this.json$ = this.store.pipe(select(fromState.getJson)) as Observable<any>;
@@ -63,6 +65,8 @@ export class SeoPagesComponent implements OnInit {
             disData[i - 1] = item;
           }
           this.data = disData;
+          this.meta.updateTag({ name: 'description', content: res.description });
+          this.title.setTitle(res.title);
         }
       }
     })

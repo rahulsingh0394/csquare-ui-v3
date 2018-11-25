@@ -23,6 +23,7 @@ export class FaqComponent implements OnInit {
   faqList: any [] = [];
   search: any;
   testBrowser: any;
+  screenWidth: any;
 
   constructor(
     private store: Store<fromState.state>,
@@ -30,6 +31,12 @@ export class FaqComponent implements OnInit {
     public renderer: Renderer2,
     @Inject(PLATFORM_ID) private platformId: string) { 
     this.testBrowser = isPlatformBrowser(platformId);
+    if(this.testBrowser) {
+      const width = window.innerWidth;
+      if(width <= 900) {
+        this.screenWidth = true;
+      }
+    }
     let data = <any>Faq;
     var len = Object.keys(data).length;
     for (let i = 0; i < len - 1; i++) {

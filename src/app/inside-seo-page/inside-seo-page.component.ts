@@ -8,6 +8,7 @@ import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { FireFilterPipe } from '../shared/pipes/filters/filter.pipe';
 // import * as Faq from '../../assets/faq.json';
+import { Meta, Title } from '@angular/platform-browser';
  
 @Component({
   selector: 'app-inside-seo-page',
@@ -35,7 +36,8 @@ export class InsideSeoPageComponent implements OnInit {
     private store: Store<fromState.state>,
     private location: Location,
     @Inject(PLATFORM_ID) private platformId: string,
-    private filter: FireFilterPipe
+    private filter: FireFilterPipe,
+    private meta: Meta, private title: Title
   ) {
     this.testBrowser = isPlatformBrowser(platformId);
     this.json$ = this.store.pipe(select(fromState.getJson)) as Observable<any>;
@@ -72,6 +74,8 @@ export class InsideSeoPageComponent implements OnInit {
             disData[i - 1] = item;
           }
           this.tutorReview = disData;
+          this.meta.updateTag({ name: 'description', content: res.description });
+          this.title.setTitle(res.title);
         }
       }
     })

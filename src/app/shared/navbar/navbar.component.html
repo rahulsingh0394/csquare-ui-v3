@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayoutAlign="space-evenly" class="contact">
+<div fxLayout="row" fxLayoutAlign="space-evenly" class="contact" *ngIf="screenWidth == true">
     <div fxFlex="100" fxFlex.gt-xs="5" class="mobile-view"></div>
     <div fxFlex="100" fxFlex.gt-xs="60" class="mobile-view">
         Click to call:
@@ -7,18 +7,16 @@
         <a href="tel:+91-78-9934-2386">7899342386</a> or
         <a href="tel:+91-90-3619-8865">9036198865</a>
     </div>
-    <div fxFlex="100" fxFlex.gt-xs="50" class="phoneNo" style="background-color:#0074E1!important;border-right: 1px solid #fff;" *ngIf="imgWidth == 'column'">
-        <a href="tel:+91-80-4162-7767" style="background-color:#0074E1; color: #fff;"><i class="fa fa-phone"  aria-hidden="true"></i> &nbsp;Click to call</a>
+    <div fxFlex="100" fxFlex.gt-xs="50" class="phoneNo theme-black" style="border-right: 1px solid #fff;" *ngIf="imgWidth == 'column'">
+        <a href="tel:+91-80-4162-7767" style=" color: #fff;"><i class="fa fa-phone"  aria-hidden="true"></i> &nbsp;Click to call</a>
     </div>
     <div fxFlex="100" fxFlex.gt-xs="30" class="mobile-view">
         Click to whatsapp:
         <i class="fa fa-whatsapp" aria-hidden="true"></i> &nbsp;
-        <a href="https://wa.me/919886265509">9886265509</a>
+        <a href="https://wa.me/919036198865">9036198865</a>
     </div>
-    <div fxFlex="100" fxFlex.gt-xs="50" class="phoneNo" style="background-color:#0074E1!important;" *ngIf="imgWidth == 'column'">
-        <a href="https://wa.me/919886265509" style="background-color:#0074E1; color: #fff;"><i class="fa fa-whatsapp" aria-hidden="true"></i> &nbsp;Whatsapp us</a>
-
-        <!-- <a href="https://wa.me/919886265509">9886265509</a> -->
+    <div fxFlex="100" fxFlex.gt-xs="50" class="phoneNo theme-black" *ngIf="imgWidth == 'column'">
+        <a href="https://wa.me/919036198865" style=" color: #fff;"><i class="fa fa-whatsapp" aria-hidden="true"></i> &nbsp;Whatsapp us</a>
     </div>
     <div fxFlex="100" fxFlex.gt-xs="5" class="mobile-view"></div>
 </div>
@@ -65,10 +63,11 @@
         </div>
     </div>
 </div>
+
 <div fxLayout="row" fxLayoutWrap="wrap" class="app-body" *ngIf="screenWidth == true">
     <nav class="navbar navbar-expand-lg fixed-top theme">
-        <div fxFlex="100" fxFlex.gt-xs="10">
-            <span style="font-size:30px;cursor:pointer;margin-left: 2%;" (click)="openNav()">&#9776;</span>
+        <div fxFlex="100" fxFlex.gt-xs="10" style="margin-top: -5%;">
+            <span style="font-size:30px;cursor:pointer;margin-left: 5%;" (click)="openNav()">&#9776;</span>
         </div>
         <div fxFlex="100" fxFlex.gt-xs="90" style="text-align: left;" class="pr-1">
             <a class="navbar-brand" [routerLink]="['/home']" (click)="menuToggle($event)">
@@ -97,13 +96,13 @@
             <!-- </div> -->
         </div>
         <div fxFlex="100" fxFlex.gt-xs="25" class="mobile-view">
-            <a role="button" class="alert p-0 mobile" (click)="buttonClick('1')">&nbsp;Need Tutor?&nbsp;</a>
-            <a role="button" class="alert p-0 mobile" (click)="buttonClick('2')">&nbsp;Enroll as Tutor?&nbsp;</a>
+            <!--   <a role="button" class="alert p-0 mobile" (click)="buttonClick('1')">&nbsp;Need Tutor?&nbsp;</a>
+            <a role="button" class="alert p-0 mobile" (click)="buttonClick('2')">&nbsp;Enroll as Tutor?&nbsp;</a>-->
         </div>
         <div fxFlex="100" fxFlex.gt-xs="5" class="mobile-view"></div>
         <div fxFlex="100" fxFlex.gt-xs="45">
             <div class="collapse navbar-collapse" id="navbarToggler">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto text-right">
                     <li class="nav-item">
                         <div [routerLink]="['/home']" id="home" class="nav-link" (click)="menuToggle($event)">Home &nbsp;&nbsp;&nbsp;</div>
                     </li>
@@ -128,4 +127,27 @@
             </div>
         </div>
     </nav>
+</div>
+<div fxLayout="row" fxLayoutAlign="space-evenly" class="contact theme-black" *ngIf="screenWidth == false">
+    <div fxFlex="100" fxFlex.gt-xs="2" class="mobile-view"></div>
+    <div fxFlex="100" fxFlex.gt-xs="70" class="mobile-view" style="color: #fff!important;">
+        Click to call:
+        <i class="fa fa-phone" aria-hidden="true"></i> &nbsp;
+        <a style="color: #fff!important;" href="tel:+91-80-4162-7767">8041627767</a> or
+        <a style="color: #fff!important;" href="tel:+91-78-9934-2386">7899342386</a> or
+        <a style="color: #fff!important;" href="tel:+91-90-3619-8865">9036198865</a> &nbsp;&nbsp;&nbsp;&nbsp; Click to whatsapp:
+        <i class="fa fa-whatsapp" aria-hidden="true"></i> &nbsp;
+        <a style="color: #fff!important;" href="https://wa.me/9036198865">9036198865</a>
+    </div>
+    <div fxFlex="100" fxFlex.gt-xs="50" class="phoneNo" style="background-color:#0074E1!important;border-right: 1px solid #fff;" *ngIf="imgWidth == 'column'">
+        <a style="color: #fff!important;" href="tel:+91-80-4162-7767" style="background-color:#0074E1; color: #fff;"><i class="fa fa-phone"  aria-hidden="true"></i> &nbsp;Click to call</a>
+    </div>
+    <div fxFlex="100" fxFlex.gt-xs="25" class="mobile-view text-right" style="padding-left:0.9%;padding-top: 0.4%;">
+        <a role="button" class="alert p-0 mobile" (click)="buttonClick('1')">&nbsp;Need Tutor?&nbsp;</a>
+        <a role="button" class="alert p-0 mobile" (click)="buttonClick('2')">&nbsp;Enroll as Tutor?&nbsp;</a>
+    </div>
+    <div fxFlex="100" fxFlex.gt-xs="50" class="phoneNo" style="background-color:#0074E1!important;" *ngIf="imgWidth == 'column'">
+        <a href="https://wa.me/919886265509" style="background-color:#0074E1; color: #fff;"><i class="fa fa-whatsapp" aria-hidden="true"></i> &nbsp;Whatsapp us</a>
+    </div>
+    <div fxFlex="100" fxFlex.gt-xs="3" class="mobile-view"></div>
 </div>

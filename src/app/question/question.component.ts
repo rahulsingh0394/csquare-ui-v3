@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { TweenMax } from 'gsap';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-question',
@@ -20,8 +21,11 @@ export class QuestionComponent implements OnInit {
 
  constructor(
     @Inject(PLATFORM_ID) private platformId: string,
+    private meta: Meta, private title: Title
   ) {
     this.testBrowser = isPlatformBrowser(platformId);
+    this.meta.addTag({name: 'description', content: 'Previous 5 ,10 years question paper cbse, icse, karnataka board for class 10 &amp; 12 of mathematics, physics, chemistry, biology, english, social-science, hindi and other in one click.'});
+    this.title.setTitle('One Click Cbse, Icse, Karnataka Board Previous Year Question Paper');
   }
 
   ngOnInit() {

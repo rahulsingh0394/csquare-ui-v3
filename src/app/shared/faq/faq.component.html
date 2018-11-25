@@ -4,12 +4,17 @@
         <h1 class="title text-center">Frequently Asked Questions?</h1>
         <div fxLayout="row" fxLayoutWrap="wrap">
             <div fxFlex="100" fxFlex.gt-xs="30" class="mobile-view"></div>
-            <div fxFlex="100" fxFlex.gt-xs="38">
+            <div fxFlex="100" fxFlex.gt-xs="38" class="mobile-view">
                 <mat-form-field class="full-width">
                     <input matInput placeholder="Please Enter Your Question!" [(ngModel)]="search" (input)="valuechange()">
                 </mat-form-field>
             </div>
-            <div fxFlex="100" fxFlex.gt-xs="2">
+            <div fxFlex="100" fxFlex.gt-xs="98" *ngIf="screenWidth == true">
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Please Enter Your Question!" [(ngModel)]="search" (input)="valuechange()">
+                </mat-form-field>
+            </div>
+            <div fxFlex="100" fxFlex.gt-xs="2" class="mobile-view">
                 <i *ngIf="search" (click)="clear()" class="material-icons" style="margin-top: 88%;cursor: pointer;z-index: 999;">close</i>
             </div>
             <div fxFlex="100" fxFlex.gt-xs="30" class="mobile-view"></div>

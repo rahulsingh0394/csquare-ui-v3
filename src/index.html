@@ -8,9 +8,6 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -20,6 +17,36 @@
             <div>Loading...</div>
         </div>
     </app-root>
+    <script>
+        var _addEvent = function(obj, type, fn) {
+            if (obj.addEventListener) {
+                obj.addEventListener(type, fn, false);
+            } else if (obj.attachEvent) {
+                obj["e" + type + fn] = fn;
+                obj[type + fn] = function() {
+                    obj["e" + type + fn](window.event);
+                };
+                obj.attachEvent("on" + type, obj[type + fn]);
+            } else {
+                obj["on" + type] = obj["e" + type + fn];
+            }
+        };
+
+        var _loadImagesAsync = function() {
+            var allimages = document.getElementsByTagName('img');
+            for (var i = 0; i < allimages.length; i++) {
+                if (allimages[i].getAttribute('data-src')) {
+                    allimages[i].setAttribute('src', allimages[i].getAttribute('data-src'));
+                }
+            }
+        };
+
+        _addEvent(window, 'load', _loadImagesAsync);
+    </script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </body>
 
 </html>

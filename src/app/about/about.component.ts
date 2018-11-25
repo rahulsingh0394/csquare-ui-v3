@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-about',
@@ -21,8 +22,11 @@ export class AboutComponent implements OnInit {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: string,
+    private meta: Meta, private title: Title
   ) {
     this.testBrowser = isPlatformBrowser(platformId);
+    this.meta.addTag({name: 'description', content: 'CsquareEducation is home tutoring and Online Classes service provider with very dedicated and qualified team. We are working towands enhancement of education in India.'});
+    this.title.setTitle('About us :CsquareEducation');
   }
 
   ngOnInit() {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-contact',
@@ -20,8 +21,11 @@ export class ContactComponent implements OnInit {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: string,
+    private meta: Meta, private title: Title
   ) {
     this.testBrowser = isPlatformBrowser(platformId);
+    this.meta.addTag({name: 'description', content: 'Need to know about home tuition, private tuition, tuition teacher or tutor job in india. Contact us at CsquareEducation or fill need tutor or be tutor form and we will do rest for you.'});
+    this.title.setTitle('Contact Us: CsquareEducation');
   }
 
   ngOnInit() {

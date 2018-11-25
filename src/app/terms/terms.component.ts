@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-terms',
@@ -10,7 +11,12 @@ export class TermsComponent implements OnInit {
   imgUrl: any = 'assets/images/terms.jpg';
   textTitle: any = 'Terms & Conditions';
 
-  constructor() { }
+  constructor(
+    private meta: Meta, private title: Title
+  ) { 
+    this.meta.addTag({name: 'description', content: 'CsquareEducation terms and condition. Please go through the terms and condition carefully.'});
+    this.title.setTitle('Terms :CsquareEducation');
+  }
 
   ngOnInit() {
   }

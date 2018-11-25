@@ -500,8 +500,8 @@ ul {
 
 .icon-holder-img {
     text-align: center;
-    margin-top: 20%;
-    margin-left: 20%;
+    margin-top: 15%;
+    margin-left: 15%;
     font-size: 4vw;
     z-index: 2;
 }
@@ -681,6 +681,10 @@ ul {
 
 .theme-light {
     background: linear-gradient(90deg, #1de6de, #6ad9ed 35%, #30ade7 65%, #0176e0 100%);
+}
+
+.theme-black {
+    background-color: rgba(0, 0, 0, 0.931);
 }
 
 .blue {
@@ -926,6 +930,9 @@ ul {
     }
     .review-img {
         margin-top: 12px;
+    }
+    .card-img {
+        height: 300px;
     }
 }
 

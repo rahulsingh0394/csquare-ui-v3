@@ -236,12 +236,18 @@ export class BannerFormComponent implements OnInit {
       formData['grade'] = this.gradeList.find(ite => ite.pk == this.grade.value).grade;
     } else {
       list = [];
+      let gradeName: any = [];
       this.grade.value.forEach(element => {
         list.push({ 'gradeId': element });
+        gradeName.push(this.gradeList.find(ite => ite.pk == element).grade);
       });
       formData['leadGradeList'] = list;
+      if(gradeName.length) {
+          formData['grade'] = JSON.stringify(gradeName);
+      }
     }
     formData['comment'] = this.comment.value;
+    // console.log(formData);
     this.service.addLead(formData).subscribe(res => {
       if (res._body != 'Lead Successfully Created') {
         this.toastr.warning('Warning', 'Sorry for inconvenience! Something went wrong. Please try to submit again or after sometime.')
