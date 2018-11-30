@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { Observable } from 'rxjs';
-import { Router, NavigationEnd } from '@angular/router';
+// import { Router, NavigationEnd } from '@angular/router';
 // import * as Faq from '../assets/faq.json';
 // import * as AES from 'crypto-js/aes';
+
+declare var _loadImagesAsync: any;
 
 @Component({
   selector: 'app-root',
@@ -14,11 +15,11 @@ import { Router, NavigationEnd } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'app';
   testBrowser: any;
-  json$: Observable<any>;
-  faqList: any [] = [];
+  // json$: Observable<any>;
+  faqList: any[] = [];
 
   constructor(
-    private router: Router,
+    // private router: Router,
     @Inject(PLATFORM_ID) private platformId: string,
   ) {
     this.testBrowser = isPlatformBrowser(platformId);
@@ -39,15 +40,26 @@ export class AppComponent implements OnInit {
     // }
   }
 
-  ngOnInit() {
-    if(this.testBrowser == true){
-      this.router.events.subscribe((evt) => {
-        if (!(evt instanceof NavigationEnd)) {
-            return;
-        }
-        window.scrollTo(0, 0);
-    });
-    window.scroll(0, 0);
+  onActivate(event) {
+    if (this.testBrowser == true) {
+      _loadImagesAsync();
+      window.scroll(0, 0);
     }
   }
+
+  ngOnInit() {
+    // if (this.testBrowser == true) {
+    //   this.router.events.subscribe((evt) => {
+    //     if (!(evt instanceof NavigationEnd)) {
+    //       return;
+    //     }
+    //     if(evt instanceof NavigationEnd) {
+    //       // _loadImagesAsync();
+    //     window.scrollTo(0, 0);
+    //     }
+    //   });
+    //   window.scroll(0, 0);
+    // }
+  }
+
 }

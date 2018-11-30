@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, Renderer2 } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, ViewChild, Renderer2 } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as fromState from '../../state/app.state';
@@ -15,7 +15,7 @@ import * as _ from "lodash";
   templateUrl: './faq.component.html',
   styleUrls: ['./faq.component.css']
 })
-export class FaqComponent implements OnInit {
+export class FaqComponent implements OnInit, AfterViewInit {
 
   @ViewChild("faqShow") show: ElementRef;
   // faq$: Observable<any>;
@@ -37,6 +37,13 @@ export class FaqComponent implements OnInit {
         this.screenWidth = true;
       }
     }
+    
+  }
+
+  ngOnInit() {
+  }
+
+  ngAfterViewInit() {
     let data = <any>Faq;
     var len = Object.keys(data).length;
     for (let i = 0; i < len - 1; i++) {
@@ -49,9 +56,6 @@ export class FaqComponent implements OnInit {
     //   this.allData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
     //   // this.faqList = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
     // }
-  }
-
-  ngOnInit() {
   }
 
   valuechange(){
