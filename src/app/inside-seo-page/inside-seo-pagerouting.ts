@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { InsideSeoPageComponent } from './inside-seo-page.component';
 
-const routes: Routes = [
+export const routes: Routes = [
     {
         path: '',
         component: InsideSeoPageComponent,

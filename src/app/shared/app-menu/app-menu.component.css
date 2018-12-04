@@ -36,9 +36,27 @@
     height: 168px;
 }
 
+
+/* :host /deep/ .mat-card-content {
+    text-align: center;
+} */
+
+.para {
+    text-align: center!important;
+}
+
+:host /deep/ .mat-card-title {
+    text-align: center;
+}
+
 ul {
     list-style: none;
     margin-left: -12%;
+}
+
+a {
+    text-decoration: none!important;
+    color: blue;
 }
 
 li {

@@ -64,7 +64,7 @@ export class InsideSeoPageComponent implements OnInit {
         this.data = res;
         if (this.data) {
           let disData = [];
-          this.textTitle = this.data.h1Des;
+          this.textTitle = this.data.h2;
           for (let i = 1; i <= 10; i++) {
             let item = {};
             item['name'] = res["t" + i];
