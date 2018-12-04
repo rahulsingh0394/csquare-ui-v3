@@ -225,7 +225,7 @@
             </mat-card-content>
             <mat-card-content *ngIf="item == 3">
                 <ul *ngFor="let locItem of allLocationUrl; let i = index">
-                    <li class="link" *ngIf="i >= 24 && i < 36"><a href="{{locItem.url}}" target="_blank" rel="nofollow">Home tuition near {{locItem.name}}</a></li>
+                    <li class="link" *ngIf="i >= 24 && i < 36" [ngStyle]="{'margin-top': (i == 24)?'-3%': 'inherit'}"><a href="{{locItem.url}}" target="_blank" rel="nofollow">Home tuition near {{locItem.name}}</a></li>
                 </ul>
             </mat-card-content>
         </mat-card>

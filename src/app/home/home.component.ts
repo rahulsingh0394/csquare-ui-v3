@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
     private title: Title, private meta: Meta
   ) {
     this.testBrowser = isPlatformBrowser(platformId);
-    this.meta.addTag({name: 'description', content: 'Best ✓Qualified ✓Experienced ✓certified ✓trusted private tutor at your home. Services: personal tuition teacher, Online Classes for ICSE, CBSE, State, IGCSE board for Math, Science, English, Geometry, Social, Chemistry, Physic, Hindi along with 10th &amp; 12th board exam previous year question paper ...'});
+    this.meta.addTag({name: 'description', content: 'Best ✓Qualified ✓Experienced ✓certified ✓trusted private tutor at your home.Home tuition for ICSE, CBSE, State board for Math, Science, English, Geometry, Social, Chemistry, Physic, Hindi & previous year question paper'});
     this.title.setTitle('Best Private Home Tuition Tutor, Teacher and Online Classes all over India');
   }
 

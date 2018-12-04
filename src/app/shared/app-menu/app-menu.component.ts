@@ -36,7 +36,10 @@ export class AppMenuComponent implements OnInit {
           let data = {};
           let name = element.path.split('near-by-location-best-private-home-tutor/')[1];
           if(name.includes('_')) {
-            data['name'] = name.replace('_',' ');
+            while(name.includes('_')) {
+              name = name.replace('_', ' ');
+            }
+            data['name'] = name;
           } else {
             data['name'] = name;
           }
