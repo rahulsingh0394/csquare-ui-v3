@@ -83,9 +83,9 @@ export class BannerFormComponent implements OnInit {
       }
     } else if (stepper.selectedIndex == 1) {
       if (this.personalData.valid) {
-        if(this.verifiedOtp == true) {
+        // if(this.verifiedOtp == true) {
           stepper.next();
-        }
+        // }
       } else {
         for (let i in this.personalData.controls) {
           if (this.personalData.controls[i]) {
@@ -139,17 +139,22 @@ export class BannerFormComponent implements OnInit {
             element['checked'] = false;
           });
           this.locationList = data;
-          this.filteredOptions = data;
         })
       }
     })
 
     this.location.valueChanges.subscribe(val => {
-      let data = this.filter.transform(this.locationList, val);
-      data.forEach(ele => {
-        ele['checked'] = false;
-      })
-      this.filteredOptions = data;
+      if(val){
+        if(val.length >= 3) {
+          let data = this.filter.transform(this.locationList, val);
+          data.forEach(ele => {
+            ele['checked'] = false;
+          })
+          this.filteredOptions = data;
+        }
+      } else {
+        this.filteredOptions = [];
+      }
     })
 
     this.personalData = this.fb.group({

@@ -41,7 +41,7 @@ export class LeadFormComponent implements OnInit {
     })
     this.service.searchLocationByCity(this.city).subscribe(res => {
       this.locationList = res.json();
-      this.filteredLocation = res.json();
+      // this.filteredLocation = res.json();
     })
   }
 
@@ -61,7 +61,9 @@ export class LeadFormComponent implements OnInit {
 
     this.location.valueChanges.subscribe(val =>{
       if(val){
-        this.filteredLocation = this.filter.transform(this.locationList, val);
+        if(val.length >=3 ) {
+          this.filteredLocation = this.filter.transform(this.locationList, val);
+        }
       }
     })
   }

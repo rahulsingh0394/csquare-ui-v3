@@ -2,7 +2,7 @@
     <img [src]="imgUrl" class="banner-img">
     <div class="overlay">
         <div fxLayout="column" fxLayoutAlign="space-around" class="pb-1">
-            <div fxFlex="100" fxFlex.gt-xs="20">
+            <div fxFlex="100" fxFlex.gt-xs="20" *ngIf="!innerWidth">
                 <h1>{{title}}</h1>
             </div>
             <div fxFlex="100" fxFlex.gt-xs="80" class="p-3">

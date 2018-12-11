@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ScrollToService } from 'ng2-scroll-to-el';
+import { PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-banner-seo',
@@ -11,18 +12,23 @@ export class BannerSeoComponent implements OnInit {
   @Input() imgUrl: any;
   @Input() title: any;
   @Input() city: any;
+  testBrowser: boolean;
+  innerWidth: boolean = false;
 
   constructor(
-    private scrollService: ScrollToService
+    @Inject(PLATFORM_ID) private platformId: string,
   ) {
+    this.testBrowser = isPlatformBrowser(platformId);
   }
 
   ngOnInit() {
-    
-  }
-
-  scrollElement(element, duration) {
-    this.scrollService.scrollTo(element, duration);
+    if (this.testBrowser == true) {
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+      if(width <= 600 ) {
+        this.innerWidth = true;
+      }
+    }
   }
 
 }

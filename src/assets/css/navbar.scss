@@ -1,6 +1,6 @@
 .contact {
     padding-top: 10px;
-    margin-top: 2.85em;
+    margin-top: 60px;
     padding-left: 10px;
     height: 70px;
     font-family: 'Times New Roman', Times, serif;
@@ -16,7 +16,7 @@
     font-size: 14px;
     transition: all .4s;
     -webkit-transition: all .4s;
-    height: 4.2em;
+    height: 60px;
     -webkit-box-shadow: 0 10px 25px -8px rgba(0, 0, 0, .15);
     box-shadow: 0 10px 25px -8px rgba(0, 0, 0, .15);
     color: #fff;
@@ -178,9 +178,10 @@
         font-size: 3vw;
     }
     .contact {
-        font-size: 5.4vw;
+        font-size: 5vw;
         display: flex;
         padding: 0;
+        height: 48px;
     }
     .contact a {
         text-decoration: none!important;
@@ -292,9 +293,8 @@
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 800px) and (min-width: 480px) {
     .contact {
-        height: 45px;
-        margin-top: 3.05em;
+        height: 65px;
     }
 }

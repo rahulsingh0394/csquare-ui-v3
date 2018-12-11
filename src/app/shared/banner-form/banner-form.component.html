@@ -43,7 +43,7 @@
                             </mat-select>
                         </mat-form-field>
                         <mat-form-field class="full-width">
-                            <input type="text" placeholder="Type and select your location by name or pincode" aria-label="Number" matInput formControlName="location" [matAutocomplete]="auto" [readonly]="!city.value">
+                            <input type="text" placeholder="Please enter your pincode" aria-label="Number" matInput formControlName="location" [matAutocomplete]="auto" [readonly]="!city.value">
                             <mat-autocomplete #auto="matAutocomplete">
                                 <mat-option [disabled]="(type == 2)?true:false" *ngFor="let option of filteredOptions; let i = index" [value]="option.location_name+' - '+option.pincode">
                                     <input *ngIf="type == 2" type="checkbox" [checked]="option.checked == true" (change)="locationSelect(option.location_name+' - '+option.pincode)"> <span style="color: #000!important;">{{option.location_name}}&nbsp; - &nbsp;{{option.pincode}}</span>
@@ -102,42 +102,37 @@
                                     </mat-form-field>
                                 </div>
                             </div>
-                            <div fxLayout="row" fxLayoutWrap="wrap" style="margin-top: 1%;">
+                            <div fxFLex="100" fxFlex.gt-xs="50">
+                                <div>
+                                    <mat-form-field class="full-width">
+                                        <input matInput placeholder="Contact number" formControlName="phone">
+                                        <div class="text-success">
+                                            <!-- <small>
+                                                        Please verify your mobile number to proceed.
+                                                    </small> -->
+                                        </div>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <!-- <div fxLayout="row" fxLayoutWrap="wrap" style="margin-top: 1%;">
                                 <div fxFlex="100" fxFlex.gt-xs="5" style="text-align: left;">
                                     <div class="icon-holder" style="margin-top: 17%;" [ngStyle]="{'background-color': (phone.valid)?'#FF6600':'#10E7DC'}">
                                         <span class="step-info">1</span>
                                     </div>
-                                    <!-- <div class="text-center">
-                                        <small class="info-text">Provide mobile number</small>
-                                    </div> -->
                                     <div class="icon-holder" style="margin-top: 88%;" [ngStyle]="{'background-color': (otpSentCheck == true)?'#FF6600':'#10E7DC'}">
                                         <span class="step-info">2</span>
                                     </div>
-                                    <!-- <div class="text-center">
-                                            <small class="info-text">Click Send OTP button.</small>
-                                        </div> -->
                                     <div class="icon-holder" style="margin-top: 25%;" [ngStyle]="{'background-color': (otp.value)?'#FF6600':'#10E7DC'}">
                                         <span class="step-info">3</span>
                                     </div>
-                                    <!-- <div class="text-center">
-                                            <small class="info-text">Provide OTP sent to your mobile.</small>
-                                        </div> -->
                                     <div class="icon-holder" style="margin-top: 45%;" [ngStyle]="{'background-color': (verifiedOtp == true)?'#FF6600':'#10E7DC'}">
                                         <span class="step-info">4</span>
                                     </div>
-                                    <!-- <div class="text-center">
-                                            <small class="info-text">Click Verify button to verify OTP sent.</small>
-                                        </div> -->
                                 </div>
                                 <div fxFlex="100" fxFlex.gt-xs="95">
                                     <div>
                                         <mat-form-field class="full-width">
                                             <input matInput placeholder="Contact number" formControlName="phone">
-                                            <!-- <div class="text-danger" *ngIf="!phone.valid && phone.touched">
-                                                <small *ngIf="phone.errors.minlength || phone.errors.maxlength">
-                                                            Contact number can only be of 10 digits.
-                                                        </small>
-                                            </div> -->
                                             <div class="text-success">
                                                 <small>
                                                             Please verify your mobile number to proceed.
@@ -153,13 +148,10 @@
                                             <input matInput placeholder="Please Enter OTP" [readonly]="!otpSentCheck || verifiedOtp" formControlName="otp">
                                         </mat-form-field>
                                     </div>
-                                    <!-- <div>
-                                                <span *ngIf="!hideTimer">OTP expires in 0{{minute}}: {{second}}</span>
-                                            </div> -->
                                     <button mat-raised-button color="primary" style="margin-bottom: 10px;" [disabled]="!otp.value || verifiedOtp" (click)="verifyOtp()">Verify OTP</button>
                                     <button mat-raised-button class="yellow" [disabled]="!otpSentCheck || verifiedOtp" (click)="resendOtp()">Resend OTP</button>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </form>
                     <!-- <div class="p-1">

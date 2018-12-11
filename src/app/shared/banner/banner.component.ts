@@ -76,10 +76,7 @@ export class BannerComponent implements OnInit {
       let width = window.innerWidth;
       let height = window.innerHeight;
       if(width <= 600 ) {
-        this.mainButton = 'Get A Free Demo Class (For Student/Parent)';
-        if(width <= 400){
-          this.mainButton = 'Get A Free Demo Class';
-        }
+        this.mainButton = 'Get A Free Demo Class';
         this.width = true;
       } else {
      // TweenMax.from(document.getElementById("main"), 2, { opacity: 0 });

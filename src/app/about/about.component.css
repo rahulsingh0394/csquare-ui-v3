@@ -47,12 +47,36 @@ ul {
     color: #000!important;
 }
 
+.magrin-sub {
+    margin-top: -3.6%;
+}
+
+.magrin-sub2 {
+    margin-top: -2.3%;
+}
+
+.magrin-sub3 {
+    margin-top: -3.3%;
+}
+
 .para {
     font-size: 1vw!important;
     font-weight: 500;
 }
 
+.icon-holder {
+    margin-left: 0%;
+}
+
+.icon-holder-img {
+    margin-top: 19%;
+    margin-left: -44%;
+}
+
 @media (max-width: 600px) {
+    .para {
+        font-size: 3.5vw!important;
+    }
     .img1 {
         margin-left: 32%;
     }
@@ -67,5 +91,22 @@ ul {
     }
     .icon-holder {
         margin-left: -2%!important;
+    }
+    .icon-holder-img {
+        margin-top: 22%;
+        margin-left: -21%;
+        font-size: 40px!important;
+    }
+    .profile-link {
+        font-size: 5.5vw;
+    }
+    .magrin-sub {
+        margin-top: 0%;
+    }
+    .magrin-sub2 {
+        margin-top: 0%;
+    }
+    .magrin-sub3 {
+        margin-top: 0%;
     }
 }

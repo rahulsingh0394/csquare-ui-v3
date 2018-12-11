@@ -743,6 +743,18 @@ ul {
     }
 }
 
+@media screen and (max-width: 400px) {
+    .page-header-2 {
+        margin-top: 24%;
+    }
+}
+
+@media screen and (max-width: 600px) and (min-width: 400px) {
+    .page-header-2 {
+        margin-top: 20%;
+    }
+}
+
 @media screen and (max-width: 600px) {
     body {
         line-height: 1.4;
@@ -778,7 +790,7 @@ ul {
         font-weight: 600;
     }
     .sub-title {
-        font-size: 4vw;
+        font-size: 3.2vw;
     }
     .overlay {
         margin: 0px;
@@ -791,9 +803,6 @@ ul {
     .about-header {
         font-size: 1em;
         margin-top: 15%;
-    }
-    .page-header-2 {
-        margin-top: 30%;
     }
     .alert {
         font-size: 3.5vw;
@@ -813,9 +822,9 @@ ul {
         margin-left: 42%;
     }
     .icon-holder-img {
-        margin-top: 30%;
-        margin-left: 30%;
-        font-size: 6vw;
+        margin-top: 22%;
+        margin-left: 20%;
+        font-size: 40px!important;
     }
     .mat-card-title {
         font-size: .7em;
